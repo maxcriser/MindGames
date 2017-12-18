@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="MAX_ELEVATION_FACTOR_VIEW_PAGER">16</integer>
+
+</resources>

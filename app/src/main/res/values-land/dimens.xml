@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="toolbar_height">48dp</dimen>
+    <dimen name="toolbar_icon_padding">12dp</dimen>
+    <dimen name="card_padding_top_bottom">0dp</dimen>
+    <dimen name="card_padding_left_right">50dp</dimen>
+
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#000</color>
+
+    // static names
+    <color name="white">#fff</color>
+    <color name="gray_opacity_114">#90909090</color>
+    <color name="shadow_gray_opacity_102">#66000000</color>
+    <color name="shadow_gray_opacity_150">#96000000</color>
+
+    // dynamic names
+    <color name="toolbar_elements_color">@color/white</color>
+    <color name="toolbar_color">@color/shadow_gray_opacity_102</color>
+
+</resources>

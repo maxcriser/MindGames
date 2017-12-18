@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="card_padding_top_bottom">40dp</dimen>
+    <dimen name="card_padding_left_right">36dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="tool_bar_elevation">4dp</dimen>
+    <dimen name="tool_bar_corner_radius">0dp</dimen>
+    <dimen name="toolbar_icon_padding">16dp</dimen>
+
+</resources>
