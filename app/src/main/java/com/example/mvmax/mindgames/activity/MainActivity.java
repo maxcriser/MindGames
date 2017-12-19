@@ -5,8 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.adapter.ICardPagerPagerAdapter;
-import com.example.mvmax.mindgames.model.CardModel;
+import com.example.mvmax.mindgames.adapter.CardPagerPagerAdapter;
+import com.example.mvmax.mindgames.model.GameCardModel;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.example.mvmax.mindgames.transformer.ShadowTransformer;
 import com.example.mvmax.mindgames.util.UiUtils;
@@ -41,13 +41,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initPager() {
         final ViewPager viewPager = findViewById(R.id.view_pager);
 
-        final ICardPagerPagerAdapter cardAdapter = new ICardPagerPagerAdapter();
-        cardAdapter.addCardItem(new CardModel(UiUtils.getDrawable(this, R.drawable.template_poster)));
-        cardAdapter.addCardItem(new CardModel(UiUtils.getDrawable(this, R.drawable.template_poster_2)));
-        cardAdapter.addCardItem(new CardModel(UiUtils.getDrawable(this, R.drawable.template_poster_3)));
-        cardAdapter.addCardItem(new CardModel(UiUtils.getDrawable(this, R.drawable.template_poster_4)));
-        cardAdapter.addCardItem(new CardModel(UiUtils.getDrawable(this, R.drawable.template_poster_5)));
-        cardAdapter.addCardItem(new CardModel(UiUtils.getDrawable(this, R.drawable.template_poster_6)));
+        final CardPagerPagerAdapter cardAdapter = new CardPagerPagerAdapter(this);
+        cardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster), "Name Of Game", "The best of the best of the best game in the World."));
+        cardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_2), "Name Of Game", "The best of the best of the best game in the World."));
+        cardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_3), "Name Of Game", "The best of the best of the best game in the World."));
+        cardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_4), "Name Of Game", "The best of the best of the best game in the World."));
+        cardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_5), "Name Of Game", "The best of the best of the best game in the World."));
+        cardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_6), "Name Of Game", "The best of the best of the best game in the World."));
 
         final ShadowTransformer cardShadowTransformer = new ShadowTransformer(viewPager, cardAdapter);
         cardShadowTransformer.enableScaling(true);
@@ -55,6 +55,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         viewPager.setAdapter(cardAdapter);
         viewPager.setPageTransformer(false, cardShadowTransformer);
         viewPager.setOffscreenPageLimit(3);
+        viewPager.setCurrentItem(0);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(final int position) {
+                setBackground(cardAdapter.getData().get(position).getPoster());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(final int state) {
+
+            }
+        });
     }
 
     private void initViews() {

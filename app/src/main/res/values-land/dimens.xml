@@ -5,5 +5,9 @@
     <dimen name="toolbar_icon_padding">12dp</dimen>
     <dimen name="card_padding_top_bottom">0dp</dimen>
     <dimen name="card_padding_left_right">50dp</dimen>
+    <dimen name="game_fragment_poster_width">118dp</dimen>
+    <dimen name="game_fragment_poster_height">168dp</dimen>
+    <dimen name="game_fragment_poster_margin_left">56dp</dimen>
+    <dimen name="game_fragment_top_layout_height">256dp</dimen>
 
 </resources>

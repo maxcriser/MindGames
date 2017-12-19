@@ -1,6 +1,6 @@
 package com.example.mvmax.mindgames.adapter;
 
-import android.content.Intent;
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
@@ -9,23 +9,30 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.model.CardModel;
+import com.example.mvmax.mindgames.activity.BaseActivity;
+import com.example.mvmax.mindgames.model.GameCardModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ICardPagerPagerAdapter extends PagerAdapter implements ICardPagerAdapter {
+public class CardPagerPagerAdapter extends PagerAdapter implements ICardPagerAdapter {
 
     private final List<CardView> mViews;
-    private final List<CardModel> mData;
+    private final List<GameCardModel> mData;
     private float mBaseElevation;
+    private final Context mContext;
 
-    public ICardPagerPagerAdapter() {
+    public CardPagerPagerAdapter(final Context pContext) {
         mData = new ArrayList<>();
         mViews = new ArrayList<>();
+        mContext = pContext;
     }
 
-    public void addCardItem(final CardModel pItem) {
+    public List<GameCardModel> getData() {
+        return mData;
+    }
+
+    public void addCardItem(final GameCardModel pItem) {
         mViews.add(null);
         mData.add(pItem);
     }
@@ -73,8 +80,15 @@ public class ICardPagerPagerAdapter extends PagerAdapter implements ICardPagerAd
         mViews.set(pPosition, null);
     }
 
-    private void bind(final CardModel pItem, final View pView) {
+    private void bind(final GameCardModel pItem, final View pView) {
         final AppCompatImageView poster = pView.findViewById(R.id.card_poster);
         poster.setImageDrawable(pItem.getPoster());
+        poster.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View pView) {
+                ((BaseActivity) mContext).showGameFragment(pItem);
+            }
+        });
     }
 }

@@ -6,5 +6,9 @@
     <dimen name="card_padding_top_bottom">60dp</dimen>
     <dimen name="card_padding_left_right">100dp</dimen>
     <dimen name="drawer_width">400dp</dimen>
+    <dimen name="game_fragment_poster_width">200dp</dimen>
+    <dimen name="game_fragment_poster_height">284dp</dimen>
+    <dimen name="game_fragment_poster_margin_left">72dp</dimen>
+    <dimen name="game_fragment_top_layout_height">400dp</dimen>
 
 </resources>

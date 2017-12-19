@@ -13,5 +13,7 @@
     // dynamic names
     <color name="toolbar_elements_color">@color/white</color>
     <color name="toolbar_color">@color/shadow_gray_opacity_102</color>
+    <color name="fragment_background_color">@color/white</color>
+    <color name="poster_blurred_color">#a0000000</color>
 
 </resources>

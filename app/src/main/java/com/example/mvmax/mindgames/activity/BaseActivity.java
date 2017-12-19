@@ -3,6 +3,8 @@ package com.example.mvmax.mindgames.activity;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -10,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.game.GameFragment;
+import com.example.mvmax.mindgames.model.GameCardModel;
 import com.example.mvmax.mindgames.util.UiUtils;
 
 public class BaseActivity extends AppCompatActivity {
@@ -21,6 +25,15 @@ public class BaseActivity extends AppCompatActivity {
 
     public void initDrawer() {
 
+    }
+
+    public void showGameFragment(final GameCardModel pGameCardModel) {
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.add(android.R.id.content, GameFragment.newInstance(pGameCardModel))
+                .addToBackStack(null)
+                .commit();
     }
 
     public void openDrawer() {
