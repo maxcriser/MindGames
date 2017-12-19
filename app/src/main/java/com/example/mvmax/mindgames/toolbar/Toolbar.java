@@ -2,6 +2,7 @@ package com.example.mvmax.mindgames.toolbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -9,10 +10,11 @@ import android.widget.TextView;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.util.UiUtils;
 
-class Toolbar extends RelativeLayout {
+public class Toolbar extends RelativeLayout {
 
     private String mTitleString;
     private TextView mTitle;
+    private AppCompatImageView mMenuIcon;
 
     public Toolbar(final Context context) {
         super(context);
@@ -33,6 +35,7 @@ class Toolbar extends RelativeLayout {
         inflate(getContext(), R.layout.view_toolbar, this);
 
         mTitle = findViewById(R.id.toolbar_view_title);
+        mMenuIcon = findViewById(R.id.toolbar_view_menu);
     }
 
     private void init() {
@@ -67,7 +70,7 @@ class Toolbar extends RelativeLayout {
         updateTitle();
     }
 
-    private String getTitle() {
-        return mTitleString;
+    public AppCompatImageView getMenuIconView() {
+        return mMenuIcon;
     }
 }

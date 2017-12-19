@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/toolbar_view_menu"
             android:layout_width="@dimen/toolbar_height"
             android:layout_height="@dimen/toolbar_height"
             android:layout_gravity="center_vertical"

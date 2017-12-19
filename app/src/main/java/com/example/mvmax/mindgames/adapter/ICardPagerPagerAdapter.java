@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.adapter;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;

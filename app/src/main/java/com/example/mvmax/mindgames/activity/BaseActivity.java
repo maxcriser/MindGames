@@ -3,7 +3,9 @@ package com.example.mvmax.mindgames.activity;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -15,6 +17,20 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle pSavedInstanceState) {
         super.onCreate(pSavedInstanceState);
+    }
+
+    public void initDrawer() {
+
+    }
+
+    public void openDrawer() {
+        final DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerLayout.openDrawer(Gravity.START);
+    }
+
+    private void closeDrawer() {
+        final DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerLayout.closeDrawer(Gravity.START);
     }
 
     public void setBackground(final Bitmap pBitmap) {

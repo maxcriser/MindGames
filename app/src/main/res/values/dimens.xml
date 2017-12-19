@@ -7,5 +7,6 @@
     <dimen name="tool_bar_elevation">4dp</dimen>
     <dimen name="tool_bar_corner_radius">0dp</dimen>
     <dimen name="toolbar_icon_padding">16dp</dimen>
+    <dimen name="drawer_width">280dp</dimen>
 
 </resources>

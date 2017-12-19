@@ -1,49 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom_toolbar="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:openDrawer="start">
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/background_image"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/template_blurred_background"/>
+        android:layout_height="match_parent">
 
-    <!--<com.github.mmin18.widget.RealtimeBlurView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--app:realtimeBlurRadius="20dp"-->
-    <!--app:realtimeOverlayColor="#8000"/>-->
-
-    <LinearLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <com.example.mvmax.mindgames.toolbar.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            custom_toolbar:title="@string/app_name"/>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/background_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            android:paddingBottom="@dimen/card_padding_top_bottom"
-            android:paddingEnd="@dimen/card_padding_left_right"
-            android:paddingLeft="@dimen/card_padding_left_right"
-            android:paddingRight="@dimen/card_padding_left_right"
-            android:paddingStart="@dimen/card_padding_left_right"
-            android:paddingTop="@dimen/card_padding_top_bottom"/>
+            android:scaleType="centerCrop"
+            tools:src="@drawable/template_blurred_background"/>
 
-    </LinearLayout>
+        <!--<com.github.mmin18.widget.RealtimeBlurView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:realtimeBlurRadius="20dp"-->
+        <!--app:realtimeOverlayColor="#8000"/>-->
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.example.mvmax.mindgames.toolbar.Toolbar
+                android:id="@+id/toolbar_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                custom_toolbar:title="@string/app_name"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/card_padding_top_bottom"
+                android:paddingEnd="@dimen/card_padding_left_right"
+                android:paddingLeft="@dimen/card_padding_left_right"
+                android:paddingRight="@dimen/card_padding_left_right"
+                android:paddingStart="@dimen/card_padding_left_right"
+                android:paddingTop="@dimen/card_padding_top_bottom"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="@dimen/drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"/>
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

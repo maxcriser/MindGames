@@ -5,5 +5,6 @@
     <dimen name="toolbar_icon_padding">20dp</dimen>
     <dimen name="card_padding_top_bottom">60dp</dimen>
     <dimen name="card_padding_left_right">100dp</dimen>
+    <dimen name="drawer_width">400dp</dimen>
 
 </resources>
