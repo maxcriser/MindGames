@@ -22,7 +22,7 @@
         <include layout="@layout/view_main_blurred_layout"/>
 
         <LinearLayout
-            android:id="@+id/content"
+            android:id="@+id/activity_base_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -31,6 +31,7 @@
                 android:id="@+id/toolbar_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                custom_toolbar:action="menu"
                 custom_toolbar:title="@string/app_name"/>
 
             <FrameLayout

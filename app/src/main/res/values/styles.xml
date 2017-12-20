@@ -6,8 +6,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!--android:fontFamily="sans-serif"           // roboto regular-->
-    <!--android:fontFamily="sans-serif-light"     // roboto light-->
+    <!--android:fontFamily="sans-serif"           // current BOLD MAIN roboto regular-->
+    <!--android:fontFamily="sans-serif-light"     // current THIN MAIN roboto light-->
+
     <!--android:fontFamily="sans-serif-condensed" // roboto condensed-->
     <!--android:fontFamily="sans-serif-black"     // roboto black-->
     <!--android:fontFamily="sans-serif-thin"      // roboto thin (android 4.2)-->
@@ -16,12 +17,12 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:maxLines">2</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/game_fragment_header_text_title_size</item>
     </style>
 
     <style name="ToolbarTextStyle">
         <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
         <item name="android:textColor">@color/white</item>
@@ -29,9 +30,9 @@
 
     <style name="GameFragmentDescriptionStyle">
         <item name="android:fontFamily">sans-serif-thin</item>
-        <item name="android:maxLines">2</item>
+        <item name="android:maxLines">3</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/game_fragment_header_text_description_size</item>
     </style>
 
 </resources>

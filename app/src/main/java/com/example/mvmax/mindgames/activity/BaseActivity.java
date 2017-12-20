@@ -57,7 +57,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void setStatusBarPadding() {
-        final View contentView = findViewById(R.id.content);
+        final View contentView = findViewById(R.id.activity_base_content);
 
         contentView.setPadding(0, UiUtils.getStatusBarHeight(this), 0, 0);
     }

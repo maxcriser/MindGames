@@ -11,17 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/toolbar_view_menu"
-            style="@style/ToolbarTextStyle"
-            android:layout_width="@dimen/toolbar_height"
-            android:layout_height="@dimen/toolbar_height"
-            android:layout_gravity="center_vertical"
-            android:padding="@dimen/toolbar_icon_padding"
-            app:srcCompat="@drawable/ic_menu"/>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/toolbar_view_menu"
+                android:layout_width="@dimen/toolbar_height"
+                android:layout_height="@dimen/toolbar_height"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/toolbar_icon_padding"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_menu"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/toolbar_view_back"
+                android:layout_width="@dimen/toolbar_height"
+                android:layout_height="@dimen/toolbar_height"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/toolbar_icon_padding"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_back"
+                tools:visibility="visible"/>
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/toolbar_view_title"
+            style="@style/ToolbarTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"

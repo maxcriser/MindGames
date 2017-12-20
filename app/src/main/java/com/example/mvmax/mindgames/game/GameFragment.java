@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.listener.OnBackClickListener;
 import com.example.mvmax.mindgames.model.GameCardModel;
+import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.example.mvmax.mindgames.util.UiUtils;
 
-public class GameFragment extends Fragment {
+public class GameFragment extends BaseFragment {
 
     public static final String EXTRA_GAME_CARD_MODEL = "dsada";
     private AppCompatImageView mBlurredBackground;
@@ -38,6 +40,7 @@ public class GameFragment extends Fragment {
     public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        setStatusBarPadding();
         initViews();
         bindHeader();
     }
@@ -58,6 +61,9 @@ public class GameFragment extends Fragment {
         final View view = getView();
 
         if (view != null) {
+            final Toolbar toolbar = view.findViewById(R.id.toolbar_view);
+            toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(getContext()));
+
             mBlurredBackground = view.findViewById(R.id.game_fragment_background_image);
             mPoster = view.findViewById(R.id.game_fragment_poster);
             mName = view.findViewById(R.id.game_fragment_header_name);
