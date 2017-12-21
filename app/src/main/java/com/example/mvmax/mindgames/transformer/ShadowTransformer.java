@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.transformer;
 
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.View;
@@ -23,15 +24,21 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
         mAdapter = pAdapter;
     }
 
-    public void enableScaling(final boolean pEnable) {
-        if (mScalingEnabled && !pEnable) {
+    public void disableScaling() {
+        if (mScalingEnabled) {
             final CardView currentCard = mAdapter.getCardViewAt(mViewPager.getCurrentItem());
 
             if (currentCard != null) {
                 currentCard.animate().scaleY(SCALE_VALUE_DEFAULT);
                 currentCard.animate().scaleX(SCALE_VALUE_DEFAULT);
             }
-        } else if (!mScalingEnabled && pEnable) {
+        }
+
+        mScalingEnabled = false;
+    }
+
+    public void enableScaling() {
+        if (!mScalingEnabled) {
             final CardView currentCard = mAdapter.getCardViewAt(mViewPager.getCurrentItem());
 
             if (currentCard != null) {
@@ -40,11 +47,11 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
             }
         }
 
-        mScalingEnabled = pEnable;
+        mScalingEnabled = true;
     }
 
     @Override
-    public void transformPage(final View pPage, final float pPosition) {
+    public void transformPage(@NonNull final View pPage, final float pPosition) {
 
     }
 

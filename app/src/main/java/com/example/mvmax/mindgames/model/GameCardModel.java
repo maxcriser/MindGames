@@ -1,22 +1,20 @@
 package com.example.mvmax.mindgames.model;
 
-import android.graphics.drawable.Drawable;
-
 import java.io.Serializable;
 
 public class GameCardModel implements Serializable {
 
-    private final Drawable mPoster;
+    private final int mPoster;
     private final String mName;
     private final String mDescription;
 
-    public GameCardModel(final Drawable pPoster, final String pName, final String pDescription) {
+    public GameCardModel(final int pPoster, final String pName, final String pDescription) {
         mPoster = pPoster;
         mName = pName;
         mDescription = pDescription;
     }
 
-    public Drawable getPoster() {
+    public int getPoster() {
         return mPoster;
     }
 

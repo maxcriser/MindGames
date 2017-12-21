@@ -6,6 +6,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public final class UiUtils {
@@ -20,7 +23,7 @@ public final class UiUtils {
         return resourceId > 0 ? pContext.getResources().getDimensionPixelSize(resourceId) : 0;
     }
 
-    public static Drawable getDrawable(final Context pContext, final int pDrawableId) {
+    private static Drawable getDrawable(final Context pContext, final int pDrawableId) {
         return ContextCompat.getDrawable(pContext, pDrawableId);
     }
 

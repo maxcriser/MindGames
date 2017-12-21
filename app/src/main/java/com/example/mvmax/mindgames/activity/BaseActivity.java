@@ -1,7 +1,5 @@
 package com.example.mvmax.mindgames.activity;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +13,8 @@ import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.game.GameFragment;
 import com.example.mvmax.mindgames.model.GameCardModel;
 import com.example.mvmax.mindgames.util.UiUtils;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -25,6 +25,10 @@ public class BaseActivity extends AppCompatActivity {
 
     public void initDrawer() {
 
+    }
+
+    public ImageView getBackgroundImageView() {
+        return findViewById(R.id.background_image);
     }
 
     public void showGameFragment(final GameCardModel pGameCardModel) {
@@ -46,14 +50,14 @@ public class BaseActivity extends AppCompatActivity {
         mDrawerLayout.closeDrawer(Gravity.START);
     }
 
-    public void setBackground(final Bitmap pBitmap) {
-        final ImageView pBlurredImageView = findViewById(R.id.background_image);
-        pBlurredImageView.setImageBitmap(pBitmap);
-    }
+    public void setBackground(final int pPoster) {
+        final ImageView backgroundImageView = getBackgroundImageView();
 
-    public void setBackground(final Drawable pDrawable) {
-        final ImageView pBlurredImageView = findViewById(R.id.background_image);
-        pBlurredImageView.setImageDrawable(pDrawable);
+        Picasso.with(this)
+                .load(pPoster)
+                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                .placeholder(backgroundImageView.getDrawable())
+                .into(backgroundImageView);
     }
 
     public void setStatusBarPadding() {

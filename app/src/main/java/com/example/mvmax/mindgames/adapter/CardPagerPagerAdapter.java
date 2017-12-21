@@ -1,6 +1,7 @@
 package com.example.mvmax.mindgames.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
@@ -52,12 +53,12 @@ public class CardPagerPagerAdapter extends PagerAdapter implements ICardPagerAda
     }
 
     @Override
-    public boolean isViewFromObject(final View pView, final Object pObject) {
+    public boolean isViewFromObject(@NonNull final View pView, @NonNull final Object pObject) {
         return pView == pObject;
     }
 
     @Override
-    public Object instantiateItem(final ViewGroup pContainer, final int pPosition) {
+    public Object instantiateItem(@NonNull final ViewGroup pContainer, final int pPosition) {
         final View view = LayoutInflater.from(pContainer.getContext()).inflate(R.layout.adapter_card, pContainer, false);
         pContainer.addView(view);
         bind(mData.get(pPosition), view);
@@ -75,14 +76,14 @@ public class CardPagerPagerAdapter extends PagerAdapter implements ICardPagerAda
     }
 
     @Override
-    public void destroyItem(final ViewGroup pContainer, final int pPosition, final Object pObject) {
+    public void destroyItem(@NonNull final ViewGroup pContainer, final int pPosition, @NonNull final Object pObject) {
         pContainer.removeView((View) pObject);
         mViews.set(pPosition, null);
     }
 
     private void bind(final GameCardModel pItem, final View pView) {
         final AppCompatImageView poster = pView.findViewById(R.id.card_poster);
-        poster.setImageDrawable(pItem.getPoster());
+        poster.setImageResource(pItem.getPoster());
         poster.setOnClickListener(new View.OnClickListener() {
 
             @Override

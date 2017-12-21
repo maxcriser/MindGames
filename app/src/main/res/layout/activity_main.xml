@@ -62,12 +62,14 @@
         android:id="@+id/navView"
         android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
-        android:layout_gravity="start">
+        android:layout_gravity="start"
+        android:background="@android:color/transparent">
+
+        <include layout="@layout/view_drawer_blurred_layout"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimaryDark"/>
+            android:layout_height="match_parent"/>
 
     </android.support.design.widget.NavigationView>
 

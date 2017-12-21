@@ -9,14 +9,13 @@ import com.example.mvmax.mindgames.listener.OpenDrawerClickListener;
 import com.example.mvmax.mindgames.model.GameCardModel;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.example.mvmax.mindgames.transformer.ShadowTransformer;
-import com.example.mvmax.mindgames.util.UiUtils;
 
 public class MainActivity extends BaseActivity {
 
     private Toolbar mToolbar;
-    private ShadowTransformer mCardShadowTransformer;
     private ViewPager mViewPager;
     private CardPagerPagerAdapter mCardAdapter;
+    private ShadowTransformer mCardShadowTransformer;
 
     private final ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
 
@@ -39,15 +38,15 @@ public class MainActivity extends BaseActivity {
         mViewPager = findViewById(R.id.view_pager);
 
         mCardAdapter = new CardPagerPagerAdapter(this);
-        mCardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster), "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
-        mCardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_2), "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
-        mCardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_3), "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
-        mCardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_4), "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
-        mCardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_5), "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
-        mCardAdapter.addCardItem(new GameCardModel(UiUtils.getDrawable(this, R.drawable.template_poster_6), "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
+        mCardAdapter.addCardItem(new GameCardModel(R.drawable.template_poster, "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
+        mCardAdapter.addCardItem(new GameCardModel(R.drawable.template_poster_2, "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
+        mCardAdapter.addCardItem(new GameCardModel(R.drawable.template_poster_3, "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
+        mCardAdapter.addCardItem(new GameCardModel(R.drawable.template_poster_4, "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
+        mCardAdapter.addCardItem(new GameCardModel(R.drawable.template_poster_5, "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
+        mCardAdapter.addCardItem(new GameCardModel(R.drawable.template_poster_6, "Game name", "The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World. The best of the best of the best game in the World."));
 
         mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
-        mCardShadowTransformer.enableScaling(true);
+        mCardShadowTransformer.enableScaling();
 
         mViewPager.setAdapter(mCardAdapter);
         mViewPager.setPageTransformer(false, mCardShadowTransformer);
@@ -62,7 +61,7 @@ public class MainActivity extends BaseActivity {
         // TODO: 19.12.2017 design
         initDrawer();
 
-        setBackground(UiUtils.getDrawable(this, R.drawable.template_blurred_background));
+        setBackground(R.drawable.template_blurred_background);
         setStatusBarPadding();
 
         mToolbar = findViewById(R.id.toolbar_view);

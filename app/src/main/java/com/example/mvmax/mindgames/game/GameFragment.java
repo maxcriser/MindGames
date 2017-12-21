@@ -46,10 +46,10 @@ public class GameFragment extends BaseFragment {
     }
 
     private void bindHeader() {
-        final Drawable poster = mGameCardModel.getPoster();
+        final int poster = mGameCardModel.getPoster();
 
-        mBlurredBackground.setImageDrawable(poster);
-        mPoster.setImageDrawable(poster);
+        mBlurredBackground.setImageResource(poster);
+        mPoster.setImageResource(poster);
         UiUtils.setTextOrHide(mName, mGameCardModel.getName());
         UiUtils.setTextOrHide(mDescription, mGameCardModel.getDescription());
     }

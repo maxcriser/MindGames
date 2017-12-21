@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.IntDef;
@@ -27,7 +28,6 @@ public class Toolbar extends RelativeLayout {
             Action.MENU,
             Action.BACK})
     public @interface Action {
-
         int NONE = 0;
         int MENU = 1;
         int BACK = 2;
@@ -76,6 +76,7 @@ public class Toolbar extends RelativeLayout {
     private void init(final AttributeSet pAttrs) {
         inflate();
 
+        @SuppressLint("CustomViewStyleable")
         final TypedArray typedArray = getContext().obtainStyledAttributes(pAttrs, R.styleable.custom_toolbar, 0, 0);
 
         try {
