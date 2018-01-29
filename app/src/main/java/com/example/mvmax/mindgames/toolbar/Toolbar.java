@@ -18,7 +18,6 @@ import java.lang.annotation.RetentionPolicy;
 
 public class Toolbar extends RelativeLayout {
 
-    private String mTitleString;
     private TextView mTitle;
     private AppCompatImageView mMenuIcon;
     private AppCompatImageView mBackIcon;
@@ -28,6 +27,7 @@ public class Toolbar extends RelativeLayout {
             Action.MENU,
             Action.BACK})
     public @interface Action {
+
         int NONE = 0;
         int MENU = 1;
         int BACK = 2;
@@ -76,14 +76,14 @@ public class Toolbar extends RelativeLayout {
     private void init(final AttributeSet pAttrs) {
         inflate();
 
-        @SuppressLint("CustomViewStyleable")
-        final TypedArray typedArray = getContext().obtainStyledAttributes(pAttrs, R.styleable.custom_toolbar, 0, 0);
+        @SuppressLint("CustomViewStyleable") final TypedArray typedArray = getContext().obtainStyledAttributes(pAttrs, R.styleable.mg_toolbar, 0, 0);
 
         try {
-            mTitleString = typedArray.getString(R.styleable.custom_toolbar_title);
-            final int actions = typedArray.getInteger(R.styleable.custom_toolbar_action, Action.NONE);
+            final String titleString = typedArray.getString(R.styleable.mg_toolbar_title);
+            final int actions = typedArray.getInteger(R.styleable.mg_toolbar_action, Action.NONE);
 
             updateView(actions);
+            setTitle(titleString);
         } finally {
             typedArray.recycle();
         }
@@ -91,17 +91,10 @@ public class Toolbar extends RelativeLayout {
 
     private void updateView(final int pActions) {
         initActions(pActions);
-        updateTitle();
-    }
-
-    private void updateTitle() {
-        UiUtils.setTextOrHide(mTitle, mTitleString);
     }
 
     private void setTitle(final String pString) {
-        mTitleString = pString;
-
-        updateTitle();
+        UiUtils.setTextOrHide(mTitle, pString);
     }
 
     public AppCompatImageView getMenuIconView() {

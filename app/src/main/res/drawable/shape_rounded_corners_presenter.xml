@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/example_message_presenter_color"/>
+
+    <corners
+        android:radius="@dimen/message_round_value"/>
+
+</shape>

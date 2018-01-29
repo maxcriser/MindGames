@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_base_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom_toolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.mvmax.mindgames.toolbar.Toolbar
+        android:id="@+id/toolbar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom_toolbar:action="menu"
+        custom_toolbar:title="@string/app_name"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/card_padding_top_bottom"
+            android:paddingEnd="@dimen/card_padding_left_right"
+            android:paddingLeft="@dimen/card_padding_left_right"
+            android:paddingRight="@dimen/card_padding_left_right"
+            android:paddingStart="@dimen/card_padding_left_right"
+            android:paddingTop="@dimen/card_padding_top_bottom"/>
+
+    </FrameLayout>
+
+</LinearLayout>

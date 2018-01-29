@@ -4,12 +4,16 @@
     <item name="match_parent" type="dimen">-1</item>
     <item name="wrap_content" type="dimen">-2</item>
 
-    <declare-styleable name="custom_toolbar">
+    <declare-styleable name="mg_toolbar">
         <attr name="title" format="string"/>
         <attr name="action" format="integer">
             <flag name="menu" value="1"/>
             <flag name="back" value="2"/>
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="mg_drawer_button">
+        <attr name="item_title" format="string"/>
     </declare-styleable>
 
 </resources>

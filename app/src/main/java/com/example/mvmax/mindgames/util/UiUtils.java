@@ -6,9 +6,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public final class UiUtils {
@@ -16,6 +13,14 @@ public final class UiUtils {
     private static final String STATUS_BAR_HEIGHT = "status_bar_height";
     private static final String DIMEN = "dimen";
     private static final String ANDROID = "android";
+
+    public static float pxToDp(final Context context, final int px) {
+        return px / context.getResources().getDisplayMetrics().density;
+    }
+
+    public static float dpToPx(final Context context, final int dp) {
+        return dp * context.getResources().getDisplayMetrics().density;
+    }
 
     public static int getStatusBarHeight(final Context pContext) {
         final int resourceId = pContext.getResources().getIdentifier(STATUS_BAR_HEIGHT, DIMEN, ANDROID);

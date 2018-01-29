@@ -12,8 +12,12 @@
     <dimen name="game_fragment_top_layout_height">434dp</dimen>
     <dimen name="game_fragment_header_text_max_width">@dimen/match_parent</dimen>
     <dimen name="game_fragment_header_text_margin_right">72dp</dimen>
+    <dimen name="game_fragment_top_layout_height_with_tab_layout">498dp</dimen>
     <dimen name="game_fragment_header_text_title_size">24sp</dimen>
+    <dimen name="game_fragment_rules_text_title_size">24sp</dimen>
     <dimen name="game_fragment_header_text_description_size">20sp</dimen>
-    <dimen name="game_fragment_header_text_margin_left">24dp</dimen>
+    <dimen name="game_fragment_rules_text_description_size">20sp</dimen>
+    <dimen name="dialog_example_text_message_size">20sp</dimen>
+    <dimen name="game_fragment_header_text_margin_left">20dp</dimen>
 
 </resources>

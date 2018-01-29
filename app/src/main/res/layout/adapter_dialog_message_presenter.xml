@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:layout_marginTop="96dp">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/dialog_example_message_bottom_margin">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_marginBottom="@dimen/example_message_icon_bottom_margin"
+            android:rotation="90"
+            app:srcCompat="@drawable/ic_message_presenter"/>
+
+        <TextView
+            android:id="@+id/dialog_example_message"
+            style="@style/DialogExampleMessagePresenterStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/example_message_right_margin"
+            android:layout_marginStart="@dimen/example_message_right_margin"
+            android:background="@drawable/shape_rounded_corners_presenter"
+            android:gravity="left"
+            android:paddingBottom="@dimen/dialog_example_message_padding"
+            android:paddingLeft="@dimen/dialog_example_message_left_right_padding"
+            android:paddingRight="@dimen/dialog_example_message_left_right_padding"
+            android:paddingTop="@dimen/dialog_example_message_padding"
+            tools:text="Lorem ipsum lorem ipsum lorem ipsum"/>
+
+    </FrameLayout>
+
+</LinearLayout>

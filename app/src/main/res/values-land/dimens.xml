@@ -9,6 +9,7 @@
     <dimen name="game_fragment_poster_height">168dp</dimen>
     <dimen name="game_fragment_poster_margin_left">56dp</dimen>
     <dimen name="game_fragment_top_layout_height">290dp</dimen>
+    <dimen name="game_fragment_top_layout_height_with_tab_layout">338dp</dimen>
     <dimen name="game_fragment_header_text_max_width">@dimen/match_parent</dimen>
     <dimen name="game_fragment_header_text_margin_right">56dp</dimen>
 
