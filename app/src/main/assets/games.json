@@ -1,27 +1,41 @@
 {
   "games": [
     {
-      "id": "771305050",
+      "id": "game.id:guess_the_story",
       "name": "name1",
       "description": "description2",
       "isAvailable": true,
       "rules": [
         {
-          "title": "title1",
-          "description": "description1"
+          "type": "info",
+          "message": "description1"
         },
         {
-          "title": "title12",
+          "type": "info",
+          "message": "description12"
+        },
+        {
+          "type": "finish",
+          "message": "description13"
+        }
+      ],
+      "example": [
+        {
+          "title": "title21",
+          "description": "description21"
+        },
+        {
+          "title": "title122",
           "description": "description12"
         },
         {
-          "title": "title13",
+          "title": "title123",
           "description": "description13"
         }
       ]
     },
     {
-      "id": "771305050",
+      "id": "game.id:guess_the_story",
       "name": "name1",
       "description": "description2",
       "isAvailable": false,

@@ -1,36 +1,29 @@
 package com.example.mvmax.mindgames.games;
 
-import com.example.mvmax.mindgames.ContextHolder;
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
-import com.example.mvmax.mindgames.test.Examples;
-import com.example.mvmax.mindgames.test.Rules;
 
 import java.util.List;
 
-public abstract class IBaseGame {
+public interface IBaseGame {
 
-    protected String getString(final int pStringId) {
-        return ContextHolder.get().getString(pStringId);
-    }
+    String getId();
 
-    public abstract String getId();
+    int getPoster();
 
-    public abstract int getPoster();
+    List<RuleModel> getRules();
 
-    public abstract List<RuleModel> getRules();
+    List<ExampleMessageModel> getExample();
 
-    public abstract Examples getExample();
+    String getName();
 
-    public abstract String getName();
+    String getDescription();
 
-    public abstract String getDescription();
+    boolean isAvailable();
 
-    public abstract boolean isAvailable();
+    List<GameCardTabModel> getTabList();
 
-    public abstract List<GameCardTabModel> getTabList();
-
-    public abstract Class getActivityClass();
+    Class getActivityClass();
 
 }

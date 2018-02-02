@@ -1,31 +1,31 @@
 package com.example.mvmax.mindgames.gamecard.info.example;
 
-import android.support.annotation.IntDef;
+import android.support.annotation.StringDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class ExampleMessageModel {
 
-    @IntDef({DialogMessageType.INFO,
+    @StringDef({DialogMessageType.INFO,
             DialogMessageType.PRESENTER,
             DialogMessageType.PLAYER,
             DialogMessageType.FINISH})
     @Retention(RetentionPolicy.SOURCE)
     public @interface DialogMessageType {
 
-        int INFO = 0;
-        int PRESENTER = 1;
-        int PLAYER = 2;
-        int FINISH = 3;
+        String INFO = "info";
+        String PRESENTER = "presenter";
+        String PLAYER = "player";
+        String FINISH = "finish";
     }
 
     @DialogMessageType
-    private int type;
+    private String type;
     private String message;
 
     @DialogMessageType
-    int getType() {
+    String getType() {
         return type;
     }
 

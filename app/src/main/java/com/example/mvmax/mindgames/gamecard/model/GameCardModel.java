@@ -36,7 +36,7 @@ public class GameCardModel implements Serializable {
     }
 
     public List<ExampleMessageModel> getDialogExampleModelList() {
-        return mIBaseGame.getExample().getList();
+        return mIBaseGame.getExample();
     }
 
     public String getDescription() {

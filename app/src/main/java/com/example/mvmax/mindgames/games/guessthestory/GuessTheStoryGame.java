@@ -6,17 +6,16 @@ import com.example.mvmax.mindgames.constants.Constant;
 import com.example.mvmax.mindgames.executable.GameByIdExecutable;
 import com.example.mvmax.mindgames.gamecard.info.GameCardExampleFragment;
 import com.example.mvmax.mindgames.gamecard.info.GameCardRulesFragment;
+import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
 import com.example.mvmax.mindgames.games.IBaseGame;
-import com.example.mvmax.mindgames.test.Examples;
 import com.example.mvmax.mindgames.test.GameCard;
-import com.example.mvmax.mindgames.test.Rules;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GuessTheStoryGame extends IBaseGame {
+public class GuessTheStoryGame implements IBaseGame {
 
     private final GameCard mGameCard;
 
@@ -59,7 +58,7 @@ public class GuessTheStoryGame extends IBaseGame {
     }
 
     @Override
-    public Examples getExample() {
+    public List<ExampleMessageModel> getExample() {
         return mGameCard.getExample();
 
 //        final List<ExampleMessageModel> exampleList = new ArrayList<>();
@@ -96,7 +95,7 @@ public class GuessTheStoryGame extends IBaseGame {
     public List<GameCardTabModel> getTabList() {
         final List<GameCardTabModel> tabListTwo = new ArrayList<>();
         tabListTwo.add(new GameCardTabModel(ContextHolder.get().getString(R.string.game_card_rules), GameCardRulesFragment.newInstance(getRules())));
-        tabListTwo.add(new GameCardTabModel(ContextHolder.get().getString(R.string.game_card_example), GameCardExampleFragment.newInstance(getExample().getList())));
+        tabListTwo.add(new GameCardTabModel(ContextHolder.get().getString(R.string.game_card_example), GameCardExampleFragment.newInstance(getExample())));
 
         return tabListTwo;
     }

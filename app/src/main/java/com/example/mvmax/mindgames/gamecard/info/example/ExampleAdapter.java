@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.gamecard.info.example;
 
+import android.support.annotation.IntDef;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,24 @@ import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
 
-import java.util.Collection;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.DialogExampleViewHolder> {
+
+    @IntDef({ExampleAdapterType.INFO,
+            ExampleAdapterType.PRESENTER,
+            ExampleAdapterType.PLAYER,
+            ExampleAdapterType.FINISH})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface ExampleAdapterType {
+
+        int INFO = 0;
+        int PRESENTER = 1;
+        int PLAYER = 2;
+        int FINISH = 3;
+    }
 
     private List<ExampleMessageModel> mList;
 
@@ -39,15 +54,15 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.DialogEx
         final int layout;
 
         switch (viewType) {
-            case ExampleMessageModel.DialogMessageType.PLAYER:
+            case ExampleAdapterType.PLAYER:
                 layout = R.layout.adapter_dialog_message_player;
 
                 break;
-            case ExampleMessageModel.DialogMessageType.PRESENTER:
+            case ExampleAdapterType.PRESENTER:
                 layout = R.layout.adapter_dialog_message_presenter;
 
                 break;
-            case ExampleMessageModel.DialogMessageType.FINISH:
+            case ExampleAdapterType.FINISH:
                 layout = R.layout.adapter_dialog_message_finish;
 
                 break;
@@ -71,7 +86,16 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.DialogEx
 
     @Override
     public int getItemViewType(final int pPosition) {
-        return mList.get(pPosition).getType();
+        switch (mList.get(pPosition).getType()) {
+            case ExampleMessageModel.DialogMessageType.INFO:
+                return ExampleAdapterType.INFO;
+            case ExampleMessageModel.DialogMessageType.PLAYER:
+                return ExampleAdapterType.PLAYER;
+            case ExampleMessageModel.DialogMessageType.PRESENTER:
+                return ExampleAdapterType.PRESENTER;
+            default:
+                return ExampleAdapterType.FINISH;
+        }
     }
 
     @Override

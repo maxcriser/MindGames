@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.test;
 
+import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class GameCard {
     private boolean isAvailable;
 
     private List<RuleModel> rules;
-    private Examples example;
+    private List<ExampleMessageModel> example;
 
     public boolean isAvailable() {
         return isAvailable;
@@ -35,7 +36,7 @@ public class GameCard {
         return rules;
     }
 
-    public Examples getExample() {
+    public List<ExampleMessageModel> getExample() {
         return example;
     }
 }
