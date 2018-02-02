@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.base.BaseActivity;
-import com.example.mvmax.mindgames.games.BaseGame;
+import com.example.mvmax.mindgames.games.IBaseGame;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
 public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCollectionPagerAdapter {
 
     private final List<CardView> mViews;
-    private final List<BaseGame> mData;
+    private final List<IBaseGame> mData;
     private float mBaseElevation;
     private final Context mContext;
 
@@ -29,11 +29,11 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
         mContext = pContext;
     }
 
-    public List<BaseGame> getData() {
+    public List<IBaseGame> getData() {
         return mData;
     }
 
-    public void addCardItem(final BaseGame pItem) {
+    public void addCardItem(final IBaseGame pItem) {
         mViews.add(null);
         mData.add(pItem);
     }
@@ -81,7 +81,7 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
         mViews.set(pPosition, null);
     }
 
-    private void bind(final BaseGame pItem, final View pView) {
+    private void bind(final IBaseGame pItem, final View pView) {
         final AppCompatImageView poster = pView.findViewById(R.id.card_poster);
         poster.setImageResource(pItem.getPoster());
         poster.setOnClickListener(new View.OnClickListener() {

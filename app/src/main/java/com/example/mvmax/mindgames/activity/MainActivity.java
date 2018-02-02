@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.base.BaseActivity;
+import com.example.mvmax.mindgames.executable.GamesExecutable;
 import com.example.mvmax.mindgames.gamecollection.listener.IGameCollectionListener;
 
 public class MainActivity extends BaseActivity {
@@ -30,6 +31,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(final Bundle pSavedInstanceState) {
         super.onCreate(pSavedInstanceState);
         setContentView(R.layout.activity_main);
+
+        new GamesExecutable().execute();
 
         showCollectionFragment(mOnPageChangeListener);
     }

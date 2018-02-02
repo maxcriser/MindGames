@@ -13,7 +13,7 @@ import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.GameCardFragment;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
 import com.example.mvmax.mindgames.gamecollection.listener.IGameCollectionListener;
-import com.example.mvmax.mindgames.games.BaseGame;
+import com.example.mvmax.mindgames.games.IBaseGame;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
@@ -38,7 +38,7 @@ public class BaseActivity extends AppCompatActivity {
                 .commit();
     }
 
-    public void showGameFragment(final BaseGame pGameCardModel) {
+    public void showGameFragment(final IBaseGame pGameCardModel) {
             final FragmentManager fragmentManager = getSupportFragmentManager();
             final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 

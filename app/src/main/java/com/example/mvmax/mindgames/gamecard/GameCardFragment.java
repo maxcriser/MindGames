@@ -19,7 +19,7 @@ import com.example.mvmax.mindgames.base.BaseFragment;
 import com.example.mvmax.mindgames.clicklistener.OnBackClickListener;
 import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
-import com.example.mvmax.mindgames.games.BaseGame;
+import com.example.mvmax.mindgames.games.IBaseGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.example.mvmax.mindgames.util.UiUtils;
 
@@ -33,7 +33,7 @@ public class GameCardFragment extends BaseFragment {
     private AppCompatButton mPlayButton;
     private GameCardModel mGameCardModel;
 
-    public static Fragment newInstance(@NonNull final BaseGame pGameCardModel) {
+    public static Fragment newInstance(@NonNull final IBaseGame pGameCardModel) {
         final GameCardFragment gameCardFragment = new GameCardFragment();
 
         gameCardFragment.mGameCardModel = new GameCardModel(pGameCardModel);

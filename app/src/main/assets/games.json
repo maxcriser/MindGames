@@ -1,0 +1,44 @@
+{
+  "games": [
+    {
+      "id": "771305050",
+      "name": "name1",
+      "description": "description2",
+      "isAvailable": true,
+      "rules": [
+        {
+          "title": "title1",
+          "description": "description1"
+        },
+        {
+          "title": "title12",
+          "description": "description12"
+        },
+        {
+          "title": "title13",
+          "description": "description13"
+        }
+      ]
+    },
+    {
+      "id": "771305050",
+      "name": "name1",
+      "description": "description2",
+      "isAvailable": false,
+      "rules": [
+        {
+          "title": "title1",
+          "description": "description1"
+        },
+        {
+          "title": "title12",
+          "description": "description12"
+        },
+        {
+          "title": "title13",
+          "description": "description13"
+        }
+      ]
+    }
+  ]
+}

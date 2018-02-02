@@ -1,6 +1,5 @@
-    package com.example.mvmax.mindgames.gamecard.info.example;
+package com.example.mvmax.mindgames.gamecard.info.example;
 
-import android.os.Parcel;
 import android.support.annotation.IntDef;
 
 import java.lang.annotation.Retention;
@@ -22,33 +21,15 @@ public class ExampleMessageModel {
     }
 
     @DialogMessageType
-    private int mType;
-    private String mMessage;
-
-    public ExampleMessageModel(final String pMessage, @DialogMessageType final int pType) {
-        mMessage = pMessage;
-        mType = pType;
-    }
-
-    public void setType(@DialogMessageType final int pType) {
-        mType = pType;
-    }
+    private int type;
+    private String message;
 
     @DialogMessageType
     int getType() {
-        return mType;
-    }
-
-    public void setMessage(final String pMessage) {
-        mMessage = pMessage;
+        return type;
     }
 
     String getMessage() {
-        return mMessage;
-    }
-
-    private ExampleMessageModel(final Parcel in) {
-        mType = in.readInt();
-        mMessage = in.readString();
+        return message;
     }
 }

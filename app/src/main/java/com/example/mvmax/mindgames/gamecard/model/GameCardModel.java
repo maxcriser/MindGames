@@ -2,44 +2,44 @@ package com.example.mvmax.mindgames.gamecard.model;
 
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
-import com.example.mvmax.mindgames.games.BaseGame;
+import com.example.mvmax.mindgames.games.IBaseGame;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class GameCardModel implements Serializable {
 
-    private final BaseGame mBaseGame;
+    private final IBaseGame mIBaseGame;
 
-    public GameCardModel(final BaseGame pBaseGame) {
-        mBaseGame = pBaseGame;
+    public GameCardModel(final IBaseGame pIBaseGame) {
+        mIBaseGame = pIBaseGame;
     }
 
     public Class getActivityClass() {
-        return mBaseGame.getActivityClass();
+        return mIBaseGame.getActivityClass();
     }
 
     public List<GameCardTabModel> getTabList() {
-        return mBaseGame.getTabList();
+        return mIBaseGame.getTabList();
     }
 
     public int getPoster() {
-        return mBaseGame.getPoster();
+        return mIBaseGame.getPoster();
     }
 
     public String getName() {
-        return mBaseGame.getName();
+        return mIBaseGame.getName();
     }
 
     public List<RuleModel> getRuleList() {
-        return mBaseGame.getRuleList();
+        return mIBaseGame.getRules();
     }
 
     public List<ExampleMessageModel> getDialogExampleModelList() {
-        return mBaseGame.getDialogMessageList();
+        return mIBaseGame.getExample().getList();
     }
 
     public String getDescription() {
-        return mBaseGame.getDescription();
+        return mIBaseGame.getDescription();
     }
 }
