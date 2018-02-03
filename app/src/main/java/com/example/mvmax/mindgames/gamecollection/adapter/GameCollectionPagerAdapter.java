@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.base.BaseActivity;
+import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.games.IBaseGame;
 
 import java.util.ArrayList;
@@ -18,24 +18,23 @@ import java.util.List;
 
 public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCollectionPagerAdapter {
 
-    private final List<CardView> mViews;
-    private final List<IBaseGame> mData;
+    private final List<CardView> mCardViews;
+    private final List<IBaseGame> mGames;
     private float mBaseElevation;
     private final Context mContext;
 
-    public GameCollectionPagerAdapter(final Context pContext) {
-        mData = new ArrayList<>();
-        mViews = new ArrayList<>();
+    public GameCollectionPagerAdapter(final Context pContext, final List<IBaseGame> pGames) {
+        mGames = pGames;
+        mCardViews = new ArrayList<>();
         mContext = pContext;
+
+        for (int i = 0; i < mGames.size(); i++) {
+            mCardViews.add(null);
+        }
     }
 
-    public List<IBaseGame> getData() {
-        return mData;
-    }
-
-    public void addCardItem(final IBaseGame pItem) {
-        mViews.add(null);
-        mData.add(pItem);
+    public List<IBaseGame> getGames() {
+        return mGames;
     }
 
     public float getBaseElevation() {
@@ -44,12 +43,12 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
 
     @Override
     public CardView getCardViewAt(final int pPosition) {
-        return mViews.get(pPosition);
+        return mCardViews.get(pPosition);
     }
 
     @Override
     public int getCount() {
-        return mData.size();
+        return mGames.size();
     }
 
     @Override
@@ -61,7 +60,8 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
     public Object instantiateItem(@NonNull final ViewGroup pContainer, final int pPosition) {
         final View view = LayoutInflater.from(pContainer.getContext()).inflate(R.layout.adapter_card, pContainer, false);
         pContainer.addView(view);
-        bind(mData.get(pPosition), view);
+
+        bind(mGames.get(pPosition), view);
 
         final CardView cardView = view.findViewById(R.id.cardView);
 
@@ -70,7 +70,7 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
         }
 
         cardView.setMaxCardElevation(mBaseElevation * MAX_ELEVATION_FACTOR);
-        mViews.set(pPosition, cardView);
+        mCardViews.set(pPosition, cardView);
 
         return view;
     }
@@ -78,11 +78,12 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
     @Override
     public void destroyItem(@NonNull final ViewGroup pContainer, final int pPosition, @NonNull final Object pObject) {
         pContainer.removeView((View) pObject);
-        mViews.set(pPosition, null);
+        mCardViews.set(pPosition, null);
     }
 
     private void bind(final IBaseGame pItem, final View pView) {
         final AppCompatImageView poster = pView.findViewById(R.id.card_poster);
+
         poster.setImageResource(pItem.getPoster());
         poster.setOnClickListener(new View.OnClickListener() {
 

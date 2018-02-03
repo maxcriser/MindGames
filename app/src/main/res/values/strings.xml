@@ -6,36 +6,5 @@
     <string name="game_card_rules">Rules</string>
     <string name="game_card_example">Example</string>
     <string name="begin_to_play">Begin to play</string>
-    <string name="guess_the_story_name">Guess the story</string>
-    <string name="guess_the_story_description">An addictive game with confusing stories to be solved</string>
-    <string name="guess_the_story_step_1">Receiving an assignment</string>
-    <string name="guess_the_story_step_2">Game process</string>
-    <string name="guess_the_story_step_3">Additional rule</string>
-    <string name="guess_the_story_step_4">End of the game</string>
-    <string name="guess_the_story_step_5">Recommendation</string>
-    <string name="guess_the_story_step_1_des">The main player reads aloud a part of the story, after which he looks at the answer, but does not pronounce it.</string>
-    <string name="guess_the_story_step_2_des">Players begin to ask questions, to which the main player can answer only \"Yes\" or \"No\".</string>
-    <string name="guess_the_story_step_3_des">The number of player questions is unlimited.</string>
-    <string name="guess_the_story_step_4_des">After the players have successfully revealed the whole story the game is considered finished.</string>
-    <string name="guess_the_story_step_5_des">Players can go on to unravel the next story.</string>
-    <string name="yes_with_dot">Yes.</string>
-    <string name="no_with_dot">No.</string>
-    <string name="guess_the_story_ex_1">The main player gets the story and reads to the players</string>
-    <string name="guess_the_story_ex_2">A bright flash - and a man is dead.</string>
-    <string name="guess_the_story_ex_3">He was killed?</string>
-    <string name="guess_the_story_ex_4">He died from a shot?</string>
-    <string name="guess_the_story_ex_5">He was killed by a man?</string>
-    <string name="guess_the_story_ex_6">he was killed by an animal?</string>
-    <string name="guess_the_story_ex_7">What animal killed him?</string>
-    <string name="guess_the_story_ex_8">The player asked the wrong question. The question should have the answer \"Yes\" or \"No\".</string>
-    <string name="guess_the_story_ex_9">he was killed by an animal?</string>
-    <string name="guess_the_story_ex_10">It was a predatory animal?</string>
-    <string name="guess_the_story_ex_11">Did it happen in the circus?</string>
-    <string name="guess_the_story_ex_12">Was it a lion?</string>
-    <string name="guess_the_story_ex_13">Maybe it was show in the circus and somebody make picture with light and lion scared and killed the man?</string>
-    <string name="guess_the_story_ex_14">Yes. But how lion killed the man?</string>
-    <string name="guess_the_story_ex_15">During the show he put his head in the jaws of the lion?</string>
-    <string name="guess_the_story_ex_16">Yes. The story is solved.</string>
-    <string name="guess_the_story_ex_17">Answer: The rescuer put his head in the jaws of the lion and then someone decided to photograph the whole thing. The lion was frightened by the flash and slammed his mouth shut. The trainer was left without a head.</string>
 
 </resources>

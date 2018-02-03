@@ -14,19 +14,19 @@ public class RulesView extends RelativeLayout {
 
     private RecyclerView mRecyclerView;
 
-    public RulesView(final Context context) {
-        super(context);
+    public RulesView(final Context pContext) {
+        super(pContext);
         init();
     }
 
-    public RulesView(final Context context, final AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
+    public RulesView(final Context pContext, final AttributeSet pAttrs) {
+        super(pContext, pAttrs);
+        init(pAttrs);
     }
 
-    public RulesView(final Context context, final AttributeSet attrs, final int defStyle) {
-        super(context, attrs, defStyle);
-        init(attrs);
+    public RulesView(final Context pContext, final AttributeSet pAttrs, final int pDefStyle) {
+        super(pContext, pAttrs, pDefStyle);
+        init(pAttrs);
     }
 
     private void inflate() {
@@ -43,9 +43,9 @@ public class RulesView extends RelativeLayout {
         inflate();
     }
 
-    public void setItems(final List<RuleModel> pRuleModelList) {
+    public void setItems(final List<RuleModel> pRuleModels) {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        final RulesAdapter mRulesAdapter = new RulesAdapter(pRuleModelList);
+        final RulesAdapter mRulesAdapter = new RulesAdapter(pRuleModels);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);

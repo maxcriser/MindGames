@@ -1,8 +1,6 @@
 package com.example.mvmax.mindgames.gamecollection.listener;
 
-import java.io.Serializable;
-
-public interface IGameCollectionListener extends Serializable {
+public interface IGameCollectionListener {
 
     void onPageSelected(final int pPoster);
 

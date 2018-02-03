@@ -14,19 +14,19 @@ public class ExampleView extends RelativeLayout {
 
     private RecyclerView mRecyclerView;
 
-    public ExampleView(final Context context) {
-        super(context);
+    public ExampleView(final Context pContext) {
+        super(pContext);
         init();
     }
 
-    public ExampleView(final Context context, final AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
+    public ExampleView(final Context pContext, final AttributeSet pAttrs) {
+        super(pContext, pAttrs);
+        init(pAttrs);
     }
 
-    public ExampleView(final Context context, final AttributeSet attrs, final int defStyle) {
-        super(context, attrs, defStyle);
-        init(attrs);
+    public ExampleView(final Context pContext, final AttributeSet pAttrs, final int pDefStyle) {
+        super(pContext, pAttrs, pDefStyle);
+        init(pAttrs);
     }
 
     private void inflate() {
@@ -43,12 +43,12 @@ public class ExampleView extends RelativeLayout {
         inflate();
     }
 
-    public void setItems(final List<ExampleMessageModel> pDialogExampleModelList) {
+    public void setItems(final List<ExampleMessageModel> pMessageModels) {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        final ExampleAdapter mDialogExampleAdapter = new ExampleAdapter(pDialogExampleModelList);
+        final DialogExampleAdapter mDialogDialogExampleAdapter = new DialogExampleAdapter(pMessageModels);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecyclerView.setAdapter(mDialogExampleAdapter);
+        mRecyclerView.setAdapter(mDialogDialogExampleAdapter);
     }
 }

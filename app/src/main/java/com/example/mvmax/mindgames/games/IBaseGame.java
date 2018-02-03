@@ -8,22 +8,22 @@ import java.util.List;
 
 public interface IBaseGame {
 
-    String getId();
+    Class getActivityClass();
 
-    int getPoster();
-
-    List<RuleModel> getRules();
-
-    List<ExampleMessageModel> getExample();
+    String getID();
 
     String getName();
 
     String getDescription();
 
+    int getPoster();
+
     boolean isAvailable();
 
-    List<GameCardTabModel> getTabList();
+    List<RuleModel> getRules();
 
-    Class getActivityClass();
+    List<ExampleMessageModel> getExample();
+
+    List<GameCardTabModel> getTabs();
 
 }

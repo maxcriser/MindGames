@@ -11,27 +11,27 @@ import com.example.mvmax.mindgames.R;
 
 public class DrawerButton extends RelativeLayout {
 
-    private TextView mButtonTextView;
+    private TextView mButtonView;
 
-    public DrawerButton(final Context context) {
-        super(context);
+    public DrawerButton(final Context pContext) {
+        super(pContext);
         init();
     }
 
-    public DrawerButton(final Context context, final AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
+    public DrawerButton(final Context pContext, final AttributeSet pAttrs) {
+        super(pContext, pAttrs);
+        init(pAttrs);
     }
 
-    public DrawerButton(final Context context, final AttributeSet attrs, final int defStyle) {
-        super(context, attrs, defStyle);
-        init(attrs);
+    public DrawerButton(final Context pContext, final AttributeSet pAttrs, final int pDefStyle) {
+        super(pContext, pAttrs, pDefStyle);
+        init(pAttrs);
     }
 
     private void inflate() {
         inflate(getContext(), R.layout.view_drawer_button, this);
 
-        mButtonTextView = findViewById(R.id.drawer_item_button);
+        mButtonView = findViewById(R.id.drawer_item_button);
     }
 
     private void init() {
@@ -53,6 +53,6 @@ public class DrawerButton extends RelativeLayout {
     }
 
     private void setText(final CharSequence pText) {
-        mButtonTextView.setText(pText);
+        mButtonView.setText(pText);
     }
 }

@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
+import com.example.mvmax.mindgames.games.IBaseGame;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ public class GameCardInfoPagerAdapter extends FragmentStatePagerAdapter {
     private final int mTabsCount;
     private final List<GameCardTabModel> mTabs;
 
-    GameCardInfoPagerAdapter(final FragmentManager fm, final GameCardModel pGameCardModel) {
+    GameCardInfoPagerAdapter(final FragmentManager fm, final IBaseGame pGameCardModel) {
         super(fm);
-        mTabs = pGameCardModel.getTabList();
+        mTabs = pGameCardModel.getTabs();
         mTabsCount = mTabs.size();
     }
 

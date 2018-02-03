@@ -1,7 +1,6 @@
 package com.example.mvmax.mindgames.gamecard.info;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,32 +12,31 @@ import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GameCardExampleFragment extends Fragment {
 
-    List<ExampleMessageModel> mExampleMessageModelList;
-    ExampleView mExampleView;
+    private List<ExampleMessageModel> mExampleMessageModels;
+    private ExampleView mExampleView;
 
-    public static Fragment newInstance(@NonNull final List<ExampleMessageModel> pExampleMessageModelList) {
+    public static Fragment newInstance(@NonNull final List<ExampleMessageModel> pExampleMessageModels) {
         final GameCardExampleFragment gameCardExampleFragment = new GameCardExampleFragment();
 
-        gameCardExampleFragment.mExampleMessageModelList = pExampleMessageModelList;
+        gameCardExampleFragment.mExampleMessageModels = pExampleMessageModels;
 
         return gameCardExampleFragment;
     }
 
     @Override
-    public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_game_example, container, false);
+    public View onCreateView(@NonNull final LayoutInflater pInflater, final ViewGroup pContainer, final Bundle pSavedInstanceState) {
+        return pInflater.inflate(R.layout.fragment_game_example, pContainer, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onViewCreated(@NonNull final View pView, @Nullable final Bundle pSavedInstanceState) {
+        super.onViewCreated(pView, pSavedInstanceState);
 
-        initViews(view);
+        initViews(pView);
         updateDialog();
     }
 
@@ -47,6 +45,6 @@ public class GameCardExampleFragment extends Fragment {
     }
 
     private void updateDialog() {
-        mExampleView.setItems(mExampleMessageModelList);
+        mExampleView.setItems(mExampleMessageModels);
     }
 }

@@ -5,7 +5,7 @@ import com.example.mvmax.mindgames.ContextHolder;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class FileUtils {
+public final class FileUtils {
 
     public static String readFromAsset(final String pFileName) {
         String result = StringUtils.EMPTY;

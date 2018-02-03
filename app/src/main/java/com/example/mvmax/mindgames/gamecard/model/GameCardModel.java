@@ -2,44 +2,41 @@ package com.example.mvmax.mindgames.gamecard.model;
 
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
-import com.example.mvmax.mindgames.games.IBaseGame;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class GameCardModel implements Serializable {
+public class GameCardModel {
 
-    private final IBaseGame mIBaseGame;
+    private String id;
+    private String name;
+    private String description;
 
-    public GameCardModel(final IBaseGame pIBaseGame) {
-        mIBaseGame = pIBaseGame;
+    private boolean isAvailable;
+
+    private List<RuleModel> rules;
+    private List<ExampleMessageModel> example;
+
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
-    public Class getActivityClass() {
-        return mIBaseGame.getActivityClass();
-    }
-
-    public List<GameCardTabModel> getTabList() {
-        return mIBaseGame.getTabList();
-    }
-
-    public int getPoster() {
-        return mIBaseGame.getPoster();
+    public String getId() {
+        return id;
     }
 
     public String getName() {
-        return mIBaseGame.getName();
-    }
-
-    public List<RuleModel> getRuleList() {
-        return mIBaseGame.getRules();
-    }
-
-    public List<ExampleMessageModel> getDialogExampleModelList() {
-        return mIBaseGame.getExample();
+        return name;
     }
 
     public String getDescription() {
-        return mIBaseGame.getDescription();
+        return description;
+    }
+
+    public List<RuleModel> getRules() {
+        return rules;
+    }
+
+    public List<ExampleMessageModel> getExample() {
+        return example;
     }
 }

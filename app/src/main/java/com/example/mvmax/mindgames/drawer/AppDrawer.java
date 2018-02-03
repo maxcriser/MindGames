@@ -10,19 +10,19 @@ import com.example.mvmax.mindgames.util.UiUtils;
 
 public class AppDrawer extends RelativeLayout {
 
-    public AppDrawer(final Context context) {
-        super(context);
+    public AppDrawer(final Context pContext) {
+        super(pContext);
         init();
     }
 
-    public AppDrawer(final Context context, final AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs);
+    public AppDrawer(final Context pContext, final AttributeSet pAttrs) {
+        super(pContext, pAttrs);
+        init(pAttrs);
     }
 
-    public AppDrawer(final Context context, final AttributeSet attrs, final int defStyle) {
-        super(context, attrs, defStyle);
-        init(attrs);
+    public AppDrawer(final Context pContext, final AttributeSet pAttrs, final int pDefStyle) {
+        super(pContext, pAttrs, pDefStyle);
+        init(pAttrs);
     }
 
     private void inflate() {

@@ -3,13 +3,12 @@ package com.example.mvmax.mindgames.activity;
 import android.os.Bundle;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.base.BaseActivity;
-import com.example.mvmax.mindgames.executable.GamesExecutable;
+import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.gamecollection.listener.IGameCollectionListener;
 
 public class MainActivity extends BaseActivity {
 
-    private final IGameCollectionListener mOnPageChangeListener = new IGameCollectionListener() {
+    private final IGameCollectionListener mGameCollectionListener = new IGameCollectionListener() {
 
         @Override
         public void onPageSelected(final int pPoster) {
@@ -32,8 +31,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(pSavedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new GamesExecutable().execute();
-
-        showCollectionFragment(mOnPageChangeListener);
+        showCollectionFragment(mGameCollectionListener);
     }
 }

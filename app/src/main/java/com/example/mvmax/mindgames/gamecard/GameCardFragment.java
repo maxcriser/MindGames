@@ -15,9 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.base.BaseFragment;
+import com.example.mvmax.mindgames.fragment.BaseFragment;
 import com.example.mvmax.mindgames.clicklistener.OnBackClickListener;
-import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
 import com.example.mvmax.mindgames.games.IBaseGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
@@ -31,12 +30,12 @@ public class GameCardFragment extends BaseFragment {
     private TextView mName;
     private TextView mDescription;
     private AppCompatButton mPlayButton;
-    private GameCardModel mGameCardModel;
+    private IBaseGame mGameCardModel;
 
     public static Fragment newInstance(@NonNull final IBaseGame pGameCardModel) {
         final GameCardFragment gameCardFragment = new GameCardFragment();
 
-        gameCardFragment.mGameCardModel = new GameCardModel(pGameCardModel);
+        gameCardFragment.mGameCardModel = pGameCardModel;
 
         return gameCardFragment;
     }
@@ -53,7 +52,7 @@ public class GameCardFragment extends BaseFragment {
 
     private void bindViewPager(final View pView) {
         final TabLayout tabLayout = pView.findViewById(R.id.fragment_game_tab_layout);
-        final List<GameCardTabModel> tabs = mGameCardModel.getTabList();
+        final List<GameCardTabModel> tabs = mGameCardModel.getTabs();
 
         for (int i = 0; i < tabs.size(); i++) {
             tabLayout.addTab(tabLayout.newTab().setText(tabs.get(i).getTitle()));
@@ -124,7 +123,7 @@ public class GameCardFragment extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_game, container, false);
+    public View onCreateView(@NonNull final LayoutInflater pInflater, final ViewGroup pContainer, final Bundle pSavedInstanceState) {
+        return pInflater.inflate(R.layout.fragment_game, pContainer, false);
     }
 }
