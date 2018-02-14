@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.util.UiUtils;
+import com.example.mvmax.mindgames.util.UiUtil;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -94,7 +94,7 @@ public class Toolbar extends RelativeLayout {
     }
 
     private void setTitle(final String pString) {
-        UiUtils.setTextOrHide(mTitle, pString);
+        UiUtil.setTextOrHide(mTitle, pString);
     }
 
     public AppCompatImageView getMenuIconView() {

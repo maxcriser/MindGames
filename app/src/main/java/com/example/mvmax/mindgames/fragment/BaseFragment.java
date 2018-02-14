@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.util.UiUtils;
+import com.example.mvmax.mindgames.util.UiUtil;
 
 public class BaseFragment extends Fragment {
 
@@ -27,7 +27,7 @@ public class BaseFragment extends Fragment {
         }
 
         final View contentView = view.findViewById(R.id.fragment_base_content);
-        contentView.setPadding(0, UiUtils.getStatusBarHeight(getContext()), 0, 0);
+        contentView.setPadding(0, UiUtil.getStatusBarHeight(getContext()), 0, 0);
     }
 
     public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {

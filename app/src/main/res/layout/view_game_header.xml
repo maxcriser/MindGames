@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/fragment_base_content"
+                android:id="@+id/main_content"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/game_fragment_top_layout_height"
                 android:orientation="vertical">

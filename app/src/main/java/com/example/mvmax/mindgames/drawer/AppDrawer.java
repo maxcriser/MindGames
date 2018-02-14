@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.util.UiUtils;
+import com.example.mvmax.mindgames.util.UiUtil;
 
 public class AppDrawer extends RelativeLayout {
 
@@ -41,6 +41,6 @@ public class AppDrawer extends RelativeLayout {
 
     private void setStatusBarPadding() {
         final View rootView = findViewById(R.id.content_drawer);
-        rootView.setPadding(0, UiUtils.getStatusBarHeight(getContext()), 0, 0);
+        rootView.setPadding(0, UiUtil.getStatusBarHeight(getContext()), 0, 0);
     }
 }

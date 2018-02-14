@@ -4,9 +4,10 @@ import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface IBaseGame {
+public interface IBaseGame extends Serializable {
 
     Class getActivityClass();
 

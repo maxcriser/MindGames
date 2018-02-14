@@ -89,7 +89,7 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
 
             @Override
             public void onClick(final View pView) {
-                ((BaseActivity) mContext).showGameFragment(pItem);
+                ((BaseActivity) mContext).showGameActivity(pItem.getID());
             }
         });
     }

@@ -1,9 +1,9 @@
 package com.example.mvmax.mindgames.executable;
 
-import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
-import com.example.mvmax.mindgames.games.model.GamesModel;
+import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
+import com.example.mvmax.mindgames.games.IBaseGame;
 
-public class GameByIdExecutable implements IExecute<GameCardModel> {
+public class GameByIdExecutable implements IExecute<IBaseGame> {
 
     private final String mID;
 
@@ -12,9 +12,13 @@ public class GameByIdExecutable implements IExecute<GameCardModel> {
     }
 
     @Override
-    public GameCardModel execute() {
-        final GamesModel gamesModel = new GamesExecutable().execute();
+    public IBaseGame execute() {
+        for (final IBaseGame baseGame : GameCollectionFragment.mGames) {
+            if (baseGame.getID().equals(mID)) {
+                return baseGame;
+            }
+        }
 
-        return gamesModel.getGame(mID);
+        return null;
     }
 }

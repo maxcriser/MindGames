@@ -27,7 +27,7 @@ public class GameCollectionFragment extends BaseFragment {
     private IGameCollectionListener mGameCollectionListener;
     private GameCollectionPagerAdapter mCardAdapter;
 
-    final List<IBaseGame> mGames = new ArrayList<IBaseGame>() {{
+    public static final  List<IBaseGame> mGames = new ArrayList<IBaseGame>() {{
         add(new GuessTheStoryGame());
         add(new GuessTheStoryGame());
         add(new GuessTheStoryGame());

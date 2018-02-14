@@ -5,7 +5,7 @@ import android.content.Context;
 import com.example.mvmax.mindgames.ContextHolder;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.constants.Constant;
-import com.example.mvmax.mindgames.executable.GameByIdExecutable;
+import com.example.mvmax.mindgames.executable.GameInfoByIdExecutable;
 import com.example.mvmax.mindgames.gamecard.info.GameCardExampleFragment;
 import com.example.mvmax.mindgames.gamecard.info.GameCardRulesFragment;
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
@@ -22,7 +22,7 @@ public class GuessTheStoryGame implements IBaseGame {
     private final GameCardModel mGameCardModel;
 
     public GuessTheStoryGame() {
-        mGameCardModel = new GameByIdExecutable(getID()).execute();
+        mGameCardModel = new GameInfoByIdExecutable(getID()).execute();
     }
 
     @Override
