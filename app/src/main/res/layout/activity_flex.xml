@@ -57,11 +57,8 @@
             style="@style/TabLayoutGameStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_height"
-            android:background="@android:color/transparent"
-            app:tabIndicatorColor="@color/toolbar_elements_color"
-            app:tabIndicatorHeight="@dimen/fragment_game_tab_indicator_height"
-            app:tabSelectedTextColor="@color/toolbar_elements_color"
-            app:tabTextColor="@color/toolbar_elements_color"/>
+            android:background="@color/toolbar_color"/>
+
     </FrameLayout>
 
 </com.example.mvmax.mindgames.flex.TouchInterceptionFrameLayout>
