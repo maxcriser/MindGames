@@ -11,6 +11,7 @@
         android:id="@+id/toolbar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        custom_toolbar:background_color="@color/toolbar_color"
         custom_toolbar:action="menu"
         custom_toolbar:title="@string/app_name"/>
 

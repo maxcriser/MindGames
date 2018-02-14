@@ -3,6 +3,7 @@ package com.example.mvmax.mindgames.toolbar;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.support.annotation.IntDef;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
@@ -18,6 +19,7 @@ import java.lang.annotation.RetentionPolicy;
 
 public class Toolbar extends RelativeLayout {
 
+    private View mContainer;
     private TextView mTitle;
     private AppCompatImageView mMenuIcon;
     private AppCompatImageView mBackIcon;
@@ -65,6 +67,7 @@ public class Toolbar extends RelativeLayout {
         inflate(getContext(), R.layout.view_toolbar, this);
 
         mTitle = findViewById(R.id.toolbar_view_title);
+        mContainer = findViewById(R.id.toolbar_view_container);
         mMenuIcon = findViewById(R.id.toolbar_view_menu);
         mBackIcon = findViewById(R.id.toolbar_view_back);
     }
@@ -79,10 +82,12 @@ public class Toolbar extends RelativeLayout {
         @SuppressLint("CustomViewStyleable") final TypedArray typedArray = getContext().obtainStyledAttributes(pAttrs, R.styleable.mg_toolbar, 0, 0);
 
         try {
+            final int color = typedArray.getColor(R.styleable.mg_toolbar_background_color, Color.TRANSPARENT);
             final String titleString = typedArray.getString(R.styleable.mg_toolbar_title);
             final int actions = typedArray.getInteger(R.styleable.mg_toolbar_action, Action.NONE);
 
             updateView(actions);
+            setToolbarBackground(color);
             setTitle(titleString);
         } finally {
             typedArray.recycle();
@@ -95,6 +100,10 @@ public class Toolbar extends RelativeLayout {
 
     private void setTitle(final String pString) {
         UiUtil.setTextOrHide(mTitle, pString);
+    }
+
+    public void setToolbarBackground(final int pToolbarBackground) {
+        mContainer.setBackgroundColor(pToolbarBackground);
     }
 
     public AppCompatImageView getMenuIconView() {

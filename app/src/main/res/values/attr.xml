@@ -6,6 +6,7 @@
 
     <declare-styleable name="mg_toolbar">
         <attr name="title" format="string"/>
+        <attr name="background_color" format="color"/>
         <attr name="action" format="integer">
             <flag name="menu" value="1"/>
             <flag name="back" value="2"/>

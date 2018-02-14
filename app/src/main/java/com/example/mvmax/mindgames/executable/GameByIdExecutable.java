@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.executable;
 
+import com.example.mvmax.mindgames.gamecollection.GameCollection;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
 import com.example.mvmax.mindgames.games.IBaseGame;
 
@@ -13,7 +14,7 @@ public class GameByIdExecutable implements IExecute<IBaseGame> {
 
     @Override
     public IBaseGame execute() {
-        for (final IBaseGame baseGame : GameCollectionFragment.mGames) {
+        for (final IBaseGame baseGame : GameCollection.GAMES) {
             if (baseGame.getID().equals(mID)) {
                 return baseGame;
             }

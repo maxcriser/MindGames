@@ -23,6 +23,7 @@
     <color name="brand_color">@color/material_blue</color>
 
     // dynamic names
+    <color name="tab_indicator_color">@color/white</color>
     <color name="toolbar_elements_color">@color/white</color>
     <color name="drawer_item_text">@color/white</color>
     <color name="toolbar_color">@color/shadow_black_opacity_102</color>

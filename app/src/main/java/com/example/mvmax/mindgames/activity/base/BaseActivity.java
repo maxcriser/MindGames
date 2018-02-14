@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.GameCardActivity;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
-import com.example.mvmax.mindgames.gamecollection.listener.IGameCollectionListener;
 import com.example.mvmax.mindgames.util.UiUtil;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
@@ -45,11 +44,11 @@ public class BaseActivity extends AppCompatActivity {
         return findViewById(R.id.background_image);
     }
 
-    public void showCollectionFragment(final IGameCollectionListener pGameCollectionListener) {
+    public void showCollectionFragment() {
         final FragmentManager fragmentManager = getSupportFragmentManager();
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        fragmentTransaction.replace(R.id.main_content, GameCollectionFragment.newInstance(pGameCollectionListener))
+        fragmentTransaction.replace(R.id.main_content, GameCollectionFragment.newInstance())
                 .addToBackStack(null)
                 .commit();
     }
@@ -101,15 +100,18 @@ public class BaseActivity extends AppCompatActivity {
                 .into(backgroundImageView);
     }
 
+    public int getStatusBarHeight() {
+        return UiUtil.getStatusBarHeight(this);
+    }
+
     public void setStatusBarPadding() {
         final View contentView = findViewById(R.id.main_content);
-        contentView.setPadding(0, UiUtil.getStatusBarHeight(this), 0, 0);
+        contentView.setPadding(0, getStatusBarHeight(), 0, 0);
     }
 
     public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {
         startActivity(new Intent(pContext, pActivityClass));
     }
-
 
     protected int getActionBarSize() {
         final TypedValue typedValue = new TypedValue();

@@ -58,11 +58,11 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flex);
+        setContentView(R.layout.activity_game_card);
 
         final String id = getIntent().getStringExtra(EXTRA_GAME_ID);
 
-        mGameCardModel = new GameByIdExecutable("game.id:guess_the_story").execute();
+        mGameCardModel = new GameByIdExecutable(id).execute();
 
         setStatusBarPadding();
 
@@ -109,13 +109,16 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
 
         findViewById(R.id.pager_wrapper).setPadding(0, mFlexibleSpaceHeight, 0, 0);
         setTitle(null);
+
+        final AppCompatImageView headerBackground = findViewById(R.id.game_fragment_header_background);
+        headerBackground.setImageResource(mGameCardModel.getPoster());
     }
 
     private void initSlidingTabs() {
         final SlidingTabLayout slidingTabLayout = findViewById(R.id.fragment_game_tab_layout);
 
         slidingTabLayout.setCustomTabView(R.layout.tab_indicator, android.R.id.text1);
-        slidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.colorAccent));
+        slidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.tab_indicator_color));
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(mPager);
 
@@ -191,6 +194,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
                     return true;
                 }
             }
+
             mScrolled = false;
 
             return false;
@@ -307,7 +311,8 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         ViewHelper.setTranslationY(mPoster, ScrollUtils.getFloat(-translationY / 2, minOverlayTransitionY, 0));
 
         final float flexibleRange = mFlexibleSpaceHeight - getActionBarSize();
-        ViewHelper.setAlpha(mOverlayView, ScrollUtils.getFloat(-translationY / flexibleRange, 0, 1));
+        final float alpha = ScrollUtils.getFloat(-translationY / flexibleRange, 0, 1);
+        ViewHelper.setAlpha(mOverlayView, alpha);
     }
 
     private Fragment getCurrentFragment() {

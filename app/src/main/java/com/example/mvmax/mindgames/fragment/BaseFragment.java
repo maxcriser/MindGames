@@ -1,7 +1,6 @@
 package com.example.mvmax.mindgames.fragment;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.util.UiUtil;
 
 public class BaseFragment extends Fragment {
@@ -30,7 +30,27 @@ public class BaseFragment extends Fragment {
         contentView.setPadding(0, UiUtil.getStatusBarHeight(getContext()), 0, 0);
     }
 
-    public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {
-        startActivity(new Intent(pContext, pActivityClass));
+    public void setBackgroundDrawable(final int pPoster) {
+        final Activity activity = getActivity();
+
+        if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).setBackgroundDrawable(pPoster);
+        }
+    }
+
+    public void enableDrawer() {
+        final Activity activity = getActivity();
+
+        if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).enableDrawer();
+        }
+    }
+
+    public void disableDrawer() {
+        final Activity activity = getActivity();
+
+        if (activity instanceof BaseActivity) {
+            ((BaseActivity) activity).disableDrawer();
+        }
     }
 }

@@ -1,0 +1,78 @@
+<com.example.mvmax.mindgames.flex.TouchInterceptionFrameLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/pager_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <include layout="@layout/view_game_header"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/game_fragment_header_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_fragment_top_layout_height_with_tab_layout"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/template_poster"/>
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_fragment_top_layout_height_with_tab_layout"
+            app:realtimeBlurRadius="@dimen/poster_blurred_radius"
+            app:realtimeOverlayColor="@color/poster_blurred_color"/>
+
+        <View
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_fragment_top_layout_height_with_tab_layout"
+            android:background="?attr/colorPrimary"/>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_fragment_top_layout_height_with_tab_layout"
+            android:paddingEnd="@dimen/margin_standard"
+            android:paddingLeft="@dimen/margin_standard"
+            android:paddingStart="@dimen/margin_standard">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/game_fragment_top_layout_height_with_tab_layout"
+                android:background="@android:color/transparent"/>
+
+        </RelativeLayout>
+
+        <com.example.mvmax.mindgames.flex.SlidingTabLayout
+            android:id="@+id/fragment_game_tab_layout"
+            style="@style/TabLayoutGameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_height"
+            android:background="@color/toolbar_color"/>
+
+    </FrameLayout>
+
+</com.example.mvmax.mindgames.flex.TouchInterceptionFrameLayout>

@@ -56,6 +56,7 @@
     <dimen name="rule_circle_interior_size">12dp</dimen>
     <dimen name="rule_left_view_width">36dp</dimen>
     <dimen name="rule_recycler_padding">16dp</dimen>
+    <dimen name="example_recycler_padding">16dp</dimen>
     <dimen name="dialog_example_message_padding">10dp</dimen>
     <dimen name="dialog_example_message_left_right_padding">16dp</dimen>
     <dimen name="dialog_example_message_bottom_margin">6dp</dimen>

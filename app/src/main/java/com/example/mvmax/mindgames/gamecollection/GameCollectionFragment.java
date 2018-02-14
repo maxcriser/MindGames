@@ -10,43 +10,26 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.fragment.BaseFragment;
 import com.example.mvmax.mindgames.clicklistener.OpenDrawerClickListener;
+import com.example.mvmax.mindgames.fragment.BaseFragment;
 import com.example.mvmax.mindgames.gamecollection.adapter.GameCollectionPagerAdapter;
-import com.example.mvmax.mindgames.gamecollection.listener.IGameCollectionListener;
 import com.example.mvmax.mindgames.gamecollection.transformer.ShadowTransformer;
-import com.example.mvmax.mindgames.games.IBaseGame;
-import com.example.mvmax.mindgames.games.guessthestory.GuessTheStoryGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameCollectionFragment extends BaseFragment {
 
-    private IGameCollectionListener mGameCollectionListener;
     private GameCollectionPagerAdapter mCardAdapter;
-
-    public static final  List<IBaseGame> mGames = new ArrayList<IBaseGame>() {{
-        add(new GuessTheStoryGame());
-        add(new GuessTheStoryGame());
-        add(new GuessTheStoryGame());
-    }};
 
     private final ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
 
         @Override
-        public void onPageSelected(final int position) {
-            mGameCollectionListener.onPageSelected(mCardAdapter.getGames().get(position).getPoster());
+        public void onPageSelected(final int pPosition) {
+            setBackgroundDrawable(mCardAdapter.getGames().get(pPosition).getPoster());
         }
     };
 
-    public static Fragment newInstance(@NonNull final IGameCollectionListener pGameCollectionListener) {
-        final GameCollectionFragment gameCollectionFragment = new GameCollectionFragment();
-
-        gameCollectionFragment.mGameCollectionListener = pGameCollectionListener;
-
-        return gameCollectionFragment;
+    public static Fragment newInstance() {
+        return new GameCollectionFragment();
     }
 
     @Override
@@ -65,7 +48,7 @@ public class GameCollectionFragment extends BaseFragment {
             return;
         }
 
-        mCardAdapter = new GameCollectionPagerAdapter(getContext(), mGames);
+        mCardAdapter = new GameCollectionPagerAdapter(getContext(), GameCollection.GAMES);
 
         final ViewPager viewPager = view.findViewById(R.id.view_pager);
         final ShadowTransformer cardShadowTransformer = new ShadowTransformer(viewPager, mCardAdapter);
@@ -88,7 +71,7 @@ public class GameCollectionFragment extends BaseFragment {
             return;
         }
 
-        mGameCollectionListener.onPageSelected(R.drawable.template_blurred_background);
+        setBackgroundDrawable(R.drawable.template_blurred_background);
 
         final Toolbar toolbar = view.findViewById(R.id.toolbar_view);
         toolbar.getMenuIconView().setOnClickListener(new OpenDrawerClickListener(getContext()));
@@ -101,14 +84,14 @@ public class GameCollectionFragment extends BaseFragment {
 
     @Override
     public void onPause() {
-        mGameCollectionListener.onPause();
+        disableDrawer();
 
         super.onPause();
     }
 
     @Override
     public void onResume() {
-        mGameCollectionListener.onResume();
+        enableDrawer();
 
         super.onResume();
     }

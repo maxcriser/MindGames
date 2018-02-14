@@ -29,6 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     custom_toolbar:action="back"
+                    custom_toolbar:background_color="@color/transparent"
                     custom_toolbar:title="@string/app_name"/>
 
                 <FrameLayout
