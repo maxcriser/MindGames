@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="tab_height">@dimen/toolbar_height</dimen>
+    <dimen name="status_bar_height">24dp</dimen>
+    <dimen name="top_margin_for_title">32dp</dimen>
+
+    <dimen name="progress_arc_stroke_width">2dp</dimen>
+    <dimen name="fab_content_size">24dp</dimen>
+    <dimen name="half_fab_content_size">12dp</dimen>
+    <dimen name="fab_size_normal">56dp</dimen>
+    <dimen name="fab_size_mini">40dp</dimen>
+    <dimen name="fab_translation_z_pressed">6dp</dimen>
+    <integer name="default_cycle_duration">2000</integer>
+    <dimen name="futuresimple_fab_shadow_offset">3dp</dimen>
+
+
+    <!--bottom menu-->
+    <dimen name="dimen_8_dp">8dp</dimen>
+    <dimen name="dimen_16_dp">16dp</dimen>
+    <dimen name="dimen_32_dp">32dp</dimen>
+
     <dimen name="card_padding_top_bottom">40dp</dimen>
     <dimen name="card_padding_left_right">36dp</dimen>
     <dimen name="toolbar_height">56dp</dimen>

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<com.example.mvmax.mindgames.flex.ObservableRecyclerView
+    android:id="@+id/scroll"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.example.mvmax.mindgames.gamecard.info.rules.RulesView
-        android:id="@+id/game_fragment_rules_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-</FrameLayout>
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"/>

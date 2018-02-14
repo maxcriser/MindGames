@@ -1,23 +1,26 @@
 package com.example.mvmax.mindgames.gamecard.info;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.flex.ObservableRecyclerView;
+import com.example.mvmax.mindgames.flex.ObservableScrollViewCallbacks;
+import com.example.mvmax.mindgames.gamecard.info.example.DialogExampleAdapter;
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
-import com.example.mvmax.mindgames.gamecard.info.example.ExampleView;
+import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
 
 import java.util.List;
 
 public class GameCardExampleFragment extends Fragment {
 
     private List<ExampleMessageModel> mExampleMessageModels;
-    private ExampleView mExampleView;
 
     public static Fragment newInstance(@NonNull final List<ExampleMessageModel> pExampleMessageModels) {
         final GameCardExampleFragment gameCardExampleFragment = new GameCardExampleFragment();
@@ -28,23 +31,21 @@ public class GameCardExampleFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull final LayoutInflater pInflater, final ViewGroup pContainer, final Bundle pSavedInstanceState) {
-        return pInflater.inflate(R.layout.fragment_game_example, pContainer, false);
-    }
+    public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+        final View view = inflater.inflate(R.layout.fragment_game_example, container, false);
 
-    @Override
-    public void onViewCreated(@NonNull final View pView, @Nullable final Bundle pSavedInstanceState) {
-        super.onViewCreated(pView, pSavedInstanceState);
+        final Activity parentActivity = getActivity();
+        final ObservableRecyclerView recyclerView = view.findViewById(R.id.scroll);
+        recyclerView.setLayoutManager(new LinearLayoutManager(parentActivity));
+        recyclerView.setHasFixedSize(false);
 
-        initViews(pView);
-        updateDialog();
-    }
+        recyclerView.setAdapter(new DialogExampleAdapter(mExampleMessageModels));
 
-    private void initViews(final View pView) {
-        mExampleView = pView.findViewById(R.id.game_fragment_dialog_example_view);
-    }
+        recyclerView.setTouchInterceptionViewGroup((ViewGroup) parentActivity.findViewById(R.id.container));
 
-    private void updateDialog() {
-        mExampleView.setItems(mExampleMessageModels);
+        if (parentActivity instanceof ObservableScrollViewCallbacks) {
+            recyclerView.setScrollViewCallbacks((ObservableScrollViewCallbacks) parentActivity);
+        }
+        return view;
     }
 }

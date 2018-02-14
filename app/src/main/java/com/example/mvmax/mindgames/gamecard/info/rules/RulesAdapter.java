@@ -16,7 +16,7 @@ public class RulesAdapter extends RecyclerView.Adapter<RulesAdapter.RuleViewHold
 
     private final List<RuleModel> mRuleModels;
 
-    RulesAdapter(final List<RuleModel> pRuleModels) {
+    public RulesAdapter(final List<RuleModel> pRuleModels) {
         mRuleModels = pRuleModels;
     }
 

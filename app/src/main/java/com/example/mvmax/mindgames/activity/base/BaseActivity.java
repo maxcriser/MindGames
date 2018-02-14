@@ -3,12 +3,14 @@ package com.example.mvmax.mindgames.activity.base;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -106,5 +108,22 @@ public class BaseActivity extends AppCompatActivity {
 
     public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {
         startActivity(new Intent(pContext, pActivityClass));
+    }
+
+
+    protected int getActionBarSize() {
+        final TypedValue typedValue = new TypedValue();
+        final int[] textSizeAttr = new int[]{R.attr.actionBarSize};
+        final int indexOfAttrTextSize = 0;
+        final TypedArray a = obtainStyledAttributes(typedValue.data, textSizeAttr);
+        final int actionBarSize = a.getDimensionPixelSize(indexOfAttrTextSize, -1);
+
+        a.recycle();
+
+        return actionBarSize;
+    }
+
+    protected int getScreenHeight() {
+        return findViewById(android.R.id.content).getHeight();
     }
 }

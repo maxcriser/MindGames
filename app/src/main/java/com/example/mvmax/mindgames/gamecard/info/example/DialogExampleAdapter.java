@@ -28,7 +28,7 @@ public class DialogExampleAdapter extends RecyclerView.Adapter<DialogExampleAdap
 
     private List<ExampleMessageModel> mMessageModels;
 
-    DialogExampleAdapter(final List<ExampleMessageModel> pMessageModels) {
+    public DialogExampleAdapter(final List<ExampleMessageModel> pMessageModels) {
         mMessageModels = pMessageModels;
     }
 
