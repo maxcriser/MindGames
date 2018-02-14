@@ -67,11 +67,21 @@ public class BaseActivity extends AppCompatActivity {
         return findViewById(R.id.drawer_layout);
     }
 
-    public void setBackground(final int pPoster) {
+    public void setBackgroundDrawable(final int pPoster) {
         final ImageView backgroundImageView = getBackgroundImageView();
 
         Picasso.with(this)
                 .load(pPoster)
+                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                .placeholder(backgroundImageView.getDrawable())
+                .into(backgroundImageView);
+    }
+
+    public void setBackgroundUrl(final String pUrl) {
+        final ImageView backgroundImageView = getBackgroundImageView();
+
+        Picasso.with(this)
+                .load(pUrl)
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .placeholder(backgroundImageView.getDrawable())
                 .into(backgroundImageView);

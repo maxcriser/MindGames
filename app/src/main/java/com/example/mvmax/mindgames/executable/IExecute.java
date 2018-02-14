@@ -1,6 +1,8 @@
 package com.example.mvmax.mindgames.executable;
 
-public interface IExecute<T> {
+import java.io.Serializable;
+
+public interface IExecute<T extends Serializable> {
 
     T execute();
 

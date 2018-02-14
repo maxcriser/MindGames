@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingLeft="@dimen/dialog_message_end_padding"
+    android:paddingStart="@dimen/dialog_message_end_padding"
     tools:layout_marginTop="96dp">
 
     <FrameLayout
@@ -35,7 +37,7 @@
             android:paddingLeft="@dimen/dialog_example_message_left_right_padding"
             android:paddingRight="@dimen/dialog_example_message_left_right_padding"
             android:paddingTop="@dimen/dialog_example_message_padding"
-            tools:text="Lorem ipsum lorem ipsum lorem ipsum"/>
+            tools:text="Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"/>
 
     </FrameLayout>
 

@@ -12,7 +12,7 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public void onPageSelected(final int pPoster) {
-            setBackground(pPoster);
+            setBackgroundDrawable(pPoster);
         }
 
         @Override

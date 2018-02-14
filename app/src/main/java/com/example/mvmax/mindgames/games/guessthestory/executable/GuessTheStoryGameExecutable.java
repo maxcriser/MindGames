@@ -1,12 +1,19 @@
 package com.example.mvmax.mindgames.games.guessthestory.executable;
 
+import com.example.mvmax.mindgames.constants.Constant;
 import com.example.mvmax.mindgames.executable.IExecute;
 import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameModel;
+import com.example.mvmax.mindgames.util.FileUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class GuessTheStoryGameExecutable implements IExecute<GuessTheStoryGameModel> {
 
     @Override
     public GuessTheStoryGameModel execute() {
-        return null;
+        final String storiesJson = FileUtils.readFromAsset(Constant.GuessTheStory.STORIES_PATH);
+        final Gson storiesGson = new GsonBuilder().create();
+
+        return storiesGson.fromJson(storiesJson, GuessTheStoryGameModel.class);
     }
 }

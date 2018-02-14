@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.games.guessthestory.executable.GuessTheStoryGameExecutable;
+import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameModel;
 
 @SuppressLint("Registered")
 public class GuessTheStoryGameActivity extends BaseActivity {
@@ -15,6 +16,6 @@ public class GuessTheStoryGameActivity extends BaseActivity {
         super.onCreate(pSavedInstanceState);
         setContentView(R.layout.activity_guess_the_story_game);
 
-        new GuessTheStoryGameExecutable().execute();
+        final GuessTheStoryGameModel guessTheStoryGameModel = new GuessTheStoryGameExecutable().execute();
     }
 }

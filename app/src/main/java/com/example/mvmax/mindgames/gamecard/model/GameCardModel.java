@@ -2,10 +2,12 @@ package com.example.mvmax.mindgames.gamecard.model;
 
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
+import com.example.mvmax.mindgames.model.IModel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class GameCardModel {
+public class GameCardModel implements Serializable {
 
     private String id;
     private String name;

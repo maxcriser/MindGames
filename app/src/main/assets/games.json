@@ -106,7 +106,7 @@
         },
         {
           "title": "Game process",
-          "description": "Players begin to ask questions, to which the main player can answer only \"Yes\" or \"No\"."
+          "description": "Players begin to ask questions, to which the main player can answer only \"Yes\", \"No\" or \"It does not matter\"."
         },
         {
           "title": "Additional rule",

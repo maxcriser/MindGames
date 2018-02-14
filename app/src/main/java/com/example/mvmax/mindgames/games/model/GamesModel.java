@@ -2,13 +2,14 @@ package com.example.mvmax.mindgames.games.model;
 
 import android.support.annotation.Nullable;
 
-import com.example.mvmax.mindgames.model.IModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
+import com.example.mvmax.mindgames.model.IModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GamesModel implements IModel<GameCardModel> {
+public class GamesModel implements IModel<GameCardModel>, Serializable {
 
     private final List<GameCardModel> games;
 

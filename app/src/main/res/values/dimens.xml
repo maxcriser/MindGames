@@ -52,5 +52,6 @@
     <dimen name="fragment_game_tab_indicator_height">4dp</dimen>
     <dimen name="dialog_example_info_icon_margin">8dp</dimen>
     <dimen name="fragment_game_text_poster_left_margin">4dp</dimen>
+    <dimen name="dialog_message_end_padding">24dp</dimen>
 
 </resources>

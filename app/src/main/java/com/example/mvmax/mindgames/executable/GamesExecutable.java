@@ -10,7 +10,7 @@ public class GamesExecutable implements IExecute<GamesModel> {
 
     @Override
     public GamesModel execute() {
-        final String gamesJson = FileUtils.readFromAsset(Constant.FilePath.GAMES);
+        final String gamesJson = FileUtils.readFromAsset(Constant.FilePath.GAMES_PATH);
         final Gson gamesGson = new GsonBuilder().create();
 
         return gamesGson.fromJson(gamesJson, GamesModel.class);

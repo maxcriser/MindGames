@@ -4,8 +4,13 @@ public class Constant {
 
     public interface FilePath {
 
-        String GAMES = "games.json";
+        String GAMES_PATH = "games.json";
 
+    }
+
+    public interface GuessTheStory {
+
+        String STORIES_PATH = "guess_the_story_list.json";
     }
 
     public interface GameID {
