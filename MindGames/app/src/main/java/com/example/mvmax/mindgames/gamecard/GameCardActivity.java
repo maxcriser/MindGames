@@ -28,6 +28,7 @@ import com.example.mvmax.mindgames.flex.SlidingTabLayout;
 import com.example.mvmax.mindgames.flex.TouchInterceptionFrameLayout;
 import com.example.mvmax.mindgames.flex.ViewHelper;
 import com.example.mvmax.mindgames.games.IBaseGame;
+import com.example.mvmax.mindgames.games.MaterialSquareLoading;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.example.mvmax.mindgames.util.UiUtil;
 
@@ -94,6 +95,9 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     private void init() {
         final Toolbar toolbar = findViewById(R.id.toolbar_view);
         toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
+
+        final MaterialSquareLoading materialSquareLoading = findViewById(R.id.material_square_loading_view);
+        materialSquareLoading.show();
 
         mPoster = findViewById(R.id.game_fragment_poster);
         mName = findViewById(R.id.game_fragment_header_name);

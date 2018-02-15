@@ -101,6 +101,7 @@
                                 android:drawableLeft="@drawable/ic_play"
                                 android:drawablePadding="@dimen/play_button_icon_padding"
                                 android:drawableStart="@drawable/ic_play"
+                                android:ellipsize="end"
                                 android:text="@string/begin_to_play"/>
 
                         </LinearLayout>
