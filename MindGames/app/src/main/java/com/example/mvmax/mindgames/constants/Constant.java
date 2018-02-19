@@ -16,6 +16,7 @@ public class Constant {
     public interface GameID {
 
         String GUESS_THE_STORY = "game.id:guess_the_story";
+        String GUESS_THE_WORD = "game.id:guess_the_word";
 
     }
 }
