@@ -6,5 +6,6 @@
     <string name="game_card_rules">Rules</string>
     <string name="game_card_example">Example</string>
     <string name="begin_to_play">Begin to play</string>
+    <string name="answer">Answer</string>
 
 </resources>

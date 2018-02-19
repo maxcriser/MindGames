@@ -55,7 +55,7 @@ public class GuessTheStoryAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (viewHolder instanceof GuessTheStoryHolder) {
             final GuessTheStoryHolder holder = (GuessTheStoryHolder) viewHolder;
 
-            holder.bind(mList.get(position));
+            holder.bind(mList.get(position -1));
 
             mExpansionsCollection.add(holder.getExpansionLayout());
         }

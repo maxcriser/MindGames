@@ -19,7 +19,9 @@
         </activity>
 
         <activity android:name=".gamecard.GameCardActivity"/>
-        <activity android:name=".games.guessthestory.GuessTheStoryGameActivity"/>
+        <activity
+            android:name=".games.guessthestory.GuessTheStoryGameActivity"
+            android:exported="true"/>
 
         <!--SAMPLE ACTIVITIES-->
         <activity

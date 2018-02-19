@@ -77,5 +77,8 @@
     <dimen name="dialog_message_end_padding">24dp</dimen>
 
     <dimen name="guess_the_story_activity_header_height">270dp</dimen>
+    <dimen name="guess_the_story_activity_title_size">14sp</dimen>
+    <dimen name="guess_the_story_activity_cell_height">56dp</dimen>
+    <dimen name="guess_the_story_activity_recycler_view_top_margin">-28dp</dimen>
 
 </resources>

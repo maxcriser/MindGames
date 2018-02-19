@@ -2,14 +2,16 @@ package com.example.mvmax.mindgames.games.guessthestory.model;
 
 import android.support.annotation.Nullable;
 
+import com.example.mvmax.mindgames.model.IGameModel;
 import com.example.mvmax.mindgames.model.IModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel>, Serializable {
+public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel>, IGameModel, Serializable {
 
+    private String title;
     private final List<GuessTheStoryGameItemModel> stories;
 
     public GuessTheStoryGameModel() {
@@ -35,5 +37,10 @@ public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel
     @Override
     public List<GuessTheStoryGameItemModel> getList() {
         return stories;
+    }
+
+    @Override
+    public String getTitle() {
+        return title;
     }
 }

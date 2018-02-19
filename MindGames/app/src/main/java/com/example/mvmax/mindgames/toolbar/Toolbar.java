@@ -8,6 +8,7 @@ import android.support.annotation.IntDef;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import java.lang.annotation.RetentionPolicy;
 public class Toolbar extends RelativeLayout {
 
     private View mContainer;
+    private View mSecondBackground;
     private TextView mTitle;
     private AppCompatImageView mMenuIcon;
     private AppCompatImageView mBackIcon;
@@ -70,6 +72,7 @@ public class Toolbar extends RelativeLayout {
         mContainer = findViewById(R.id.toolbar_view_container);
         mMenuIcon = findViewById(R.id.toolbar_view_menu);
         mBackIcon = findViewById(R.id.toolbar_view_back);
+        mSecondBackground = findViewById(R.id.second_background_toolbar_view);
     }
 
     private void init() {
@@ -82,6 +85,7 @@ public class Toolbar extends RelativeLayout {
         @SuppressLint("CustomViewStyleable") final TypedArray typedArray = getContext().obtainStyledAttributes(pAttrs, R.styleable.mg_toolbar, 0, 0);
 
         try {
+            final int secondBackgroundColor = typedArray.getColor(R.styleable.mg_toolbar_second_background_color, Color.TRANSPARENT);
             final int color = typedArray.getColor(R.styleable.mg_toolbar_background_color, Color.TRANSPARENT);
             final String titleString = typedArray.getString(R.styleable.mg_toolbar_title);
             final int actions = typedArray.getInteger(R.styleable.mg_toolbar_action, Action.NONE);
@@ -89,21 +93,39 @@ public class Toolbar extends RelativeLayout {
             updateView(actions);
             setToolbarBackground(color);
             setTitle(titleString);
+            setSecondBackgroundColor(secondBackgroundColor);
         } finally {
             typedArray.recycle();
         }
+    }
+
+    private void setSecondBackgroundColor(final int pColor) {
+        mSecondBackground.setBackgroundColor(pColor);
+    }
+
+    public View getSecondBackgroundView() {
+        return mSecondBackground;
     }
 
     private void updateView(final int pActions) {
         initActions(pActions);
     }
 
-    private void setTitle(final String pString) {
+    public void setTitle(final String pString) {
         UiUtil.setTextOrHide(mTitle, pString);
+    }
+
+    public void setAllCaps(final boolean pIsAllCaps) {
+        mTitle.setAllCaps(pIsAllCaps);
     }
 
     public void setToolbarBackground(final int pToolbarBackground) {
         mContainer.setBackgroundColor(pToolbarBackground);
+    }
+
+    public void addStatusBarHeight(final int pPx) {
+        final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) mContainer.getLayoutParams();
+        layoutParams.setMargins(0, pPx, 0, 0);
     }
 
     public AppCompatImageView getMenuIconView() {

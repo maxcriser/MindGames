@@ -4,15 +4,14 @@ import android.annotation.TargetApi;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
+import com.example.mvmax.mindgames.clicklistener.OnBackClickListener;
 import com.example.mvmax.mindgames.flex.ObservableRecyclerView;
 import com.example.mvmax.mindgames.flex.ObservableScrollViewCallbacks;
 import com.example.mvmax.mindgames.flex.ScrollState;
@@ -20,7 +19,8 @@ import com.example.mvmax.mindgames.flex.ScrollUtils;
 import com.example.mvmax.mindgames.flex.ViewHelper;
 import com.example.mvmax.mindgames.games.guessthestory.adapter.GuessTheStoryAdapter;
 import com.example.mvmax.mindgames.games.guessthestory.executable.GuessTheStoryGameExecutable;
-import com.example.mvmax.mindgames.util.UiUtil;
+import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameModel;
+import com.example.mvmax.mindgames.toolbar.Toolbar;
 
 public class GuessTheStoryGameActivity extends BaseActivity implements ObservableScrollViewCallbacks {
 
@@ -32,17 +32,26 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
     private TextView mTitleView;
     private int mActionBarSize;
     private int mFlexibleSpaceImageHeight;
+    private View mToolbarSecondBackgroundView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_the_story_game);
 
+        final GuessTheStoryGameModel gameModel = new GuessTheStoryGameExecutable().execute();
+
+        final Toolbar toolbar = findViewById(R.id.toolbar_view);
+        toolbar.setAllCaps(true);
+        toolbar.setTitle(gameModel.getTitle());
+        toolbar.addStatusBarHeight(getStatusBarHeight());
+        toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
+
+        mToolbarSecondBackgroundView = toolbar.getSecondBackgroundView();
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.guess_the_story_activity_header_height);
         mActionBarSize = getActionBarSize();
 
         final ObservableRecyclerView recyclerView = findViewById(R.id.guess_the_story_recycler);
-        final CardView recyclerCardView = findViewById(R.id.guess_the_story_card_view);
         recyclerView.setScrollViewCallbacks(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(false);
@@ -52,25 +61,11 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
 
             @Override
             public void run() {
-//                headerView.getLayoutParams().height = mFlexibleSpaceImageHeight;
+                headerView.getLayoutParams().height = mFlexibleSpaceImageHeight;
             }
         });
 
-        recyclerCardView.post(new Runnable() {
-
-            @Override
-            public void run() {
-                final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) recyclerCardView.getLayoutParams();
-
-                layoutParams.setMargins((int) UiUtil.dpToPx(getApplicationContext(), 16), 20, (int) UiUtil.dpToPx(getApplicationContext(), 16), 0);
-
-                recyclerCardView.setLayoutParams(layoutParams);
-            }
-        });
-
-        recyclerView.setAdapter(new GuessTheStoryAdapter(
-                new GuessTheStoryGameExecutable().execute().getList(),
-                null));
+        recyclerView.setAdapter(new GuessTheStoryAdapter(gameModel.getList(), headerView));
 
         mImageView = findViewById(R.id.guess_the_story_image);
         mOverlayView = findViewById(R.id.guess_the_story_overlay);
@@ -118,7 +113,9 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
         ViewHelper.setTranslationY(mRecyclerViewBackground, Math.max(0, -scrollY + mFlexibleSpaceImageHeight));
 
         // Change alpha of overlay
-        ViewHelper.setAlpha(mOverlayView, ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1));
+        final float alphaValue = ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1);
+        ViewHelper.setAlpha(mOverlayView, alphaValue);
+        ViewHelper.setAlpha(mToolbarSecondBackgroundView, alphaValue);
 
         // Scale title text
         final float scale = 1 + ScrollUtils.getFloat((flexibleRange - scrollY) / flexibleRange, 0, MAX_TEXT_SCALE_DELTA);
