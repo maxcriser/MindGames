@@ -76,4 +76,6 @@
     <dimen name="fragment_game_text_poster_left_margin">4dp</dimen>
     <dimen name="dialog_message_end_padding">24dp</dimen>
 
+    <dimen name="guess_the_story_activity_header_height">270dp</dimen>
+
 </resources>

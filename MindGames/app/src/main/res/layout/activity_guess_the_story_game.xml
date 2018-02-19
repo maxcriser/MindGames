@@ -1,7 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recyclerView"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"/>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/guess_the_story_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guess_the_story_activity_header_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/template_poster"/>
+
+    <View
+        android:id="@+id/guess_the_story_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guess_the_story_activity_header_height"
+        android:background="?attr/colorPrimary"/>
+
+    <View
+        android:id="@+id/guess_the_story_list_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"/>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/guess_the_story_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-56dp">
+
+        <com.example.mvmax.mindgames.flex.ObservableRecyclerView
+            android:id="@+id/guess_the_story_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"/>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/margin_standard"
+        android:paddingLeft="@dimen/margin_standard"
+        android:paddingStart="@dimen/margin_standard">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:minHeight="?attr/actionBarSize"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/guess_the_story_activity_header_height"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+</FrameLayout>

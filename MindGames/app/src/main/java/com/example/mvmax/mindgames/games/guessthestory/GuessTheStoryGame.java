@@ -10,9 +10,9 @@ import com.example.mvmax.mindgames.gamecard.info.GameCardExampleFragment;
 import com.example.mvmax.mindgames.gamecard.info.GameCardRulesFragment;
 import com.example.mvmax.mindgames.gamecard.info.example.ExampleMessageModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
+import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
 import com.example.mvmax.mindgames.gamecard.model.GameCardTabModel;
 import com.example.mvmax.mindgames.games.IBaseGame;
-import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
 
 import java.util.ArrayList;
 import java.util.List;

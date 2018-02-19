@@ -1,104 +1,154 @@
 package com.example.mvmax.mindgames.games.guessthestory;
 
+import android.annotation.TargetApi;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
+import com.example.mvmax.mindgames.flex.ObservableRecyclerView;
+import com.example.mvmax.mindgames.flex.ObservableScrollViewCallbacks;
+import com.example.mvmax.mindgames.flex.ScrollState;
+import com.example.mvmax.mindgames.flex.ScrollUtils;
+import com.example.mvmax.mindgames.flex.ViewHelper;
+import com.example.mvmax.mindgames.games.guessthestory.adapter.GuessTheStoryAdapter;
 import com.example.mvmax.mindgames.games.guessthestory.executable.GuessTheStoryGameExecutable;
-import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameItemModel;
-import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameModel;
-import com.github.florent37.expansionpanel.ExpansionLayout;
-import com.github.florent37.expansionpanel.ExpansionLayoutCollection;
+import com.example.mvmax.mindgames.util.UiUtil;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+public class GuessTheStoryGameActivity extends BaseActivity implements ObservableScrollViewCallbacks {
 
-public class GuessTheStoryGameActivity extends BaseActivity {
+    private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
-    RecyclerView recyclerView;
+    private View mImageView;
+    private View mOverlayView;
+    private View mRecyclerViewBackground;
+    private TextView mTitleView;
+    private int mActionBarSize;
+    private int mFlexibleSpaceImageHeight;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_the_story_game);
 
-        final GuessTheStoryGameModel guessTheStoryGameModel = new GuessTheStoryGameExecutable().execute();
+        mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.guess_the_story_activity_header_height);
+        mActionBarSize = getActionBarSize();
 
-        recyclerView = findViewById(R.id.recyclerView);
+        final ObservableRecyclerView recyclerView = findViewById(R.id.guess_the_story_recycler);
+        final CardView recyclerCardView = findViewById(R.id.guess_the_story_card_view);
+        recyclerView.setScrollViewCallbacks(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final RecyclerAdapter adapter = new RecyclerAdapter();
-        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(false);
 
-        adapter.setItems(guessTheStoryGameModel.getList());
+        final View headerView = LayoutInflater.from(this).inflate(R.layout.recycler_header, null);
+        headerView.post(new Runnable() {
+
+            @Override
+            public void run() {
+//                headerView.getLayoutParams().height = mFlexibleSpaceImageHeight;
+            }
+        });
+
+        recyclerCardView.post(new Runnable() {
+
+            @Override
+            public void run() {
+                final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) recyclerCardView.getLayoutParams();
+
+                layoutParams.setMargins((int) UiUtil.dpToPx(getApplicationContext(), 16), 20, (int) UiUtil.dpToPx(getApplicationContext(), 16), 0);
+
+                recyclerCardView.setLayoutParams(layoutParams);
+            }
+        });
+
+        recyclerView.setAdapter(new GuessTheStoryAdapter(
+                new GuessTheStoryGameExecutable().execute().getList(),
+                null));
+
+        mImageView = findViewById(R.id.guess_the_story_image);
+        mOverlayView = findViewById(R.id.guess_the_story_overlay);
+
+        mTitleView = findViewById(R.id.title);
+        mTitleView.setText(getTitle());
+        setTitle(null);
+
+        mRecyclerViewBackground = findViewById(R.id.guess_the_story_list_background);
+
+        final float scale = 1 + MAX_TEXT_SCALE_DELTA;
+
+        mRecyclerViewBackground.post(new Runnable() {
+
+            @Override
+            public void run() {
+                ViewHelper.setTranslationY(mRecyclerViewBackground, mFlexibleSpaceImageHeight);
+            }
+        });
+
+        ViewHelper.setTranslationY(mOverlayView, mFlexibleSpaceImageHeight);
+
+        mTitleView.post(new Runnable() {
+
+            @Override
+            public void run() {
+                ViewHelper.setTranslationY(mTitleView, (int) (mFlexibleSpaceImageHeight - mTitleView.getHeight() * scale));
+                ViewHelper.setPivotX(mTitleView, 0);
+                ViewHelper.setPivotY(mTitleView, 0);
+                ViewHelper.setScaleX(mTitleView, scale);
+                ViewHelper.setScaleY(mTitleView, scale);
+            }
+        });
     }
 
-    public static final class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder> {
+    @Override
+    public void onScrollChanged(final int scrollY, final boolean firstScroll, final boolean dragging) {
+        final float flexibleRange = mFlexibleSpaceImageHeight - mActionBarSize;
+        final int minOverlayTransitionY = mActionBarSize - mOverlayView.getHeight();
 
-        private final List<GuessTheStoryGameItemModel> mList = new ArrayList<>();
-        private final ExpansionLayoutCollection mExpansionsCollection = new ExpansionLayoutCollection();
+        ViewHelper.setTranslationY(mOverlayView, ScrollUtils.getFloat(-scrollY, minOverlayTransitionY, 0));
+        ViewHelper.setTranslationY(mImageView, ScrollUtils.getFloat(-scrollY / 2, minOverlayTransitionY, 0));
 
-        RecyclerAdapter() {
-            mExpansionsCollection.openOnlyOne(true);
-        }
+        // Translate list background
+        ViewHelper.setTranslationY(mRecyclerViewBackground, Math.max(0, -scrollY + mFlexibleSpaceImageHeight));
 
-        @Override
-        public RecyclerHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-            return RecyclerHolder.buildFor(parent);
-        }
+        // Change alpha of overlay
+        ViewHelper.setAlpha(mOverlayView, ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1));
 
-        @Override
-        public void onBindViewHolder(final RecyclerHolder holder, final int position) {
-            holder.bind(mList.get(position));
+        // Scale title text
+        final float scale = 1 + ScrollUtils.getFloat((flexibleRange - scrollY) / flexibleRange, 0, MAX_TEXT_SCALE_DELTA);
+        setPivotXToTitle();
+        ViewHelper.setPivotY(mTitleView, 0);
+        ViewHelper.setScaleX(mTitleView, scale);
+        ViewHelper.setScaleY(mTitleView, scale);
 
-            mExpansionsCollection.add(holder.getExpansionLayout());
-        }
+        // Translate title text
+        final int maxTitleTranslationY = (int) (mFlexibleSpaceImageHeight - mTitleView.getHeight() * scale);
+        final int titleTranslationY = maxTitleTranslationY - scrollY;
+        ViewHelper.setTranslationY(mTitleView, titleTranslationY);
+    }
 
-        @Override
-        public int getItemCount() {
-            return mList.size();
-        }
+    @Override
+    public void onDownMotionEvent() {
+    }
 
-        void setItems(final Collection<GuessTheStoryGameItemModel> items) {
-            this.mList.addAll(items);
-            notifyDataSetChanged();
-        }
+    @Override
+    public void onUpOrCancelMotionEvent(final ScrollState scrollState) {
+    }
 
-        static final class RecyclerHolder extends RecyclerView.ViewHolder {
-
-            private final ExpansionLayout expansionLayout;
-            private final TextView mTask;
-            private final TextView mAnswer;
-            private final TextView mName;
-
-            static RecyclerHolder buildFor(final ViewGroup viewGroup) {
-                return new RecyclerHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.guess_the_story_recycler_cell, viewGroup, false));
-            }
-
-            RecyclerHolder(final View itemView) {
-                super(itemView);
-                expansionLayout = itemView.findViewById(R.id.expansionLayout);
-                mTask = itemView.findViewById(R.id.guess_the_story_list_item_task);
-                mName = itemView.findViewById(R.id.guess_the_story_list_item_name);
-                mAnswer = itemView.findViewById(R.id.guess_the_story_list_item_answer);
-            }
-
-            void bind(final GuessTheStoryGameItemModel pItem) {
-                expansionLayout.collapse(false);
-                mTask.setText(pItem.getTask());
-                mAnswer.setText(pItem.getAnswer());
-                mName.setText(pItem.getName());
-            }
-
-            ExpansionLayout getExpansionLayout() {
-                return expansionLayout;
-            }
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void setPivotXToTitle() {
+        final Configuration config = getResources().getConfiguration();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
+                && config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            ViewHelper.setPivotX(mTitleView, findViewById(android.R.id.content).getWidth());
+        } else {
+            ViewHelper.setPivotX(mTitleView, 0);
         }
     }
 }

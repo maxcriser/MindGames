@@ -21,6 +21,11 @@
         <activity android:name=".gamecard.GameCardActivity"/>
         <activity android:name=".games.guessthestory.GuessTheStoryGameActivity"/>
 
+        <!--SAMPLE ACTIVITIES-->
+        <activity
+            android:name=".sample.SwipeStackSampleActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>
