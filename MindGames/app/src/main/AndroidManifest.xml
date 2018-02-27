@@ -22,6 +22,9 @@
         <activity
             android:name=".games.guessthestory.GuessTheStoryGameActivity"
             android:exported="true"/>
+        <activity
+            android:name=".games.guesstheword.GuessTheWordGameActivity"
+            android:exported="true"/>
 
         <!--SAMPLE ACTIVITIES-->
         <activity

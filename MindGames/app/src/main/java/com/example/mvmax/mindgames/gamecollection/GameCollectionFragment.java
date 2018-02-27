@@ -24,7 +24,7 @@ public class GameCollectionFragment extends BaseFragment {
 
         @Override
         public void onPageSelected(final int pPosition) {
-            setBackgroundDrawable(mCardAdapter.getGames().get(pPosition).getPoster());
+            setBackgroundUrl(mCardAdapter.getGames().get(pPosition).getPosterUrl());
         }
     };
 
@@ -65,16 +65,13 @@ public class GameCollectionFragment extends BaseFragment {
     }
 
     private void initViews() {
-        final View view = getView();
-
-        if (view == null) {
-            return;
-        }
-
         setBackgroundDrawable(R.drawable.template_blurred_background);
 
-        final Toolbar toolbar = view.findViewById(R.id.toolbar_view);
-        toolbar.getMenuIconView().setOnClickListener(new OpenDrawerClickListener(getContext()));
+        final Toolbar toolbar = findToolbarView();
+
+        if (toolbar != null) {
+            toolbar.getMenuIconView().setOnClickListener(new OpenDrawerClickListener(getContext()));
+        }
     }
 
     @Override

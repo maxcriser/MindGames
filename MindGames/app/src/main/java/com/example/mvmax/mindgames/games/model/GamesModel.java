@@ -11,6 +11,7 @@ import java.util.List;
 
 public class GamesModel implements IModel<GameCardModel>, Serializable {
 
+    private String poster;
     private final List<GameCardModel> games;
 
     public GamesModel() {
@@ -48,5 +49,10 @@ public class GamesModel implements IModel<GameCardModel>, Serializable {
     @Override
     public List<GameCardModel> getList() {
         return games;
+    }
+
+    @Override
+    public String getPosterUrl() {
+        return poster;
     }
 }

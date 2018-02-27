@@ -17,7 +17,7 @@ public interface IBaseGame extends Serializable {
 
     String getDescription();
 
-    int getPoster();
+    String getPosterUrl();
 
     boolean isAvailable();
 

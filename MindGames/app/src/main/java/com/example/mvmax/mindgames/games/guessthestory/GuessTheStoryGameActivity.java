@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
@@ -21,12 +22,13 @@ import com.example.mvmax.mindgames.games.guessthestory.adapter.GuessTheStoryAdap
 import com.example.mvmax.mindgames.games.guessthestory.executable.GuessTheStoryGameExecutable;
 import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameModel;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
+import com.squareup.picasso.Picasso;
 
 public class GuessTheStoryGameActivity extends BaseActivity implements ObservableScrollViewCallbacks {
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
-    private View mImageView;
+    private ImageView mImageView;
     private View mOverlayView;
     private View mRecyclerViewBackground;
     private TextView mTitleView;
@@ -41,13 +43,16 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
 
         final GuessTheStoryGameModel gameModel = new GuessTheStoryGameExecutable().execute();
 
-        final Toolbar toolbar = findViewById(R.id.toolbar_view);
-        toolbar.setAllCaps(true);
-        toolbar.setTitle(gameModel.getTitle());
-        toolbar.addStatusBarHeight(getStatusBarHeight());
-        toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
+        final Toolbar toolbar = findToolbarView();
 
-        mToolbarSecondBackgroundView = toolbar.getSecondBackgroundView();
+        if (toolbar != null) {
+            toolbar.setAllCaps(true);
+            toolbar.setTitle(gameModel.getTitle());
+            toolbar.addStatusBarHeight(getStatusBarHeight());
+            toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
+            mToolbarSecondBackgroundView = toolbar.getSecondBackgroundView();
+        }
+
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.guess_the_story_activity_header_height);
         mActionBarSize = getActionBarSize();
 
@@ -69,6 +74,8 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
 
         mImageView = findViewById(R.id.guess_the_story_image);
         mOverlayView = findViewById(R.id.guess_the_story_overlay);
+
+        Picasso.with(this).load(gameModel.getPosterUrl()).into(mImageView);
 
         mTitleView = findViewById(R.id.title);
         mTitleView.setText(getTitle());

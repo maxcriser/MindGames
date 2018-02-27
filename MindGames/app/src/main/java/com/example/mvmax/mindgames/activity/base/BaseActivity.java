@@ -3,14 +3,13 @@ package com.example.mvmax.mindgames.activity.base;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +17,7 @@ import android.widget.ImageView;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.GameCardActivity;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
+import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.example.mvmax.mindgames.util.UiUtil;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
@@ -117,6 +117,11 @@ public class BaseActivity extends AppCompatActivity {
         startActivity(new Intent(pContext, pActivityClass));
     }
 
+    @Nullable
+    public Toolbar findToolbarView() {
+        return findViewById(R.id.toolbar_view);
+    }
+
     protected int getActionBarSize() {
         return 100;
 //        final TypedValue typedValue = new TypedValue();
@@ -132,5 +137,13 @@ public class BaseActivity extends AppCompatActivity {
 
     protected int getScreenHeight() {
         return findViewById(android.R.id.content).getHeight();
+    }
+
+    public void loadGameCardPoster(final String pUrl) {
+        Picasso.with(this).load(pUrl).into((ImageView) findViewById(R.id.game_fragment_poster));
+    }
+
+    public void loadGameCardHeader(final String pUrl) {
+        Picasso.with(this).load(pUrl).into((ImageView) findViewById(R.id.game_fragment_header_background));
     }
 }

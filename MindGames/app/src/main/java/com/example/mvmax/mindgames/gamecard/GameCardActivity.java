@@ -76,9 +76,8 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     }
 
     private void bindHeader() {
-        final int poster = mGameCardModel.getPoster();
+        loadGameCardPoster(mGameCardModel.getPosterUrl());
 
-        mPoster.setImageResource(poster);
         mPlayButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -92,8 +91,11 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     }
 
     private void init() {
-        final Toolbar toolbar = findViewById(R.id.toolbar_view);
-        toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
+        final Toolbar toolbar = findToolbarView();
+
+        if (toolbar != null) {
+            toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
+        }
 
         mPoster = findViewById(R.id.game_fragment_poster);
         mName = findViewById(R.id.game_fragment_header_name);
@@ -110,8 +112,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         findViewById(R.id.pager_wrapper).setPadding(0, mFlexibleSpaceHeight, 0, 0);
         setTitle(null);
 
-        final AppCompatImageView headerBackground = findViewById(R.id.game_fragment_header_background);
-        headerBackground.setImageResource(mGameCardModel.getPoster());
+        loadGameCardHeader(mGameCardModel.getPosterUrl());
     }
 
     private void initSlidingTabs() {

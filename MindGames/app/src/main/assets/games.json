@@ -123,124 +123,30 @@
       ]
     },
     {
-      "id": "game.id:guess_the_story",
-      "name": "Guess the story",
-      "description": "An addictive game with confusing stories to be solved",
+      "id": "game.id:guess_the_word",
+      "name": "Guess the word",
+      "description": "Description for guess the word game right here",
       "isAvailable": true,
-      "example": [
-        {
-          "type": "info",
-          "message": "The main player gets the story and reads to the players"
-        },
-        {
-          "type": "presenter",
-          "message": "A bright flash - and a man is dead."
-        },
-        {
-          "type": "player",
-          "message": "He was killed?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes."
-        },
-        {
-          "type": "player",
-          "message": "He died from a shot?"
-        },
-        {
-          "type": "presenter",
-          "message": "No."
-        },
-        {
-          "type": "player",
-          "message": "He was killed by a man?"
-        },
-        {
-          "type": "presenter",
-          "message": "No."
-        },
-        {
-          "type": "player",
-          "message": "He was killed by an animal?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes."
-        },
-        {
-          "type": "player",
-          "message": "What animal killed him?"
-        },
-        {
-          "type": "info",
-          "message": "The player asked the wrong question. The question should have the answer \"Yes\" or \"No\"."
-        },
-        {
-          "type": "player",
-          "message": "It was a predatory animal?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes."
-        },
-        {
-          "type": "player",
-          "message": "Did it happen in the circus?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes."
-        },
-        {
-          "type": "player",
-          "message": "Was it a lion?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes."
-        },
-        {
-          "type": "player",
-          "message": "Maybe it was show in the circus and somebody make picture with light and lion scared and killed the man?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes. But how lion killed the man?"
-        },
-        {
-          "type": "player",
-          "message": "During the show he put his head in the jaws of the lion?"
-        },
-        {
-          "type": "presenter",
-          "message": "Yes. The story is solved."
-        },
-        {
-          "type": "finish",
-          "message": "Answer: The rescuer put his head in the jaws of the lion and then someone decided to photograph the whole thing. The lion was frightened by the flash and slammed his mouth shut. The trainer was left without a head."
-        }
-      ],
       "rules": [
         {
-          "title": "Receiving an assignment",
-          "description": "The main player reads aloud a part of the story, after which he looks at the answer, but does not pronounce it."
+          "title": "Division into teams",
+          "description": "Players are divided into teams with an equal number of players."
         },
         {
-          "title": "Game process",
-          "description": "Players begin to ask questions, to which the main player can answer only \"Yes\" or \"No\"."
+          "title": "Settings",
+          "description": "The game is pre-configured for a certain number of players, vocabulary, time and etc..."
         },
         {
-          "title": "Additional rule",
-          "description": "The number of player questions is unlimited."
+          "title": "Beginning of the gameplay",
+          "description": "Each player from the team begins to ask questions to his team from the list of words."
+        },
+        {
+          "title": "Gameplay",
+          "description": "Teams take turns asking questions to their colleagues."
         },
         {
           "title": "End of the game",
-          "description": "After the players have successfully revealed the whole story the game is considered finished."
-        },
-        {
-          "title": "Recommendation",
-          "description": "Players can go on to unravel the next story."
+          "description": "The team that wins more words for all rounds wins."
         }
       ]
     }

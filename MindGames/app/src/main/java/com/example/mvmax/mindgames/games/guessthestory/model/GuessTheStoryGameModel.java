@@ -12,6 +12,7 @@ import java.util.List;
 public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel>, IGameModel, Serializable {
 
     private String title;
+    private String poster;
     private final List<GuessTheStoryGameItemModel> stories;
 
     public GuessTheStoryGameModel() {
@@ -37,6 +38,11 @@ public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel
     @Override
     public List<GuessTheStoryGameItemModel> getList() {
         return stories;
+    }
+
+    @Override
+    public String getPosterUrl() {
+        return poster;
     }
 
     @Override
