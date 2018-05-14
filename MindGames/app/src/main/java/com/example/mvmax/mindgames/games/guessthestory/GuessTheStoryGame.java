@@ -1,6 +1,5 @@
 package com.example.mvmax.mindgames.games.guessthestory;
 
-import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.constants.Constant;
 import com.example.mvmax.mindgames.games.AbstractBaseGame;
 
@@ -17,7 +16,7 @@ public class GuessTheStoryGame extends AbstractBaseGame {
 
     @Override
     public String getPosterUrl() {
-        return "http://www.gamersyde.com/news_below_death_s_door_trailer-17684.jpg";
+        return "https://pre00.deviantart.net/b59b/th/pre/i/2015/064/f/1/metroid_prime_by_noble__6-d8kl4mp.jpg";
     }
 
     @Override

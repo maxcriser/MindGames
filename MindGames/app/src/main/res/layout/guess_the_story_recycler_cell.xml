@@ -88,6 +88,14 @@
                     style="@style/GuessTheStoryFullInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
+                <CheckBox
+                    android:id="@+id/guess_the_story_mark_as_done_check_box"
+                    style="@style/CheckBoxStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mark_as_done"/>
+
             </LinearLayout>
 
         </com.github.florent37.expansionpanel.ExpansionLayout>

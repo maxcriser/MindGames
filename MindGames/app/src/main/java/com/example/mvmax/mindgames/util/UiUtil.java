@@ -2,6 +2,7 @@ package com.example.mvmax.mindgames.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -51,6 +52,16 @@ public final class UiUtil {
                 setVisibility(pTextView, View.VISIBLE);
             } else {
                 setVisibility(pTextView, View.GONE);
+            }
+        }
+    }
+
+    public static void setStrikeThruTextView(final boolean pIsStrikeThru, final TextView... pTextViews) {
+        for (final TextView textView : pTextViews) {
+            if (pIsStrikeThru) {
+                textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            } else {
+                textView.setPaintFlags(textView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
             }
         }
     }

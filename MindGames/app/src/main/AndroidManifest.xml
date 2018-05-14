@@ -2,6 +2,8 @@
 <manifest package="com.example.mvmax.mindgames"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".Core"
         android:allowBackup="true"
@@ -19,6 +21,7 @@
         </activity>
 
         <activity android:name=".gamecard.GameCardActivity"/>
+
         <activity
             android:name=".games.guessthestory.GuessTheStoryGameActivity"
             android:exported="true"/>

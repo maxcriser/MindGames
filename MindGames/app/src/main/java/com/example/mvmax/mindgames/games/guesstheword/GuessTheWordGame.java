@@ -15,7 +15,7 @@ public class GuessTheWordGame extends AbstractBaseGame {
 
     @Override
     public String getPosterUrl() {
-        return "https://gamecenter.nyu.edu/wp-content/uploads/2011/10/game-jam-poster.png";
+        return "http://www.modafinilsale.com/data/out/237/228441440-dishonored-wallpaper.jpg";
     }
 
     @Override

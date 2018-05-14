@@ -105,4 +105,10 @@
         <item name="android:textColor">@color/guess_the_story_activity_full_info_text_color</item>
     </style>
 
+    <style name="CheckBoxStyle">
+        <item name="android:textSize">@dimen/guess_the_story_activity_title_size</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textColor">@color/guess_the_story_activity_title_text_color</item>
+    </style>
+
 </resources>
