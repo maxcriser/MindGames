@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.OverScroller;
 import android.widget.TextView;
 
@@ -52,6 +53,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     private int mActivePointerId = INVALID_POINTER;
     private int mSlop;
     private int mFlexibleSpaceHeight;
+    private int mStatusBarHeight;
     private int mTabHeight;
     private boolean mScrolled;
 
@@ -102,6 +104,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         mPager = findViewById(R.id.pager);
         mOverlayView = findViewById(R.id.overlay);
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.game_fragment_top_layout_height_with_tab_layout);
+        mStatusBarHeight = getStatusBarHeight();
         mTabHeight = getResources().getDimensionPixelSize(R.dimen.tab_height);
 
         mPagerAdapter = new GameCardInfoPagerAdapter(getSupportFragmentManager(), mGameCardModel);
@@ -176,7 +179,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
                 return false;
             }
 
-            final int flexibleSpace = mFlexibleSpaceHeight - mTabHeight;
+            final int flexibleSpace = mFlexibleSpaceHeight - mTabHeight - mStatusBarHeight;
             final int translationY = (int) ViewHelper.getTranslationY(mInterceptionLayout);
             final boolean scrollingUp = diffY > 0;
             final boolean scrollingDown = diffY < 0;
