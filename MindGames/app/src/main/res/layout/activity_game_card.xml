@@ -39,7 +39,7 @@
             app:realtimeOverlayColor="@color/poster_blurred_color" />
 
         <View
-            android:id="@+id/overlay"
+            android:id="@+id/guess_the_story_overlay"
             android:layout_width="match_parent"
             android:layout_height="@dimen/game_fragment_top_layout_height_with_tab_layout"
             android:background="?attr/colorPrimary" />

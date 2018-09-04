@@ -6,6 +6,7 @@
 
     <declare-styleable name="mg_toolbar">
         <attr name="title" format="string"/>
+        <attr name="second_background_color" format="color"/>
         <attr name="background_color" format="color"/>
         <attr name="action" format="integer">
             <flag name="menu" value="1"/>
@@ -17,6 +18,7 @@
         <attr name="item_title" format="string"/>
     </declare-styleable>
 
+<<<<<<< HEAD
     <declare-styleable name="timeline_style" >
         <attr name="marker" format="color|reference"/>
         <attr name="line" format="color|reference"/>
@@ -28,5 +30,14 @@
         </attr>
         <attr name="linePadding" format="dimension"/>
         <attr name="markerInCenter" format="boolean"/>
+=======
+    <declare-styleable name="MaterialSquareLoading">
+        <attr name="innerColor" format="color"/>
+        <attr name="outerColor" format="color"/>
+        <attr name="rotationInnerDuration" format="integer"/>
+        <attr name="rotationOuterDuration" format="integer"/>
+        <attr name="outerRadius" format="dimension"/>
+        <attr name="innerRadius" format="dimension"/>
+>>>>>>> 012cf24b4efb6e3762d6e9e6f3d20d99ceb84c49
     </declare-styleable>
 </resources>

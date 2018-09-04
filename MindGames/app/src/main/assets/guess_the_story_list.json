@@ -1,14 +1,395 @@
 {
+  "title": "Guess the story",
   "stories": [
     {
-      "name":"Альбатрос",
-      "task": "Мужчина зашел в ресторан и заказал себе порцию мяса альбатроса. После этого он вышел и застрелился.\nВопрос: почему он застрелился?.",
-      "answer": "Когда-то давно мужчина с женой путешествовали по морям и корабль потерпел кораблекрушение. Он с женой и одним матросом чудом добралась до необитаемого острова. Жена этого человека была серьёзно ранена. На острове была проблема голода. Однажды, вернувшись с охоты, матрос угостил его мясом альбатроса, а про жену сказал, что она умерла и он её похоронил. Спустя какое-то время, их спасли.\nВ ресторане же, попробовав настоящее мясо альбатроса, он понял, что тогда ел жену."
+      "name": "Albatross",
+      "task": "A man went into a restaurant and ordered himself a portion of the meat of the albatross. \nAfter that he went out and shot himself. \nThe question: why did he shoot himself?",
+      "answer": "Once upon a time, a man and his wife traveled the seas and the ship was shipwrecked. He and his wife and one sailor miraculously reached the uninhabited island. The wife of this man was seriously injured. On the island was the problem of hunger. One day, after returning from hunting, the sailor treated him with albatross meat, and about his wife said that she died and he buried her. After some time, they were rescued.\nIn the restaurant, having tried the real meat of the albatross, he realized that at that time he ate his wife."
     },
     {
-      "name":"Странный экзамен",
-      "task": "Экзамен в военном училище. Студент берет билет, идет готовиться. Через минуту подходит к преподавателю. Тот ничего не спрашивая ставит 5. Счастливый студент уходит.\nПроясните ситуацию.",
-      "answer": "Преподаватель на языке азбуки Морзе набивал карандашом по столу: \"Кому нужна пятерка подходите, поставлю\". Всего один студент был по-военному бдителен и обратил внимание на шифровку преподавателя. За это он и получил 5."
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
+    },
+    {
+      "name": "Strange exam",
+      "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
+      "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
     }
   ]
 }

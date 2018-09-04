@@ -102,7 +102,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         mDescription = findViewById(R.id.game_fragment_header_description);
         mPlayButton = findViewById(R.id.game_fragment_play_button);
         mPager = findViewById(R.id.pager);
-        mOverlayView = findViewById(R.id.overlay);
+        mOverlayView = findViewById(R.id.guess_the_story_overlay);
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.game_fragment_top_layout_height_with_tab_layout);
         mStatusBarHeight = getStatusBarHeight();
         mTabHeight = getResources().getDimensionPixelSize(R.dimen.tab_height);

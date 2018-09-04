@@ -5,11 +5,14 @@
     <color name="colorAccent">@color/brand_color</color>
 
     // static names
+    <color name="white_fa">#fafafa</color>
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="material_blue">#0b84fd</color>
     <color name="gray_dark">#252525</color>
     <color name="gray_light">#e6e5eb</color>
+    <color name="gray_a">#AAA</color>
+    <color name="gray_e">#EEE</color>
     <color name="gray_opacity_114">#90909090</color>
     <color name="shadow_black_opacity_102">#66000000</color>
     <color name="shadow_black_opacity_150">#96000000</color>
@@ -23,6 +26,7 @@
     <color name="brand_color">@color/material_blue</color>
 
     // dynamic names
+    <color name="default_background_color">@color/white_fa</color>
     <color name="tab_indicator_color">@color/white</color>
     <color name="toolbar_elements_color">@color/white</color>
     <color name="drawer_item_text">@color/white</color>
@@ -38,5 +42,8 @@
     <color name="text_color">@color/black</color>
     <color name="example_message_player_color">@color/brand_color</color>
     <color name="example_message_presenter_color">@color/gray_light</color>
+    <color name="guess_the_story_activity_title_text_color">@color/black</color>
+    <color name="guess_the_story_activity_full_info_text_color">@color/black</color>
+    <color name="guess_the_story_activity_item_full_info_background">@color/white_fa</color>
 
 </resources>

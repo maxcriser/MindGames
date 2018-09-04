@@ -109,20 +109,25 @@ public class BaseActivity extends AppCompatActivity {
         contentView.setPadding(0, getStatusBarHeight(), 0, 0);
     }
 
+    public void setStatusBarPadding(final View pView) {
+        pView.setPadding(0, getStatusBarHeight(), 0, 0);
+    }
+
     public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {
         startActivity(new Intent(pContext, pActivityClass));
     }
 
     protected int getActionBarSize() {
-        final TypedValue typedValue = new TypedValue();
-        final int[] textSizeAttr = new int[]{R.attr.actionBarSize};
-        final int indexOfAttrTextSize = 0;
-        final TypedArray a = obtainStyledAttributes(typedValue.data, textSizeAttr);
-        final int actionBarSize = a.getDimensionPixelSize(indexOfAttrTextSize, -1);
-
-        a.recycle();
-
-        return actionBarSize;
+        return 100;
+//        final TypedValue typedValue = new TypedValue();
+//        final int[] textSizeAttr = new int[]{R.attr.actionBarSize};
+//        final int indexOfAttrTextSize = 0;
+//        final TypedArray a = obtainStyledAttributes(typedValue.data, textSizeAttr);
+//        final int actionBarSize = a.getDimensionPixelSize(indexOfAttrTextSize, -1);
+//
+//        a.recycle();
+//
+//        return actionBarSize;
     }
 
     protected int getScreenHeight() {

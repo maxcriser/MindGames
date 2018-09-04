@@ -26,7 +26,12 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.0.2'
     implementation 'com.android.support:design:27.0.2'
 
+<<<<<<< HEAD
     compile 'com.github.vipulasri:timelineview:1.0.6'
+=======
+    compile 'link.fls:swipestack:0.3.0'
+    compile 'com.github.florent37:expansionpanel:1.0.0'
+>>>>>>> 012cf24b4efb6e3762d6e9e6f3d20d99ceb84c49
     compile 'tyrantgit:explosionfield:1.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.mmin18:realtimeblurview:1.1.0'
