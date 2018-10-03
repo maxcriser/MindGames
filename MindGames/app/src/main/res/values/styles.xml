@@ -135,8 +135,7 @@
         <item name="android:textSize">@dimen/game_fragment_header_text_description_size</item>
     </style>
 
-    <style name="DrawerButtonStyle">
-        <item name="android:textColor">@color/drawer_item_text</item>
+    <style name="DrawerButtonStyle" parent="TextDark">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">@drawable/ripple_drawer_item</item>

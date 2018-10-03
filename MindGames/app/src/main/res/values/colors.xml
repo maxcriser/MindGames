@@ -37,12 +37,12 @@
     <color name="tab_indicator_color">@color/white</color>
     <color name="toolbar_elements_color">@color/white</color>
     <color name="drawer_item_text">@color/white</color>
-    <color name="toolbar_color">@color/shadow_black_opacity_102</color>
+    <color name="toolbar_color">@color/shadow_black_opacity_200</color>
     <color name="example_message_info_color">@color/shadow_black_opacity_200</color>
     <color name="example_message_info_header_color">@color/shadow_black_opacity_102</color>
     <color name="fragment_background_color">@color/white</color>
     <color name="poster_blurred_color">@color/shadow_black_opacity_160</color>
-    <color name="drawer_blurred_color">@color/shadow_black_opacity_245</color>
+    <color name="drawer_blurred_color">@color/fragment_background_color</color>
     <color name="ripple_drawer_item_background_color">@color/gray_dark</color>
     <color name="ripple_drawer_item_background_rectangle_color">@color/black</color>
     <color name="rules_line_color">@color/brand_color</color>

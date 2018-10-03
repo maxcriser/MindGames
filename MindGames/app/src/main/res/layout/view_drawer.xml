@@ -7,17 +7,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/search_bar_height"
-        android:background="#ff0000"
-        android:visibility="gone"/>
+        android:layout_height="160dp"
+        android:background="@drawable/auth_top_image"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/drawer_item_padding_left"
+        android:paddingRight="@dimen/drawer_item_padding_left"
+        android:paddingTop="@dimen/drawer_item_padding_left">
 
-    <android.support.v7.widget.AppCompatImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/drawer_header_height"
-        android:padding="@dimen/drawer_header_padding"
-        android:src="@drawable/application_logo"/>
+        <ImageView
+            android:id="@+id/profile_photo"
+            android:layout_width="@dimen/profile_photo_size"
+            android:layout_height="@dimen/profile_photo_size"
+            android:layout_gravity="center|start"
+            android:layout_marginBottom="4dp"
+            app:srcCompat="@drawable/no_photo_icon"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/StandartTextWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Максим Захаренко"/>
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/StandartTextGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mv.maxcriser@gmail.com"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <com.example.mvmax.mindgames.drawer.DrawerButton
         android:id="@+id/drawer_item_button_settings"
