@@ -21,17 +21,6 @@ public class BaseFragment extends Fragment {
         return null;
     }
 
-    public void setStatusBarPadding() {
-        final View view = getView();
-
-        if (view == null) {
-            return;
-        }
-
-        final View contentView = view.findViewById(R.id.fragment_base_content);
-        contentView.setPadding(0, UiUtil.getStatusBarHeight(getContext()), 0, 0);
-    }
-
     public void setBackgroundDrawable(final int pPoster) {
         final Activity activity = getActivity();
 

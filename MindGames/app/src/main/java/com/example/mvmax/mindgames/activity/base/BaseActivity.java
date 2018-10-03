@@ -100,19 +100,6 @@ public class BaseActivity extends AppCompatActivity {
                 .into(backgroundImageView);
     }
 
-    public int getStatusBarHeight() {
-        return UiUtil.getStatusBarHeight(this);
-    }
-
-    public void setStatusBarPadding() {
-        final View contentView = findViewById(R.id.main_content);
-        contentView.setPadding(0, getStatusBarHeight(), 0, 0);
-    }
-
-    public void setStatusBarPadding(final View pView) {
-        pView.setPadding(0, getStatusBarHeight(), 0, 0);
-    }
-
     public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {
         startActivity(new Intent(pContext, pActivityClass));
     }

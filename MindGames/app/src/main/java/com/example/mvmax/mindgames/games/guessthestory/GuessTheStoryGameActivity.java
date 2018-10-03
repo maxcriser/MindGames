@@ -48,7 +48,6 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
         if (toolbar != null) {
             toolbar.setAllCaps(true);
             toolbar.setTitle(gameModel.getTitle());
-            toolbar.addStatusBarHeight(getStatusBarHeight());
             toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
             mToolbarSecondBackgroundView = toolbar.getSecondBackgroundView();
         }

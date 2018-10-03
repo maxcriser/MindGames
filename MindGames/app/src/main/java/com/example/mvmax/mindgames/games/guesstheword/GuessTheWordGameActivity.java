@@ -22,7 +22,6 @@ public class GuessTheWordGameActivity extends BaseActivity {
             toolbar.setAllCaps(true);
 //            toolbar.setTitle(gameModel.getTitle());
             toolbar.setTitle("Word game");
-            toolbar.addStatusBarHeight(getStatusBarHeight());
             toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
         }
     }

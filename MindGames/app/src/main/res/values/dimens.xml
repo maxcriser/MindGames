@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="auth_content_margin">36dp</dimen>
+    <!--auth_logo_top_margin = auth_top_image_height - (auth_logo_size / 2 )-->
+    <dimen name="auth_logo_top_margin">130dp</dimen>
+    <dimen name="auth_logo_size">148dp</dimen>
+    <dimen name="auth_logo_height">172dp</dimen>
+    <dimen name="auth_logo_width">148dp</dimen>
+    <dimen name="auth_top_image_height">204dp</dimen>
+    <dimen name="default_activity_padding">8dp</dimen>
+    <dimen name="auth_gradient_size">74dp</dimen>
+    <dimen name="auth_button_height">42dp</dimen>
+
     <dimen name="margin_standard">16dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="tab_height">@dimen/toolbar_height</dimen>
-    <dimen name="status_bar_height">24dp</dimen>
     <dimen name="top_margin_for_title">32dp</dimen>
 
     <dimen name="progress_arc_stroke_width">2dp</dimen>

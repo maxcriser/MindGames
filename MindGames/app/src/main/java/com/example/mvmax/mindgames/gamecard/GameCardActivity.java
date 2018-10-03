@@ -64,8 +64,6 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
 
         mGameCardModel = new GameByIdExecutable(id).execute();
 
-        setStatusBarPadding();
-
         init();
         bindHeader();
 

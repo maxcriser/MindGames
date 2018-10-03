@@ -15,7 +15,7 @@ public class GuessTheWordGame extends AbstractBaseGame {
 
     @Override
     public String getPosterUrl() {
-        return "http://www.modafinilsale.com/data/out/237/228441440-dishonored-wallpaper.jpg";
+        return "https://www.problemgambling.sa.gov.au/__data/assets/image/0018/52470/WLLR-LCD-1080x1920.jpg";
     }
 
     @Override

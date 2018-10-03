@@ -9,4 +9,12 @@
     <string name="answer">Answer</string>
     <string name="mark_as_done">Mark as done</string>
 
+    <string name="privacy_policy_text">By continuing, you agree to CKeeper\'s Terms of Service and Privacy Policy.</string>
+    <string name="skip_auth">Skip authorization</string>
+    <string name="authenticator">Authorization</string>
+    <string name="auth_protect_your_account">Protect your account in just a few minutes by reviewing your security settings and activity.</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+
+
 </resources>

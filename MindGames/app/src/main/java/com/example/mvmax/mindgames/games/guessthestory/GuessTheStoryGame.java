@@ -16,7 +16,7 @@ public class GuessTheStoryGame extends AbstractBaseGame {
 
     @Override
     public String getPosterUrl() {
-        return "https://pre00.deviantart.net/b59b/th/pre/i/2015/064/f/1/metroid_prime_by_noble__6-d8kl4mp.jpg";
+        return "https://avatars.mds.yandex.net/get-pdb/368827/f78dbaf4-f775-45f3-9796-62e4b74952b5/orig";
     }
 
     @Override
