@@ -5,6 +5,7 @@
       "name": "Guess the story",
       "description": "An addictive game with confusing stories to be solved",
       "isAvailable": true,
+      "isPaid": true,
       "example": [
         {
           "type": "info",
@@ -127,6 +128,7 @@
       "name": "Guess the word",
       "description": "Description for guess the word game right here",
       "isAvailable": true,
+      "isPaid": false,
       "rules": [
         {
           "title": "Division into teams",

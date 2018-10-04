@@ -17,9 +17,11 @@ public interface IBaseGame extends Serializable {
 
     String getDescription();
 
-    String getPosterUrl();
+    int getPosterIntDrawable();
 
     boolean isAvailable();
+
+    boolean isPaid();
 
     List<RuleModel> getRules();
 

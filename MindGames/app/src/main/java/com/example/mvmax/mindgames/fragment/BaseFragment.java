@@ -29,11 +29,11 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    public void setBackgroundUrl(final String pPoster) {
+    public void setBackgroundUrl(final int pIntDrawable) {
         final Activity activity = getActivity();
 
         if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).setBackgroundUrl(pPoster);
+            ((BaseActivity) activity).setBackgroundUrl(pIntDrawable);
         }
     }
 

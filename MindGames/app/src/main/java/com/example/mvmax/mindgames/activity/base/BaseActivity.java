@@ -90,11 +90,11 @@ public class BaseActivity extends AppCompatActivity {
                 .into(backgroundImageView);
     }
 
-    public void setBackgroundUrl(final String pUrl) {
+    public void setBackgroundUrl(final int pIntDrawable) {
         final ImageView backgroundImageView = getBackgroundImageView();
 
         Picasso.with(this)
-                .load(pUrl)
+                .load(pIntDrawable)
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .placeholder(backgroundImageView.getDrawable())
                 .into(backgroundImageView);
@@ -126,11 +126,11 @@ public class BaseActivity extends AppCompatActivity {
         return findViewById(android.R.id.content).getHeight();
     }
 
-    public void loadGameCardPoster(final String pUrl) {
-        Picasso.with(this).load(pUrl).into((ImageView) findViewById(R.id.game_fragment_poster));
+    public void loadGameCardPoster(final int pIntDrawable) {
+        Picasso.with(this).load(pIntDrawable).into((ImageView) findViewById(R.id.game_fragment_poster));
     }
 
-    public void loadGameCardHeader(final String pUrl) {
-        Picasso.with(this).load(pUrl).into((ImageView) findViewById(R.id.game_fragment_header_background));
+    public void loadGameCardHeader(final int pIntDrawable) {
+        Picasso.with(this).load(pIntDrawable).into((ImageView) findViewById(R.id.game_fragment_header_background));
     }
 }

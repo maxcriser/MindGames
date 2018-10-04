@@ -16,6 +16,6 @@ public interface IModel<T extends Serializable> {
     @Nullable
     List<T> getList();
 
-    String getPosterUrl();
+    int getPosterIntDrawable();
 
 }

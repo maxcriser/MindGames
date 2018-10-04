@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.games.guesstheword;
 
+import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.constants.Constant;
 import com.example.mvmax.mindgames.games.AbstractBaseGame;
 
@@ -14,8 +15,8 @@ public class GuessTheWordGame extends AbstractBaseGame {
     }
 
     @Override
-    public String getPosterUrl() {
-        return "https://www.problemgambling.sa.gov.au/__data/assets/image/0018/52470/WLLR-LCD-1080x1920.jpg";
+    public int getPosterIntDrawable() {
+        return R.drawable.template_blurred_background;
     }
 
     @Override

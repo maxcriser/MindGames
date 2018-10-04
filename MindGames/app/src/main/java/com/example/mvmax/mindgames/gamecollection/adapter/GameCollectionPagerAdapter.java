@@ -85,7 +85,7 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
     private void bind(final IBaseGame pItem, final View pView) {
         final AppCompatImageView poster = pView.findViewById(R.id.card_poster);
 
-        Picasso.with(mContext).load(pItem.getPosterUrl()).into(poster);
+        Picasso.with(mContext).load(pItem.getPosterIntDrawable()).into(poster);
 
         poster.setOnClickListener(new View.OnClickListener() {
 

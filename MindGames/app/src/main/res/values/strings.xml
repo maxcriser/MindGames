@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="game_card_rules">Rules</string>
     <string name="game_card_example">Example</string>
-    <string name="begin_to_play">Begin to play</string>
+    <string name="start_game">Start game</string>
     <string name="answer">Answer</string>
     <string name="mark_as_done">Mark as done</string>
 
@@ -15,6 +15,11 @@
     <string name="auth_protect_your_account">Protect your account in just a few minutes by reviewing your security settings and activity.</string>
     <string name="continue_with_google">Continue with Google</string>
     <string name="continue_with_facebook">Continue with Facebook</string>
-
+    <string name="buy_premium">Buy premium</string>
+    <string name="play_now">Play now</string>
+    <string name="available_for_you_now">Available for you now</string>
+    <string name="available_for_free_play">Available for free play</string>
+    <string name="available_for_premium">Available only for premium accounts</string>
+    <string name="open">Open</string>
 
 </resources>

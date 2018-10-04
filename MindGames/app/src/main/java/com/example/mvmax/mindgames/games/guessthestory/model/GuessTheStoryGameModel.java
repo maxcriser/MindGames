@@ -2,6 +2,7 @@ package com.example.mvmax.mindgames.games.guessthestory.model;
 
 import android.support.annotation.Nullable;
 
+import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.model.IGameModel;
 import com.example.mvmax.mindgames.model.IModel;
 
@@ -12,7 +13,6 @@ import java.util.List;
 public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel>, IGameModel, Serializable {
 
     private String title;
-    private String poster;
     private final List<GuessTheStoryGameItemModel> stories;
 
     public GuessTheStoryGameModel() {
@@ -41,8 +41,8 @@ public class GuessTheStoryGameModel implements IModel<GuessTheStoryGameItemModel
     }
 
     @Override
-    public String getPosterUrl() {
-        return poster;
+    public int getPosterIntDrawable() {
+        return R.drawable.template_blurred_background;
     }
 
     @Override

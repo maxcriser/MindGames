@@ -9,6 +9,8 @@
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="material_blue">#0b84fd</color>
+    <color name="material_blue_opacity_80">#500b84fd</color>
+    <color name="material_blue_opacity_180">#b40b84fd</color>
     <color name="gray_dark">#252525</color>
     <color name="gray_light">#e6e5eb</color>
     <color name="gray_a">#AAA</color>
@@ -24,6 +26,8 @@
 
     // brand
     <color name="brand_color">@color/material_blue</color>
+    <color name="brand_color_opacity_80">@color/material_blue_opacity_80</color>
+    <color name="brand_color_opacity_180">@color/material_blue_opacity_180</color>
     <color name="googleColor">#db3236</color>
     <color name="googleColor2">#4885ed</color>
     <color name="facebookColor">#3b5998</color>
@@ -43,8 +47,8 @@
     <color name="fragment_background_color">@color/white</color>
     <color name="poster_blurred_color">@color/shadow_black_opacity_160</color>
     <color name="drawer_blurred_color">@color/fragment_background_color</color>
-    <color name="ripple_drawer_item_background_color">@color/gray_dark</color>
-    <color name="ripple_drawer_item_background_rectangle_color">@color/black</color>
+    <color name="ripple_drawer_item_background_color">@color/brand_color_opacity_80</color>
+    <color name="ripple_drawer_item_background_rectangle_color">@color/brand_color_opacity_180</color>
     <color name="rules_line_color">@color/brand_color</color>
     <color name="text_color">@color/black</color>
     <color name="example_message_player_color">@color/brand_color</color>

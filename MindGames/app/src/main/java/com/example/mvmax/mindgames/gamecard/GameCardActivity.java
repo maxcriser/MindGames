@@ -18,7 +18,9 @@ import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
+import com.example.mvmax.mindgames.clicklistener.BuyPremiumClickListener;
 import com.example.mvmax.mindgames.clicklistener.OnBackClickListener;
+import com.example.mvmax.mindgames.config.AppConfig;
 import com.example.mvmax.mindgames.executable.GameByIdExecutable;
 import com.example.mvmax.mindgames.flex.ObservableScrollViewCallbacks;
 import com.example.mvmax.mindgames.flex.ScrollState;
@@ -37,9 +39,10 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     public static final String EXTRA_GAME_ID = "extra_game_id";
 
     private AppCompatImageView mPoster;
-    private TextView mName;
     private TextView mDescription;
+    private TextView mPriceInfo;
     private AppCompatButton mPlayButton;
+    private AppCompatButton mBuyButton;
     private IBaseGame mGameCardModel;
     private View mOverlayView;
     private TouchInterceptionFrameLayout mInterceptionLayout;
@@ -74,7 +77,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
     }
 
     private void bindHeader() {
-        loadGameCardPoster(mGameCardModel.getPosterUrl());
+        loadGameCardPoster(mGameCardModel.getPosterIntDrawable());
 
         mPlayButton.setOnClickListener(new View.OnClickListener() {
 
@@ -84,21 +87,34 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
             }
         });
 
-        UiUtil.setTextOrHide(mName, mGameCardModel.getName());
+        mBuyButton.setOnClickListener(new BuyPremiumClickListener());
+
         UiUtil.setTextOrHide(mDescription, mGameCardModel.getDescription());
+
+        if (mGameCardModel.isPaid() && !AppConfig.isPremiumAccount()) {
+            mPlayButton.setVisibility(View.GONE);
+            mBuyButton.setVisibility(View.VISIBLE);
+            UiUtil.setTextOrHide(mPriceInfo, getString(R.string.available_for_premium));
+        } else {
+            mPlayButton.setVisibility(View.VISIBLE);
+            mBuyButton.setVisibility(View.GONE);
+            mPriceInfo.setVisibility(View.GONE);
+        }
     }
 
     private void init() {
         final Toolbar toolbar = findToolbarView();
 
         if (toolbar != null) {
+            toolbar.setTitle(mGameCardModel.getName());
             toolbar.getbackIconView().setOnClickListener(new OnBackClickListener(this));
         }
 
         mPoster = findViewById(R.id.game_fragment_poster);
-        mName = findViewById(R.id.game_fragment_header_name);
         mDescription = findViewById(R.id.game_fragment_header_description);
+        mPriceInfo = findViewById(R.id.game_fragment_header_price_info);
         mPlayButton = findViewById(R.id.game_fragment_play_button);
+        mBuyButton = findViewById(R.id.game_fragment_buy_button);
         mPager = findViewById(R.id.pager);
         mOverlayView = findViewById(R.id.guess_the_story_overlay);
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.game_fragment_top_layout_height_with_tab_layout);
@@ -110,7 +126,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         findViewById(R.id.pager_wrapper).setPadding(0, mFlexibleSpaceHeight, 0, 0);
         setTitle(null);
 
-        loadGameCardHeader(mGameCardModel.getPosterUrl());
+        loadGameCardHeader(mGameCardModel.getPosterIntDrawable());
     }
 
     private void initSlidingTabs() {
@@ -228,26 +244,31 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         @Override
         public void onUpOrCancelMotionEvent(final MotionEvent ev) {
             mScrolled = false;
-            mVelocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
 
-            final int velocityY = (int) mVelocityTracker.getYVelocity(mActivePointerId);
+            try {
+                mVelocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
 
-            mActivePointerId = INVALID_POINTER;
-            mScroller.forceFinished(true);
+                final int velocityY = (int) mVelocityTracker.getYVelocity(mActivePointerId);
 
-            final int baseTranslationY = (int) ViewHelper.getTranslationY(mInterceptionLayout);
-            final int minY = -(mFlexibleSpaceHeight - mTabHeight);
-            final int maxY = 0;
+                mActivePointerId = INVALID_POINTER;
+                mScroller.forceFinished(true);
 
-            mScroller.fling(0, baseTranslationY, 0, velocityY, 0, 0, minY, maxY);
+                final int baseTranslationY = (int) ViewHelper.getTranslationY(mInterceptionLayout);
+                final int minY = -(mFlexibleSpaceHeight - mTabHeight);
+                final int maxY = 0;
 
-            new Handler().post(new Runnable() {
+                mScroller.fling(0, baseTranslationY, 0, velocityY, 0, 0, minY, maxY);
 
-                @Override
-                public void run() {
-                    updateLayout();
-                }
-            });
+                new Handler().post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        updateLayout();
+                    }
+                });
+            } catch (final Exception ignored) {
+
+            }
         }
     };
 

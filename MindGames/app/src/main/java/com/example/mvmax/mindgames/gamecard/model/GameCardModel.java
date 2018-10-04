@@ -14,12 +14,17 @@ public class GameCardModel implements Serializable {
     private String description;
 
     private boolean isAvailable;
+    private boolean isPaid;
 
     private List<RuleModel> rules;
     private List<ExampleMessageModel> example;
 
     public boolean isAvailable() {
         return isAvailable;
+    }
+
+    public boolean isPaid() {
+        return isPaid;
     }
 
     public String getId() {

@@ -74,7 +74,7 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
         mImageView = findViewById(R.id.guess_the_story_image);
         mOverlayView = findViewById(R.id.guess_the_story_overlay);
 
-        Picasso.with(this).load(gameModel.getPosterUrl()).into(mImageView);
+        Picasso.with(this).load(gameModel.getPosterIntDrawable()).into(mImageView);
 
         mTitleView = findViewById(R.id.title);
         mTitleView.setText(getTitle());

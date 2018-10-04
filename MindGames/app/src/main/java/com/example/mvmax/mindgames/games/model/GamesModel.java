@@ -2,6 +2,7 @@ package com.example.mvmax.mindgames.games.model;
 
 import android.support.annotation.Nullable;
 
+import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.model.GameCardModel;
 import com.example.mvmax.mindgames.model.IModel;
 
@@ -11,7 +12,6 @@ import java.util.List;
 
 public class GamesModel implements IModel<GameCardModel>, Serializable {
 
-    private String poster;
     private final List<GameCardModel> games;
 
     public GamesModel() {
@@ -52,7 +52,7 @@ public class GamesModel implements IModel<GameCardModel>, Serializable {
     }
 
     @Override
-    public String getPosterUrl() {
-        return poster;
+    public int getPosterIntDrawable() {
+        return R.drawable.template_blurred_background;
     }
 }

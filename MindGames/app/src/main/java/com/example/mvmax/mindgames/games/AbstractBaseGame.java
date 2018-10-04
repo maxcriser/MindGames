@@ -26,7 +26,7 @@ public abstract class AbstractBaseGame implements IBaseGame {
 
     public abstract String getID();
 
-    public abstract String getPosterUrl();
+    public abstract int getPosterIntDrawable();
 
     public abstract Class getActivityClass();
 
@@ -72,5 +72,10 @@ public abstract class AbstractBaseGame implements IBaseGame {
     @Override
     public boolean isAvailable() {
         return mGameCardModel.isAvailable();
+    }
+
+    @Override
+    public boolean isPaid() {
+        return mGameCardModel.isPaid();
     }
 }

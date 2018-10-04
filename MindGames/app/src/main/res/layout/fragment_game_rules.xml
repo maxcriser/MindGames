@@ -4,6 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/rule_recycler_padding"
+    android:paddingLeft="@dimen/rule_recycler_padding"
+    android:paddingRight="@dimen/rule_recycler_padding"
+    android:paddingTop="@dimen/rule_recycler_padding"
+    android:paddingBottom="@dimen/toolbar_height"
     android:clipToPadding="false"
     android:scrollbars="none"/>
