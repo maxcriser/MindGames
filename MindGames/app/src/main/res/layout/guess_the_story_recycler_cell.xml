@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/expansion_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +9,8 @@
     android:layout_marginBottom="0.1dp"
     android:layout_marginLeft="4dp"
     android:layout_marginRight="4dp"
+    android:clickable="true"
+    android:focusable="true"
     card_view:cardCornerRadius="0dp"
     card_view:cardElevation="4dp">
 
@@ -39,11 +41,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginRight="16dp"
                     android:adjustViewBounds="true"
                     android:visibility="gone"
-                    app:srcCompat="@drawable/ic_lock"
-                    android:layout_marginEnd="16dp"/>
+                    app:srcCompat="@drawable/ic_lock"/>
 
                 <TextView
                     android:id="@+id/lock_divider"
@@ -93,35 +95,70 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/guess_the_story_list_item_task"
-                    style="@style/GuessTheStoryFullInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    style="@style/GuessTheStoryFullInfo"
+                <LinearLayout
+                    android:id="@+id/container_buy_premium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/answer"
-                    android:textSize="18sp"/>
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/guess_the_story_list_item_answer"
-                    style="@style/GuessTheStoryFullInfo"
+                    <TextView
+                        style="@style/GuessTheStoryFullInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/available_for_premium_long"/>
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/buy_premium_account_button"
+                        style="@style/PrimaryButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:drawableLeft="@drawable/ic_dollar"
+                        android:drawablePadding="@dimen/play_button_icon_padding"
+                        android:drawableStart="@drawable/ic_dollar"
+                        android:ellipsize="end"
+                        android:text="@string/buy_premium_account"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cell_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <CheckBox
-                    android:id="@+id/guess_the_story_mark_as_done_check_box"
-                    style="@style/CheckBoxStyle"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/mark_as_done"/>
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/guess_the_story_list_item_task"
+                        style="@style/GuessTheStoryFullInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        style="@style/GuessTheStoryFullInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/answer"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/guess_the_story_list_item_answer"
+                        style="@style/GuessTheStoryFullInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <CheckBox
+                        android:id="@+id/guess_the_story_mark_as_done_check_box"
+                        style="@style/CheckBoxStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mark_as_done"/>
+
+                </LinearLayout>
             </LinearLayout>
 
         </com.github.florent37.expansionpanel.ExpansionLayout>

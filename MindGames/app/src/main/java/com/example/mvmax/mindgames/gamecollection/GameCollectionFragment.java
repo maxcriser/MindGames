@@ -15,7 +15,6 @@ import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.clicklistener.BuyPremiumClickListener;
 import com.example.mvmax.mindgames.clicklistener.OpenDrawerClickListener;
-import com.example.mvmax.mindgames.config.AppConfig;
 import com.example.mvmax.mindgames.fragment.BaseFragment;
 import com.example.mvmax.mindgames.gamecollection.adapter.GameCollectionPagerAdapter;
 import com.example.mvmax.mindgames.gamecollection.transformer.ShadowTransformer;
@@ -50,7 +49,7 @@ public class GameCollectionFragment extends BaseFragment {
             };
 
             if (!AppUtils.isContentAvailable(baseGame.isPaid())) {
-                mGameDescription.setText(R.string.available_for_premium);
+                mGameDescription.setText(R.string.available_for_premium_short);
                 mGamePlayButton.setVisibility(View.GONE);
                 mGameBuyButton.setVisibility(View.VISIBLE);
                 mGameOpenButton.setVisibility(View.VISIBLE);

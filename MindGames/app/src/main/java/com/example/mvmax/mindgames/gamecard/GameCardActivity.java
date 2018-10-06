@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.OverScroller;
 import android.widget.TextView;
 
@@ -21,7 +20,6 @@ import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.clicklistener.BuyPremiumClickListener;
 import com.example.mvmax.mindgames.clicklistener.OnBackClickListener;
-import com.example.mvmax.mindgames.config.AppConfig;
 import com.example.mvmax.mindgames.executable.GameByIdExecutable;
 import com.example.mvmax.mindgames.flex.ObservableScrollViewCallbacks;
 import com.example.mvmax.mindgames.flex.ScrollState;
@@ -96,7 +94,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
         if (AppUtils.isContentAvailable(mGameCardModel.isPaid())) {
             mPlayButton.setVisibility(View.GONE);
             mBuyButton.setVisibility(View.VISIBLE);
-            UiUtil.setTextOrHide(mPriceInfo, getString(R.string.available_for_premium));
+            UiUtil.setTextOrHide(mPriceInfo, getString(R.string.available_for_premium_short));
         } else {
             mPlayButton.setVisibility(View.VISIBLE);
             mBuyButton.setVisibility(View.GONE);

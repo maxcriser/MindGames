@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.clicklistener.BuyPremiumClickListener;
@@ -23,7 +24,9 @@ public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
 
     private final View mLockIcon;
     private final ExpansionLayout mExpansionLayout;
-    private final View mExpansionHeader;
+    private final View mBuyPremiumButton;
+    private final View mContent;
+    private final View mRestrictedView;
     private final TextView mTask;
     private final TextView mAnswer;
     private final TextView mName;
@@ -36,7 +39,9 @@ public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
     private GuessTheStoryHolder(final View itemView) {
         super(itemView);
         mExpansionLayout = itemView.findViewById(R.id.expansionLayout);
-        mExpansionHeader = itemView.findViewById(R.id.expansion_view);
+        mContent = itemView.findViewById(R.id.cell_content);
+        mBuyPremiumButton = itemView.findViewById(R.id.buy_premium_account_button);
+        mRestrictedView = itemView.findViewById(R.id.container_buy_premium);
         mTask = itemView.findViewById(R.id.guess_the_story_list_item_task);
         mName = itemView.findViewById(R.id.guess_the_story_list_item_name);
         mAnswer = itemView.findViewById(R.id.guess_the_story_list_item_answer);
@@ -73,8 +78,13 @@ public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
 
         if (AppUtils.isContentAvailable(pItem.isPaid())) {
             mLockIcon.setVisibility(View.GONE);
+            mContent.setVisibility(View.VISIBLE);
+            mRestrictedView.setVisibility(View.GONE);
         } else {
+            mContent.setVisibility(View.GONE);
             mLockIcon.setVisibility(View.VISIBLE);
+            mRestrictedView.setVisibility(View.VISIBLE);
+            mBuyPremiumButton.setOnClickListener(new BuyPremiumClickListener());
         }
     }
 
