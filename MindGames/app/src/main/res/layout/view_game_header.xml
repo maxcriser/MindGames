@@ -30,8 +30,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     custom_toolbar:action="back"
-                    custom_toolbar:background_color="@color/transparent"
-                    custom_toolbar:title="@string/app_name"/>
+                    custom_toolbar:background_color="@color/transparent"/>
+
+                <TextView
+                    android:id="@+id/game_fragment_header_price_info"
+                    style="@style/GameFragmentDescriptionStyleBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/fragment_game_text_poster_left_margin"
+                    android:layout_marginStart="@dimen/fragment_game_text_poster_left_margin"
+                    android:background="@drawable/shape_rounded_corners_presenter_4dp"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
+                    tools:text="@string/available_for_premium"/>
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -77,15 +92,6 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/game_fragment_header_name"
-                                style="@style/GameFragmentTitleStyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/fragment_game_text_poster_left_margin"
-                                android:layout_marginStart="@dimen/fragment_game_text_poster_left_margin"
-                                tools:text="Game name"/>
-
-                            <TextView
                                 android:id="@+id/game_fragment_header_description"
                                 style="@style/GameFragmentDescriptionStyle"
                                 android:layout_width="match_parent"
@@ -103,7 +109,18 @@
                                 android:drawablePadding="@dimen/play_button_icon_padding"
                                 android:drawableStart="@drawable/ic_play"
                                 android:ellipsize="end"
-                                android:text="@string/begin_to_play"/>
+                                android:text="@string/start_game"/>
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:id="@+id/game_fragment_buy_button"
+                                style="@style/PrimaryButtonStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_dollar"
+                                android:drawablePadding="@dimen/play_button_icon_padding"
+                                android:drawableStart="@drawable/ic_dollar"
+                                android:ellipsize="end"
+                                android:text="@string/buy_premium"/>
 
                         </LinearLayout>
 

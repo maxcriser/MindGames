@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
 import com.example.mvmax.mindgames.games.IBaseGame;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +85,8 @@ public class GameCollectionPagerAdapter extends PagerAdapter implements IGameCol
     private void bind(final IBaseGame pItem, final View pView) {
         final AppCompatImageView poster = pView.findViewById(R.id.card_poster);
 
-        poster.setImageResource(pItem.getPoster());
+        Picasso.with(mContext).load(pItem.getPosterIntDrawable()).into(poster);
+
         poster.setOnClickListener(new View.OnClickListener() {
 
             @Override

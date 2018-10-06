@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:background="#000">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/drawer_item_button"
@@ -14,6 +13,7 @@
         android:gravity="left|center_vertical"
         android:paddingLeft="@dimen/drawer_item_padding_left"
         android:paddingStart="@dimen/drawer_item_padding_left"
+        tools:ignore="RtlSymmetry"
         tools:text="Settings"/>
 
 </FrameLayout>

@@ -27,8 +27,6 @@ public class AppDrawer extends RelativeLayout {
 
     private void inflate() {
         inflate(getContext(), R.layout.view_drawer, this);
-
-        setStatusBarPadding();
     }
 
     private void init() {
@@ -37,10 +35,5 @@ public class AppDrawer extends RelativeLayout {
 
     private void init(final AttributeSet pAttrs) {
         inflate();
-    }
-
-    private void setStatusBarPadding() {
-        final View rootView = findViewById(R.id.content_drawer);
-        rootView.setPadding(0, UiUtil.getStatusBarHeight(getContext()), 0, 0);
     }
 }

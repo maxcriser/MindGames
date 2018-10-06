@@ -1,6 +1,8 @@
 package com.example.mvmax.mindgames.gamecard.info.rules;
 
-public class RuleModel {
+import java.io.Serializable;
+
+public class RuleModel implements Serializable {
 
     private String title;
     private String description;

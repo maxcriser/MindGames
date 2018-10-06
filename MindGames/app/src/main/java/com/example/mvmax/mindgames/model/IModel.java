@@ -15,5 +15,4 @@ public interface IModel<T extends Serializable> {
 
     @Nullable
     List<T> getList();
-
 }

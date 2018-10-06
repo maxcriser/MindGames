@@ -8,9 +8,9 @@ import android.support.annotation.IntDef;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.util.UiUtil;
@@ -23,6 +23,7 @@ public class Toolbar extends RelativeLayout {
     private View mContainer;
     private View mSecondBackground;
     private TextView mTitle;
+    private AppCompatImageView mShareIcon;
     private AppCompatImageView mMenuIcon;
     private AppCompatImageView mBackIcon;
 
@@ -59,20 +60,30 @@ public class Toolbar extends RelativeLayout {
     }
 
     private void initActions(final int pActions) {
-        if (pActions > Action.NONE) {
-            mMenuIcon.setVisibility(containsFlag(pActions, Action.MENU) ? View.VISIBLE : View.GONE);
-            mBackIcon.setVisibility(containsFlag(pActions, Action.BACK) ? View.VISIBLE : View.GONE);
-        }
+        mMenuIcon.setVisibility(containsFlag(pActions, Action.MENU) ? View.VISIBLE : View.GONE);
+        mBackIcon.setVisibility(containsFlag(pActions, Action.BACK) ? View.VISIBLE : View.GONE);
     }
 
     private void inflate() {
         inflate(getContext(), R.layout.view_toolbar, this);
 
         mTitle = findViewById(R.id.toolbar_view_title);
+        mShareIcon = findViewById(R.id.toolbar_view_share);
         mContainer = findViewById(R.id.toolbar_view_container);
         mMenuIcon = findViewById(R.id.toolbar_view_menu);
         mBackIcon = findViewById(R.id.toolbar_view_back);
         mSecondBackground = findViewById(R.id.second_background_toolbar_view);
+    }
+
+    private void setShareAction(final String pHeader, final String pBody) {
+        mShareIcon.setVisibility(View.VISIBLE);
+        mShareIcon.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                Toast.makeText(getContext(), "Send intent to share text", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void init() {
@@ -123,13 +134,12 @@ public class Toolbar extends RelativeLayout {
         mContainer.setBackgroundColor(pToolbarBackground);
     }
 
-    public void addStatusBarHeight(final int pPx) {
-        final FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) mContainer.getLayoutParams();
-        layoutParams.setMargins(0, pPx, 0, 0);
-    }
-
     public AppCompatImageView getMenuIconView() {
         return mMenuIcon;
+    }
+
+    public AppCompatImageView getShareIcon() {
+        return mShareIcon;
     }
 
     public AppCompatImageView getbackIconView() {

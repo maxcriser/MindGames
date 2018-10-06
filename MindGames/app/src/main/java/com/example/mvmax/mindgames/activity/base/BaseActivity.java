@@ -3,14 +3,13 @@ package com.example.mvmax.mindgames.activity.base;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,7 +17,8 @@ import android.widget.ImageView;
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.GameCardActivity;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
-import com.example.mvmax.mindgames.util.UiUtil;
+import com.example.mvmax.mindgames.games.IBaseGame;
+import com.example.mvmax.mindgames.toolbar.Toolbar;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +27,7 @@ import tyrantgit.explosionfield.ExplosionField;
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
 
+    public static final String BASE_GAME_MODEL_TO_NEXT_ACTIVITY = "BASE_GAME_MODEL_TO_NEXT_ACTIVITY";
     private ExplosionField mExplosionField;
 
     @Override
@@ -90,31 +91,29 @@ public class BaseActivity extends AppCompatActivity {
                 .into(backgroundImageView);
     }
 
-    public void setBackgroundUrl(final String pUrl) {
+    public void setBackgroundUrl(final int pIntDrawable) {
         final ImageView backgroundImageView = getBackgroundImageView();
 
         Picasso.with(this)
-                .load(pUrl)
+                .load(pIntDrawable)
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .placeholder(backgroundImageView.getDrawable())
                 .into(backgroundImageView);
     }
 
-    public int getStatusBarHeight() {
-        return UiUtil.getStatusBarHeight(this);
+    public void openGameActivity(@NonNull final Class pActivityClass, final IBaseGame pBaseGame) {
+        final Intent intent = new Intent(this, pActivityClass);
+        final Bundle bundle = new Bundle();
+
+        bundle.putSerializable(BASE_GAME_MODEL_TO_NEXT_ACTIVITY, pBaseGame);
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
 
-    public void setStatusBarPadding() {
-        final View contentView = findViewById(R.id.main_content);
-        contentView.setPadding(0, getStatusBarHeight(), 0, 0);
-    }
-
-    public void setStatusBarPadding(final View pView) {
-        pView.setPadding(0, getStatusBarHeight(), 0, 0);
-    }
-
-    public void openGameActivity(final Context pContext, @NonNull final Class pActivityClass) {
-        startActivity(new Intent(pContext, pActivityClass));
+    @Nullable
+    public Toolbar findToolbarView() {
+        return findViewById(R.id.toolbar_view);
     }
 
     protected int getActionBarSize() {
@@ -132,5 +131,13 @@ public class BaseActivity extends AppCompatActivity {
 
     protected int getScreenHeight() {
         return findViewById(android.R.id.content).getHeight();
+    }
+
+    public void loadGameCardPoster(final int pIntDrawable) {
+        Picasso.with(this).load(pIntDrawable).into((ImageView) findViewById(R.id.game_fragment_poster));
+    }
+
+    public void loadGameCardHeader(final int pIntDrawable) {
+        Picasso.with(this).load(pIntDrawable).into((ImageView) findViewById(R.id.game_fragment_header_background));
     }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.mvmax.mindgames.timeline.TimelineView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/time_marker"
-    android:layout_width="wrap_content"
+<com.example.mvmax.mindgames.flex.ObservableRecyclerView
+    android:id="@+id/scroll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:line="@color/colorPrimary"
-    app:linePadding="5dp"
-    app:lineSize="2dp"
-    app:markerSize="20dp" />
-
-    <!--<com.example.mvmax.mindgames.flex.ObservableRecyclerView--><!--android:id="@+id/scroll"--><!--xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:padding="@dimen/rule_recycler_padding"--><!--android:clipToPadding="false"--><!--android:scrollbars="none"/>-->
+    android:clipToPadding="false"
+    android:paddingBottom="@dimen/toolbar_height"
+    android:paddingLeft="@dimen/rule_recycler_padding"
+    android:paddingRight="@dimen/rule_recycler_padding"
+    android:paddingTop="@dimen/rule_recycler_padding"
+    android:scrollbars="none"/>

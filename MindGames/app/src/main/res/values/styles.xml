@@ -6,6 +6,109 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AuthAppTheme" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/authStatusBarColor</item>
+    </style>
+
+    <style name="SplashAppTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="TextDark">
+        <item name="android:textColor">@color/text_color_dark</item>
+    </style>
+
+    <style name="TextBlack">
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+    <style name="TextGray">
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="TextWhite">
+        <item name="android:textColor">@color/text_color_white</item>
+    </style>
+
+    <style name="ToolbarTextDark" parent="TextDark">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="LargeTextDark" parent="TextDark">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="HeaderTextDark" parent="TextDark">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="HeadlineTextBoldBlack" parent="TextBlack">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SmallTextDark" parent="TextDark">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="StandartTextDark" parent="TextDark">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="StandartTextBoldDark" parent="StandartTextDark">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HeaderTextWhite" parent="TextWhite">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TitleTextWhite" parent="TextWhite">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="ToolbarTextWhite" parent="TextWhite">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SmallTextGray" parent="TextGray">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="StandartTextGray" parent="TextGray">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="HeaderTextGray" parent="TextGray">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="SmallTextWhite" parent="TextWhite">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="StandartTextWhite" parent="TextWhite">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="StandartTextBoldWhite" parent="StandartTextWhite">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!--android:fontFamily="sans-serif"           // current BOLD MAIN roboto regular-->
     <!--android:fontFamily="sans-serif-light"     // current THIN MAIN roboto light-->
 
@@ -17,14 +120,15 @@
         <item name="android:ellipsize">end</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:maxLines">@integer/GAME_FRAGMENT_TITLE_MAX_LINES</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/text_color_dark</item>
         <item name="android:textSize">@dimen/game_fragment_header_text_title_size</item>
     </style>
 
     <style name="ToolbarTextStyle">
         <item name="android:textSize">@dimen/toolbar_text_size</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
         <item name="android:maxLines">@integer/TOOLBAR_TEXT_MAX_LINES</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:ellipsize">end</item>
         <item name="android:textColor">@color/white</item>
     </style>
@@ -37,12 +141,15 @@
         <item name="android:textSize">@dimen/game_fragment_header_text_description_size</item>
     </style>
 
-    <style name="DrawerButtonStyle">
-        <item name="android:textColor">@color/drawer_item_text</item>
+    <style name="GameFragmentDescriptionStyleBlack" parent="GameFragmentDescriptionStyle">
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+    <style name="DrawerButtonStyle" parent="TextDark">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">@drawable/ripple_drawer_item</item>
-        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:layout_height">@dimen/drawer_item_button_height</item>
         <item name="android:lines">@integer/DRAWER_BUTTON_MAX_LINES</item>
         <item name="android:ellipsize">end</item>
@@ -90,6 +197,8 @@
     </style>
 
     <style name="PrimaryButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:paddingLeft">14dp</item>
+        <item name="android:paddingRight">24dp</item>
         <item name="android:textSize">@dimen/play_button_text_size</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/white</item>
@@ -103,6 +212,12 @@
 
     <style name="GuessTheStoryFullInfo" parent="GuessTheStoryTitle">
         <item name="android:textColor">@color/guess_the_story_activity_full_info_text_color</item>
+    </style>
+
+    <style name="CheckBoxStyle">
+        <item name="android:textSize">@dimen/guess_the_story_activity_title_size</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textColor">@color/guess_the_story_activity_title_text_color</item>
     </style>
 
 </resources>

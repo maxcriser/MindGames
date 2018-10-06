@@ -1,5 +1,6 @@
 package com.example.mvmax.mindgames.gamecollection;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,25 +9,66 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.activity.base.BaseActivity;
+import com.example.mvmax.mindgames.clicklistener.BuyPremiumClickListener;
 import com.example.mvmax.mindgames.clicklistener.OpenDrawerClickListener;
+import com.example.mvmax.mindgames.config.AppConfig;
 import com.example.mvmax.mindgames.fragment.BaseFragment;
 import com.example.mvmax.mindgames.gamecollection.adapter.GameCollectionPagerAdapter;
 import com.example.mvmax.mindgames.gamecollection.transformer.ShadowTransformer;
+import com.example.mvmax.mindgames.games.IBaseGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
 
 public class GameCollectionFragment extends BaseFragment {
 
+    private TextView mGameTitle;
+    private TextView mGameDescription;
+    private View mGamePlayButton;
+    private View mGameBuyButton;
+    private View mGameOpenButton;
     private GameCollectionPagerAdapter mCardAdapter;
 
     private final ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
 
         @Override
         public void onPageSelected(final int pPosition) {
-            setBackgroundDrawable(mCardAdapter.getGames().get(pPosition).getPoster());
+            final IBaseGame baseGame = mCardAdapter.getGames().get(pPosition);
+
+            mGameTitle.setText(baseGame.getName());
+
+            final View.OnClickListener openClickListener = new View.OnClickListener() {
+
+                @Override
+                public void onClick(final View v) {
+                    ((BaseActivity) v.getContext()).showGameActivity(baseGame.getID());
+
+                }
+            };
+
+            if (baseGame.isPaid() && !AppConfig.isPremiumAccount()) {
+                mGameDescription.setText(R.string.available_for_premium);
+                mGamePlayButton.setVisibility(View.GONE);
+                mGameBuyButton.setVisibility(View.VISIBLE);
+                mGameOpenButton.setVisibility(View.VISIBLE);
+                mGameOpenButton.setOnClickListener(openClickListener);
+            } else {
+                mGameDescription.setText((AppConfig.isPremiumAccount() && baseGame.isPaid()) ? R.string.available_for_you_now : R.string.available_for_free_play);
+                mGamePlayButton.setOnClickListener(openClickListener);
+                mGamePlayButton.setVisibility(View.VISIBLE);
+                mGameBuyButton.setVisibility(View.GONE);
+                mGameOpenButton.setVisibility(View.GONE);
+            }
+
+            setBackgroundUrl(baseGame.getPosterIntDrawable());
         }
     };
+
+    private void openGame(final Context pContext, final IBaseGame pIBaseGame) {
+        ((BaseActivity) pContext).showGameActivity(pIBaseGame.getID());
+    }
 
     public static Fragment newInstance() {
         return new GameCollectionFragment();
@@ -36,8 +78,7 @@ public class GameCollectionFragment extends BaseFragment {
     public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setStatusBarPadding();
-        initViews();
+        initViews(view);
         initPager();
     }
 
@@ -64,17 +105,21 @@ public class GameCollectionFragment extends BaseFragment {
         mOnPageChangeListener.onPageSelected(0);
     }
 
-    private void initViews() {
-        final View view = getView();
-
-        if (view == null) {
-            return;
-        }
+    private void initViews(final View pView) {
+        mGameTitle = pView.findViewById(R.id.game_title);
+        mGameDescription = pView.findViewById(R.id.game_description);
+        mGamePlayButton = pView.findViewById(R.id.game_play_button);
+        mGameBuyButton = pView.findViewById(R.id.game_buy_button);
+        mGameOpenButton = pView.findViewById(R.id.game_open_button);
+        mGameBuyButton.setOnClickListener(new BuyPremiumClickListener());
 
         setBackgroundDrawable(R.drawable.template_blurred_background);
 
-        final Toolbar toolbar = view.findViewById(R.id.toolbar_view);
-        toolbar.getMenuIconView().setOnClickListener(new OpenDrawerClickListener(getContext()));
+        final Toolbar toolbar = findToolbarView();
+
+        if (toolbar != null) {
+            toolbar.getMenuIconView().setOnClickListener(new OpenDrawerClickListener(getContext()));
+        }
     }
 
     @Override

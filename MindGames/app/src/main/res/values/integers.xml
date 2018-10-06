@@ -4,7 +4,7 @@
     <integer name="MAX_ELEVATION_FACTOR_VIEW_PAGER">10</integer>
     <integer name="DRAWER_BUTTON_MAX_LINES">1</integer>
     <integer name="TOOLBAR_TEXT_MAX_LINES">1</integer>
-    <integer name="GAME_FRAGMENT_DESCRIPTION_MAX_LINES">3</integer>
+    <integer name="GAME_FRAGMENT_DESCRIPTION_MAX_LINES">5</integer>
     <integer name="GAME_FRAGMENT_TITLE_MAX_LINES">2</integer>
 
 </resources>

@@ -1,9 +1,11 @@
 package com.example.mvmax.mindgames.games.guessthestory.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mvmax.mindgames.games.guessthestory.executable.GuessTheStoryGameCompeledExecutable;
 import com.example.mvmax.mindgames.games.guessthestory.holder.GuessTheStoryHolder;
 import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameItemModel;
 import com.github.florent37.expansionpanel.ExpansionLayoutCollection;
@@ -17,6 +19,7 @@ public class GuessTheStoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     private static final int VIEW_TYPE_HEADER = 0;
     private static final int VIEW_TYPE_ITEM = 1;
 
+    private List<String> mCompletedItems = new ArrayList<>();
     private List<GuessTheStoryGameItemModel> mList = new ArrayList<>();
     private final View mHeaderView;
     private final ExpansionLayoutCollection mExpansionsCollection = new ExpansionLayoutCollection();
@@ -25,6 +28,7 @@ public class GuessTheStoryAdapter extends RecyclerView.Adapter<RecyclerView.View
         mExpansionsCollection.openOnlyOne(true);
         mList = pList;
         mHeaderView = headerView;
+        mCompletedItems = new GuessTheStoryGameCompeledExecutable().execute();
     }
 
     @Override
@@ -42,7 +46,7 @@ public class GuessTheStoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType) {
         if (viewType == VIEW_TYPE_HEADER) {
             return new HeaderViewHolder(mHeaderView);
         } else {
@@ -51,11 +55,13 @@ public class GuessTheStoryAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, final int position) {
         if (viewHolder instanceof GuessTheStoryHolder) {
             final GuessTheStoryHolder holder = (GuessTheStoryHolder) viewHolder;
+            final GuessTheStoryGameItemModel storyModel = mList.get(position - 1);
+            storyModel.setCompleted(mCompletedItems.contains(storyModel.getUniqueId()));
 
-            holder.bind(mList.get(position -1));
+            holder.bind(storyModel);
 
             mExpansionsCollection.add(holder.getExpansionLayout());
         }

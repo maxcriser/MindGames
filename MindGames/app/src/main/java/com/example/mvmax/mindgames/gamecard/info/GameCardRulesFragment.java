@@ -16,7 +16,6 @@ import com.example.mvmax.mindgames.flex.ObservableRecyclerView;
 import com.example.mvmax.mindgames.flex.ObservableScrollViewCallbacks;
 import com.example.mvmax.mindgames.gamecard.info.rules.RuleModel;
 import com.example.mvmax.mindgames.gamecard.info.rules.RulesAdapter;
-import com.example.mvmax.mindgames.timeline.TimelineView;
 
 import java.util.List;
 
@@ -41,14 +40,6 @@ public class GameCardRulesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(parentActivity));
         recyclerView.setHasFixedSize(false);
 
-        TimelineView timelineView = view.findViewById(R.id.time_marker);
-        timelineView.initLine(0);
-        timelineView.initLine(0);
-        timelineView.initLine(0);
-        timelineView.initLine(0);
-        timelineView.initLine(0);
-        timelineView.initLine(0);
-
         recyclerView.setAdapter(new RulesAdapter(mRuleModelList));
 
         recyclerView.setTouchInterceptionViewGroup((ViewGroup) parentActivity.findViewById(R.id.container));
@@ -61,7 +52,6 @@ public class GameCardRulesFragment extends Fragment {
 
     public static class TimeLineViewHolder extends RecyclerView.ViewHolder {
 
-        public TimelineView mTimelineView;
         public final TextView mTitle;
         public final TextView mDescription;
 
@@ -69,8 +59,6 @@ public class GameCardRulesFragment extends Fragment {
             super(itemView);
             mTitle = itemView.findViewById(R.id.rule_title);
             mDescription = itemView.findViewById(R.id.rule_description);
-            mTimelineView = (TimelineView) itemView.findViewById(R.id.time_marker);
-            mTimelineView.initLine(viewType);
         }
     }
 }

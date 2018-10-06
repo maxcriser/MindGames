@@ -7,8 +7,12 @@
         android:id="@+id/guess_the_story_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/guess_the_story_activity_header_height"
-        android:scaleType="centerCrop"
-        android:src="@drawable/template_poster"/>
+        android:scaleType="centerCrop"/>
+
+    <include
+        layout="@layout/view_main_blurred_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/guess_the_story_activity_header_height"/>
 
     <View
         android:id="@+id/guess_the_story_overlay"

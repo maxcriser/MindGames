@@ -18,19 +18,6 @@
         <attr name="item_title" format="string"/>
     </declare-styleable>
 
-<<<<<<< HEAD
-    <declare-styleable name="timeline_style" >
-        <attr name="marker" format="color|reference"/>
-        <attr name="line" format="color|reference"/>
-        <attr name="markerSize" format="dimension"/>
-        <attr name="lineSize" format="dimension"/>
-        <attr name="lineOrientation" format="enum">
-            <enum name="horizontal" value="0"/>
-            <enum name="vertical" value="1"/>
-        </attr>
-        <attr name="linePadding" format="dimension"/>
-        <attr name="markerInCenter" format="boolean"/>
-=======
     <declare-styleable name="MaterialSquareLoading">
         <attr name="innerColor" format="color"/>
         <attr name="outerColor" format="color"/>
@@ -38,6 +25,5 @@
         <attr name="rotationOuterDuration" format="integer"/>
         <attr name="outerRadius" format="dimension"/>
         <attr name="innerRadius" format="dimension"/>
->>>>>>> 012cf24b4efb6e3762d6e9e6f3d20d99ceb84c49
     </declare-styleable>
 </resources>

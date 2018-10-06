@@ -2,7 +2,9 @@ package com.example.mvmax.mindgames.gamecard.model;
 
 import android.support.v4.app.Fragment;
 
-public class GameCardTabModel {
+import java.io.Serializable;
+
+public class GameCardTabModel implements Serializable {
 
     private final String mTitle;
     private final Fragment mFragment;

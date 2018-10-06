@@ -2,10 +2,11 @@ package com.example.mvmax.mindgames.gamecard.info.example;
 
 import android.support.annotation.StringDef;
 
+import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-public class ExampleMessageModel {
+public class ExampleMessageModel implements Serializable {
 
     @StringDef({DialogMessageType.INFO,
             DialogMessageType.PRESENTER,
