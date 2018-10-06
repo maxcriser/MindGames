@@ -32,6 +32,7 @@ import com.example.mvmax.mindgames.flex.TouchInterceptionFrameLayout;
 import com.example.mvmax.mindgames.flex.ViewHelper;
 import com.example.mvmax.mindgames.games.IBaseGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
+import com.example.mvmax.mindgames.util.AppUtils;
 import com.example.mvmax.mindgames.util.UiUtil;
 
 public class GameCardActivity extends BaseActivity implements ObservableScrollViewCallbacks {
@@ -92,7 +93,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
 
         UiUtil.setTextOrHide(mDescription, mGameCardModel.getDescription());
 
-        if (mGameCardModel.isPaid() && !AppConfig.isPremiumAccount()) {
+        if (AppUtils.isContentAvailable(mGameCardModel.isPaid())) {
             mPlayButton.setVisibility(View.GONE);
             mBuyButton.setVisibility(View.VISIBLE);
             UiUtil.setTextOrHide(mPriceInfo, getString(R.string.available_for_premium));

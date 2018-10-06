@@ -9,6 +9,11 @@ public class GuessTheStoryGameItemModel implements Serializable {
     private String answer;
     private String uniqueId;
     private boolean isCompleted;
+    private boolean isPaid;
+
+    public boolean isPaid() {
+        return isPaid;
+    }
 
     public void setCompleted(final boolean pIsCompleted) {
         isCompleted = pIsCompleted;

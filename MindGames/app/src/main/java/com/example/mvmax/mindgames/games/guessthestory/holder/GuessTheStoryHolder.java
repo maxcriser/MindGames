@@ -11,15 +11,19 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.clicklistener.BuyPremiumClickListener;
 import com.example.mvmax.mindgames.database.DatabaseHolder;
 import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameCompletedItemModel;
 import com.example.mvmax.mindgames.games.guessthestory.model.GuessTheStoryGameItemModel;
+import com.example.mvmax.mindgames.util.AppUtils;
 import com.example.mvmax.mindgames.util.UiUtil;
 import com.github.florent37.expansionpanel.ExpansionLayout;
 
 public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
 
+    private final View mLockIcon;
     private final ExpansionLayout mExpansionLayout;
+    private final View mExpansionHeader;
     private final TextView mTask;
     private final TextView mAnswer;
     private final TextView mName;
@@ -32,10 +36,12 @@ public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
     private GuessTheStoryHolder(final View itemView) {
         super(itemView);
         mExpansionLayout = itemView.findViewById(R.id.expansionLayout);
+        mExpansionHeader = itemView.findViewById(R.id.expansion_view);
         mTask = itemView.findViewById(R.id.guess_the_story_list_item_task);
         mName = itemView.findViewById(R.id.guess_the_story_list_item_name);
         mAnswer = itemView.findViewById(R.id.guess_the_story_list_item_answer);
         mMarkAsDone = itemView.findViewById(R.id.guess_the_story_mark_as_done_check_box);
+        mLockIcon = itemView.findViewById(R.id.lock_indicator);
     }
 
     public void bind(final GuessTheStoryGameItemModel pItem) {
@@ -64,6 +70,12 @@ public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
+
+        if (AppUtils.isContentAvailable(pItem.isPaid())) {
+            mLockIcon.setVisibility(View.GONE);
+        } else {
+            mLockIcon.setVisibility(View.VISIBLE);
+        }
     }
 
     // TODO: 14.05.2018 move to executable

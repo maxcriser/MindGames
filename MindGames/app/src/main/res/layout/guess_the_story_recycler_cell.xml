@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/expansion_view"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,6 +18,7 @@
         android:orientation="vertical">
 
         <com.github.florent37.expansionpanel.ExpansionHeader
+            android:id="@+id/expansion_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:expansion_headerIndicator="@id/headerIndicator"
@@ -30,12 +32,36 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/lock_indicator"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:adjustViewBounds="true"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_lock"
+                    android:layout_marginEnd="16dp"/>
+
+                <TextView
+                    android:id="@+id/lock_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_toEndOf="@id/lock_indicator"
+                    android:layout_toRightOf="@id/lock_indicator"/>
+
                 <TextView
                     android:id="@+id/guess_the_story_list_item_name"
                     style="@style/GuessTheStoryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/lock_divider"
+                    android:layout_toLeftOf="@+id/headerIndicator"
+                    android:layout_toRightOf="@id/lock_divider"
+                    android:layout_toStartOf="@+id/headerIndicator"/>
 
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/headerIndicator"

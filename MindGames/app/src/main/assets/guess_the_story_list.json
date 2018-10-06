@@ -9,18 +9,21 @@
     },
     {
       "name": "Strange exam",
+      "isPaid": true,
       "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
       "uniqueId": "2",
       "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
     },
     {
       "name": "Strange exam",
+      "isPaid": true,
       "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
       "uniqueId": "3",
       "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
     },
     {
       "name": "Strange exam",
+      "isPaid": true,
       "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
       "uniqueId": "4",
       "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."
@@ -39,6 +42,7 @@
     },
     {
       "name": "Strange exam",
+      "isPaid": true,
       "task": "Examination in the military school. The student takes a ticket, goes to prepare. A minute later he comes to the teacher. He does not ask anything 5. The happy student leaves.\nExplain the situation.",
       "uniqueId": "7",
       "answer": "Teacher in the language of the Morse code penciled on the table: \"Who needs a five-piece, I'll put \". Only one student was vigilantly military and drew attention to the encryption of the teacher. For this he received 5."

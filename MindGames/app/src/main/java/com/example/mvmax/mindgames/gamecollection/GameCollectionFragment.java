@@ -21,6 +21,7 @@ import com.example.mvmax.mindgames.gamecollection.adapter.GameCollectionPagerAda
 import com.example.mvmax.mindgames.gamecollection.transformer.ShadowTransformer;
 import com.example.mvmax.mindgames.games.IBaseGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
+import com.example.mvmax.mindgames.util.AppUtils;
 
 public class GameCollectionFragment extends BaseFragment {
 
@@ -48,14 +49,14 @@ public class GameCollectionFragment extends BaseFragment {
                 }
             };
 
-            if (baseGame.isPaid() && !AppConfig.isPremiumAccount()) {
+            if (!AppUtils.isContentAvailable(baseGame.isPaid())) {
                 mGameDescription.setText(R.string.available_for_premium);
                 mGamePlayButton.setVisibility(View.GONE);
                 mGameBuyButton.setVisibility(View.VISIBLE);
                 mGameOpenButton.setVisibility(View.VISIBLE);
                 mGameOpenButton.setOnClickListener(openClickListener);
             } else {
-                mGameDescription.setText((AppConfig.isPremiumAccount() && baseGame.isPaid()) ? R.string.available_for_you_now : R.string.available_for_free_play);
+                mGameDescription.setText(AppUtils.isBoughtContent(baseGame.isPaid()) ? R.string.available_for_you_now : R.string.available_for_free_play);
                 mGamePlayButton.setOnClickListener(openClickListener);
                 mGamePlayButton.setVisibility(View.VISIBLE);
                 mGameBuyButton.setVisibility(View.GONE);
