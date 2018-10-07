@@ -19,7 +19,7 @@
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/template_blurred_background"/>
 
-        <include layout="@layout/view_main_blurred_layout"/>
+        <include layout="@layout/view_main_blurred_layout_rad_50_op_160"/>
 
         <FrameLayout
             android:id="@+id/main_content"

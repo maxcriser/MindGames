@@ -23,5 +23,8 @@
     <string name="available_for_premium_short">Available only for premium accounts</string>
     <string name="available_for_premium_long">This content is available only for premium accounts.\nYou can buy a premium and continue to use the application without any restrictions.</string>
     <string name="open">Open</string>
+    <string name="clear_history">Clear history</string>
+    <string name="get_random_story">Get random story</string>
+    <string name="show_completed_stories">Show completed stories</string>
 
 </resources>

@@ -1,15 +1,11 @@
 package com.example.mvmax.mindgames.games.guessthestory;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
@@ -28,12 +24,9 @@ import com.squareup.picasso.Picasso;
 
 public class GuessTheStoryGameActivity extends BaseActivity implements ObservableScrollViewCallbacks {
 
-    private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
-
-    private ImageView mTopImageView;
+    private View mTopImageView;
     private View mOverlayView;
     private View mRecyclerViewBackground;
-    private TextView mTitleView;
     private int mActionBarSize;
     private int mFlexibleSpaceImageHeight;
     private View mToolbarSecondBackgroundView;
@@ -50,9 +43,10 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
             final IBaseGame baseGame = (IBaseGame) bundle.getSerializable(BaseActivity.BASE_GAME_MODEL_TO_NEXT_ACTIVITY);
 
             if (baseGame != null) {
-                mTopImageView = findViewById(R.id.guess_the_story_image);
+                mTopImageView = findViewById(R.id.guess_the_story_block);
 
-                Picasso.with(this).load(baseGame.getPosterIntDrawable()).into(mTopImageView);
+
+                Picasso.with(this).load(baseGame.getPosterIntDrawable()).into((ImageView) findViewById(R.id.guess_the_story_image));
             }
         }
 
@@ -87,13 +81,8 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
         recyclerView.setAdapter(new GuessTheStoryAdapter(gameModel.getList(), headerView));
 
         mOverlayView = findViewById(R.id.guess_the_story_overlay);
-        mTitleView = findViewById(R.id.title);
-        mTitleView.setText(getTitle());
-        setTitle(null);
 
         mRecyclerViewBackground = findViewById(R.id.guess_the_story_list_background);
-
-        final float scale = 1 + MAX_TEXT_SCALE_DELTA;
 
         mRecyclerViewBackground.post(new Runnable() {
 
@@ -104,18 +93,6 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
         });
 
         ViewHelper.setTranslationY(mOverlayView, mFlexibleSpaceImageHeight);
-
-        mTitleView.post(new Runnable() {
-
-            @Override
-            public void run() {
-                ViewHelper.setTranslationY(mTitleView, (int) (mFlexibleSpaceImageHeight - mTitleView.getHeight() * scale));
-                ViewHelper.setPivotX(mTitleView, 0);
-                ViewHelper.setPivotY(mTitleView, 0);
-                ViewHelper.setScaleX(mTitleView, scale);
-                ViewHelper.setScaleY(mTitleView, scale);
-            }
-        });
     }
 
     @Override
@@ -133,18 +110,6 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
         final float alphaValue = ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1);
         ViewHelper.setAlpha(mOverlayView, alphaValue);
         ViewHelper.setAlpha(mToolbarSecondBackgroundView, alphaValue);
-
-        // Scale title text
-        final float scale = 1 + ScrollUtils.getFloat((flexibleRange - scrollY) / flexibleRange, 0, MAX_TEXT_SCALE_DELTA);
-        setPivotXToTitle();
-        ViewHelper.setPivotY(mTitleView, 0);
-        ViewHelper.setScaleX(mTitleView, scale);
-        ViewHelper.setScaleY(mTitleView, scale);
-
-        // Translate title text
-        final int maxTitleTranslationY = (int) (mFlexibleSpaceImageHeight - mTitleView.getHeight() * scale);
-        final int titleTranslationY = maxTitleTranslationY - scrollY;
-        ViewHelper.setTranslationY(mTitleView, titleTranslationY);
     }
 
     @Override
@@ -153,16 +118,5 @@ public class GuessTheStoryGameActivity extends BaseActivity implements Observabl
 
     @Override
     public void onUpOrCancelMotionEvent(final ScrollState scrollState) {
-    }
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void setPivotXToTitle() {
-        final Configuration config = getResources().getConfiguration();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
-                && config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            ViewHelper.setPivotX(mTitleView, findViewById(android.R.id.content).getWidth());
-        } else {
-            ViewHelper.setPivotX(mTitleView, 0);
-        }
     }
 }

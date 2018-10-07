@@ -1,66 +1,100 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:custom_toolbar="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/guess_the_story_image"
+    <FrameLayout
+        android:id="@+id/guess_the_story_block"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/guess_the_story_activity_header_height"
-        android:scaleType="centerCrop"/>
+        android:layout_height="@dimen/guess_the_story_activity_header_height">
 
-    <include
-        layout="@layout/view_main_blurred_layout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/guess_the_story_activity_header_height"/>
+        <ImageView
+            android:id="@+id/guess_the_story_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/guess_the_story_activity_header_height"
+            android:scaleType="centerCrop"/>
+
+        <include
+            layout="@layout/view_main_blurred_layout_rad_10_op_102"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/guess_the_story_activity_header_height"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/PrimaryButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dimen_16_dp"
+                android:layout_marginRight="@dimen/dimen_16_dp"
+                android:drawableLeft="@drawable/ic_rand_num"
+                android:drawablePadding="@dimen/play_button_icon_padding"
+                android:drawableStart="@drawable/ic_rand_num"
+                android:ellipsize="end"
+                android:text="@string/get_random_story"/>
+
+            <android.support.v7.widget.AppCompatButton
+                style="@style/PrimaryButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dimen_16_dp"
+                android:layout_marginRight="@dimen/dimen_16_dp"
+                android:drawableLeft="@drawable/ic_clear_history"
+                android:drawablePadding="@dimen/play_button_icon_padding"
+                android:drawableStart="@drawable/ic_clear_history"
+                android:ellipsize="end"
+                android:text="@string/clear_history"/>
+
+            <Switch
+                style="@style/StandartTextWhite"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_16_dp"
+                android:layout_marginRight="@dimen/dimen_16_dp"
+                android:checked="true"
+                android:gravity="left"
+                android:padding="12dp"
+                android:text="@string/show_completed_stories"
+                android:textAllCaps="true"
+                tools:ignore="RtlHardcoded"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <View
+        android:visibility="gone"
         android:id="@+id/guess_the_story_overlay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/guess_the_story_activity_header_height"
-        android:background="?attr/colorPrimary"/>
+        android:background="?attr/colorPrimary"
+        android:clickable="false"
+        android:focusable="false"/>
 
     <View
         android:id="@+id/guess_the_story_list_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/default_background_color"/>
+        android:background="@color/default_background_color"
+        android:clickable="false"
+        android:focusable="false"/>
 
     <com.example.mvmax.mindgames.flex.ObservableRecyclerView
         android:id="@+id/guess_the_story_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="@dimen/dimen_16_dp"
+        android:layout_marginLeft="@dimen/dimen_16_dp"
+        android:layout_marginRight="@dimen/dimen_16_dp"
         android:layout_marginTop="@dimen/guess_the_story_activity_recycler_view_top_margin"
         android:scrollbars="none"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingEnd="@dimen/margin_standard"
-        android:paddingLeft="@dimen/margin_standard"
-        android:paddingStart="@dimen/margin_standard">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:minHeight="?attr/actionBarSize"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:visibility="invisible"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/guess_the_story_activity_header_height"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/main_content"
