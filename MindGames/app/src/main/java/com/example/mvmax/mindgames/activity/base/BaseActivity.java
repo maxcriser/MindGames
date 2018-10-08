@@ -1,8 +1,10 @@
 package com.example.mvmax.mindgames.activity.base;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,19 +15,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.gamecard.GameCardActivity;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
 import com.example.mvmax.mindgames.games.IBaseGame;
 import com.example.mvmax.mindgames.toolbar.Toolbar;
+import com.example.mvmax.mindgames.util.AuthUtils;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import tyrantgit.explosionfield.ExplosionField;
 
+import static com.example.mvmax.mindgames.constants.Constant.GoogleAuth.RC_SIGN_IN;
+import static com.example.mvmax.mindgames.constants.Constant.GoogleAuth.SIGNED_IN;
+import static com.example.mvmax.mindgames.constants.Constant.GoogleAuth.STATE_IN_PROGRESS;
+import static com.example.mvmax.mindgames.constants.Constant.GoogleAuth.STATE_SIGNING_IN;
+import static com.example.mvmax.mindgames.constants.Constant.SharedPreferences.SHARED_PREF_NAME;
+
 @SuppressLint("Registered")
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+
+    private GoogleApiClient mGoogleApiClient;
+    private int mSignInProgress;
+    private PendingIntent mSignInIntent;
+
+    private final int OUR_REQUEST_CODE = 1001;
 
     public static final String BASE_GAME_MODEL_TO_NEXT_ACTIVITY = "BASE_GAME_MODEL_TO_NEXT_ACTIVITY";
     private ExplosionField mExplosionField;
@@ -33,6 +58,8 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle pSavedInstanceState) {
         super.onCreate(pSavedInstanceState);
+
+        mGoogleApiClient = buildGoogleApiClient();
 
         mExplosionField = ExplosionField.attach2Window(this);
     }
@@ -140,4 +167,162 @@ public class BaseActivity extends AppCompatActivity {
     public void loadGameCardHeader(final int pIntDrawable) {
         Picasso.with(this).load(pIntDrawable).into((ImageView) findViewById(R.id.game_fragment_header_background));
     }
+
+    @Override
+    public void onConnected(@Nullable final Bundle pBundle) {
+        mSignInProgress = SIGNED_IN;
+        processGetGoogleAccountInfo();
+    }
+
+    private void processGetGoogleAccountInfo() {
+        final OptionalPendingResult opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
+
+        opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+
+            @Override
+            public void onResult(@NonNull final GoogleSignInResult result) {
+                if (result.isSuccess()) {
+                    try {
+                        final GoogleSignInAccount account = result.getSignInAccount();
+
+                        onGoogleSignedIn(account);
+                    } catch (final Exception ex) {
+                        final String exception = ex.getLocalizedMessage();
+                        final String exceptionString = ex.toString();
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onConnectionSuspended(final int pI) {
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull final ConnectionResult pConnectionResult) {
+        if (mSignInProgress != STATE_IN_PROGRESS) {
+            mSignInIntent = pConnectionResult.getResolution();
+            if (mSignInProgress == STATE_SIGNING_IN) {
+                resolveSignInError(pConnectionResult);
+            }
+        }
+
+        onSignedOut();
+    }
+
+    private void resolveSignInError(final ConnectionResult pConnectionResult) {
+        if (mSignInIntent != null) {
+            try {
+                mSignInProgress = STATE_IN_PROGRESS;
+                pConnectionResult.startResolutionForResult(this, OUR_REQUEST_CODE);
+            } catch (final IntentSender.SendIntentException e) {
+                mSignInProgress = STATE_SIGNING_IN;
+                mGoogleApiClient.connect();
+            }
+        } else {
+            // You have a play services error -- inform the user
+        }
+    }
+
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        switch (requestCode) {
+            case RC_SIGN_IN:
+                if (resultCode == RESULT_OK) {
+                    mSignInProgress = STATE_SIGNING_IN;
+
+                    processGetGoogleAccountInfo();
+                } else {
+                    mSignInProgress = SIGNED_IN;
+                }
+
+                if (!mGoogleApiClient.isConnecting()) {
+                    mGoogleApiClient.connect();
+                }
+                break;
+        }
+    }
+
+    private void onSignedOut() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+
+                    @Override
+                    public void onResult(@NonNull final Status status) {
+                        onGoogleSignedOut();
+                    }
+                });
+
+    }
+
+    private GoogleApiClient buildGoogleApiClient() {
+        final GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        return new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        mGoogleApiClient.disconnect();
+
+        super.onStop();
+    }
+
+    public void processGoogleSignIn() {
+        final Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+
+    }
+
+    public void processGoogleSignOut() {
+        onSignedOut();
+        mGoogleApiClient.disconnect();
+        mGoogleApiClient.connect();
+    }
+
+    public void processGoogleRevokeAccess() {
+        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient);
+        mGoogleApiClient = buildGoogleApiClient();
+        mGoogleApiClient.connect();
+
+        onGoogleRevokeAccess();
+    }
+
+    public SharedPreferences getSharedPref() {
+        return getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
+    }
+
+    protected void onGoogleSignedIn(final GoogleSignInAccount pAccount) {
+        AuthUtils.saveGoogleAccountData(this, pAccount);
+
+        Toast.makeText(this, String.format("Signed In to My App as %s", pAccount.getEmail()), Toast.LENGTH_LONG).show();
+    }
+
+    protected void onGoogleSignedOut() {
+        AuthUtils.clearAccountData(this);
+
+        Toast.makeText(this, "Google signed out", Toast.LENGTH_LONG).show();
+    }
+
+    protected void onGoogleRevokeAccess() {
+        Toast.makeText(this, "Google revoke access", Toast.LENGTH_LONG).show();
+    }
+
 }

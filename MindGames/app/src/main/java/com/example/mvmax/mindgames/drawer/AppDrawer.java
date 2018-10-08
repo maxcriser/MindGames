@@ -3,12 +3,19 @@ package com.example.mvmax.mindgames.drawer;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
-import com.example.mvmax.mindgames.util.UiUtil;
+import com.example.mvmax.mindgames.activity.base.BaseActivity;
+import com.example.mvmax.mindgames.util.AuthUtils;
+import com.example.mvmax.mindgames.util.StringUtil;
+import com.squareup.picasso.Picasso;
 
 public class AppDrawer extends RelativeLayout {
+
+    DrawerButton mSignOutButton;
 
     public AppDrawer(final Context pContext) {
         super(pContext);
@@ -27,6 +34,8 @@ public class AppDrawer extends RelativeLayout {
 
     private void inflate() {
         inflate(getContext(), R.layout.view_drawer, this);
+
+        initViews();
     }
 
     private void init() {
@@ -35,5 +44,49 @@ public class AppDrawer extends RelativeLayout {
 
     private void init(final AttributeSet pAttrs) {
         inflate();
+    }
+
+    private void initViews() {
+        updateUIAccountGoogle();
+
+        mSignOutButton = findViewById(R.id.drawer_button_sign_out);
+        mSignOutButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                ((BaseActivity) v.getContext()).processGoogleSignOut();
+
+            }
+        });
+    }
+
+    public void setClickListener(final View pView, final OnClickListener pOnClickListener) {
+        pView.setOnClickListener(pOnClickListener);
+    }
+
+    public View getSignOutButton() {
+        return mSignOutButton;
+    }
+
+    public void updateUIAccountGoogle() {
+        final BaseActivity baseActivity = (BaseActivity) getContext();
+        final TextView userName = findViewById(R.id.drawer_username);
+        final TextView email = findViewById(R.id.drawer_email);
+        final ImageView profilePhoto = findViewById(R.id.profile_photo);
+
+        userName.setText(AuthUtils.getAccountUsername(baseActivity));
+        email.setText(AuthUtils.getAccountEmail(baseActivity));
+
+        final String photoUri = AuthUtils.getAccountPhotoUrl(baseActivity);
+
+        if (StringUtil.isNotEmpty(photoUri)) {
+            Picasso.with(getContext())
+                    .load(AuthUtils.getAccountPhotoUrl((BaseActivity) getContext()))
+                    .placeholder(R.drawable.no_photo_icon)
+                    .error(R.drawable.no_photo_icon)
+                    .into(profilePhoto);
+        } else {
+            profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
+        }
     }
 }
