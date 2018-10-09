@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.base.BaseActivity;
+import com.example.mvmax.mindgames.config.AppConfig;
 import com.example.mvmax.mindgames.util.AuthUtils;
 import com.example.mvmax.mindgames.util.StringUtil;
 import com.squareup.picasso.Picasso;
@@ -69,22 +70,27 @@ public class AppDrawer extends RelativeLayout {
     }
 
     public void updateUIAccountGoogle() {
-        final BaseActivity baseActivity = (BaseActivity) getContext();
-        final TextView userName = findViewById(R.id.drawer_username);
-        final TextView email = findViewById(R.id.drawer_email);
         final ImageView profilePhoto = findViewById(R.id.profile_photo);
+        final BaseActivity baseActivity = (BaseActivity) getContext();
 
-        userName.setText(AuthUtils.getAccountUsername(baseActivity));
-        email.setText(AuthUtils.getAccountEmail(baseActivity));
+        if (AppConfig.isLoggedIn(getContext())) {
+            final TextView userName = findViewById(R.id.drawer_username);
+            final TextView email = findViewById(R.id.drawer_email);
 
-        final String photoUri = AuthUtils.getAccountPhotoUrl(baseActivity);
+            userName.setText(AuthUtils.getAccountUsername(baseActivity));
+            email.setText(AuthUtils.getAccountEmail(baseActivity));
 
-        if (StringUtil.isNotEmpty(photoUri)) {
-            Picasso.with(getContext())
-                    .load(AuthUtils.getAccountPhotoUrl((BaseActivity) getContext()))
-                    .placeholder(R.drawable.no_photo_icon)
-                    .error(R.drawable.no_photo_icon)
-                    .into(profilePhoto);
+            final String photoUri = AuthUtils.getAccountPhotoUrl(baseActivity);
+
+            if (StringUtil.isNotEmpty(photoUri)) {
+                Picasso.with(getContext())
+                        .load(AuthUtils.getAccountPhotoUrl((BaseActivity) getContext()))
+                        .placeholder(R.drawable.no_photo_icon)
+                        .error(R.drawable.no_photo_icon)
+                        .into(profilePhoto);
+            } else {
+                profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
+            }
         } else {
             profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
         }

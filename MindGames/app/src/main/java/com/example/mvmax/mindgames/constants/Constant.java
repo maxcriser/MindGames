@@ -1,5 +1,7 @@
 package com.example.mvmax.mindgames.constants;
 
+import com.example.mvmax.mindgames.util.StringUtil;
+
 public class Constant {
 
     public interface FilePath {
@@ -28,11 +30,18 @@ public class Constant {
 
     }
 
+    public interface SignIn {
+        String AS_GOOGLE = "as_google";
+        String AS_FACEBOOK = "as_facebook";
+        String ANONYMOUS = StringUtil.EMPTY;
+    }
+
     public interface SharedPreferences {
         String SHARED_PREF_NAME = "shared_pref_name";
         String USERNAME = "shared_pref_username";
         String URL_PHOTO = "shared_pref_url_photo";
         String EMAIL = "shared_pref_email";
+        String SIGNED_IN_AS = "shared_pref_signed_in_as";
 
     }
 }

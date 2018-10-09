@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mvmax.mindgames.R;
+import com.example.mvmax.mindgames.activity.AuthActivity;
 import com.example.mvmax.mindgames.gamecard.GameCardActivity;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
 import com.example.mvmax.mindgames.games.IBaseGame;
@@ -77,7 +78,6 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         fragmentTransaction.replace(R.id.main_content, GameCollectionFragment.newInstance())
-                .addToBackStack(null)
                 .commit();
     }
 
@@ -288,13 +288,17 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
     public void processGoogleSignIn() {
         final Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
     }
 
     public void processGoogleSignOut() {
         onSignedOut();
         mGoogleApiClient.disconnect();
         mGoogleApiClient.connect();
+
+        startAuthActivity();
+    }
+    private void startAuthActivity() {
+        startActivity(new Intent(this, AuthActivity.class));
     }
 
     public void processGoogleRevokeAccess() {

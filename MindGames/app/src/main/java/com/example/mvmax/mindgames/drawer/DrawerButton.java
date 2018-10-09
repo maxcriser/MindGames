@@ -3,6 +3,7 @@ package com.example.mvmax.mindgames.drawer;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,6 +33,11 @@ public class DrawerButton extends RelativeLayout {
         inflate(getContext(), R.layout.view_drawer_button, this);
 
         mButtonView = findViewById(R.id.drawer_item_button);
+    }
+
+    @Override
+    public void setOnClickListener(@Nullable final OnClickListener pOnClickListener) {
+        mButtonView.setOnClickListener(pOnClickListener);
     }
 
     private void init() {

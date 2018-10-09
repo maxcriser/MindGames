@@ -48,14 +48,14 @@ public class GameCollectionFragment extends BaseFragment {
                 }
             };
 
-            if (!AppUtils.isContentAvailable(baseGame.isPaid())) {
+            if (!AppUtils.isContentAvailable(getContext(), baseGame.isPaid())) {
                 mGameDescription.setText(R.string.available_for_premium_short);
                 mGamePlayButton.setVisibility(View.GONE);
                 mGameBuyButton.setVisibility(View.VISIBLE);
                 mGameOpenButton.setVisibility(View.VISIBLE);
                 mGameOpenButton.setOnClickListener(openClickListener);
             } else {
-                mGameDescription.setText(AppUtils.isBoughtContent(baseGame.isPaid()) ? R.string.available_for_you_now : R.string.available_for_free_play);
+                mGameDescription.setText(AppUtils.isBoughtContent(getContext(), baseGame.isPaid()) ? R.string.available_for_you_now : R.string.available_for_free_play);
                 mGamePlayButton.setOnClickListener(openClickListener);
                 mGamePlayButton.setVisibility(View.VISIBLE);
                 mGameBuyButton.setVisibility(View.GONE);
