@@ -297,7 +297,8 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
 
         startAuthActivity();
     }
-    private void startAuthActivity() {
+
+    public void startAuthActivity() {
         startActivity(new Intent(this, AuthActivity.class));
     }
 

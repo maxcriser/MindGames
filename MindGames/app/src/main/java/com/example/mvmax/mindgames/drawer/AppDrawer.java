@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 public class AppDrawer extends RelativeLayout {
 
     DrawerButton mSignOutButton;
+    DrawerButton mSignInButton;
 
     public AppDrawer(final Context pContext) {
         super(pContext);
@@ -51,6 +52,14 @@ public class AppDrawer extends RelativeLayout {
         updateUIAccountGoogle();
 
         mSignOutButton = findViewById(R.id.drawer_button_sign_out);
+        mSignInButton = findViewById(R.id.drawer_button_sign_out);
+        mSignOutButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                ((BaseActivity) v.getContext()).startAuthActivity();
+            }
+        });
         mSignOutButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -69,11 +78,20 @@ public class AppDrawer extends RelativeLayout {
         return mSignOutButton;
     }
 
+    public View getSignInButton() {
+        return mSignOutButton;
+    }
+
     public void updateUIAccountGoogle() {
         final ImageView profilePhoto = findViewById(R.id.profile_photo);
+        final ImageView appLogo = findViewById(R.id.profile_photo);
         final BaseActivity baseActivity = (BaseActivity) getContext();
 
         if (AppConfig.isLoggedIn(getContext())) {
+            getSignInButton().setVisibility(View.GONE);
+            getSignOutButton().setVisibility(View.VISIBLE);
+            profilePhoto.setVisibility(View.VISIBLE);
+
             final TextView userName = findViewById(R.id.drawer_username);
             final TextView email = findViewById(R.id.drawer_email);
 
@@ -92,7 +110,9 @@ public class AppDrawer extends RelativeLayout {
                 profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
             }
         } else {
-            profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
+            getSignInButton().setVisibility(View.VISIBLE);
+            getSignOutButton().setVisibility(View.GONE);
+            profilePhoto.setVisibility(View.GONE);
         }
     }
 }
