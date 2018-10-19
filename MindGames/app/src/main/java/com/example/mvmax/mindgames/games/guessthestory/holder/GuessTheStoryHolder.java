@@ -76,7 +76,7 @@ public final class GuessTheStoryHolder extends RecyclerView.ViewHolder {
             }
         });
 
-        if (AppUtils.isContentAvailable(pItem.isPaid())) {
+        if (AppUtils.isContentAvailable(itemView.getContext(), pItem.isPaid())) {
             mLockIcon.setVisibility(View.GONE);
             mContent.setVisibility(View.VISIBLE);
             mRestrictedView.setVisibility(View.GONE);

@@ -91,7 +91,7 @@ public class GameCardActivity extends BaseActivity implements ObservableScrollVi
 
         UiUtil.setTextOrHide(mDescription, mGameCardModel.getDescription());
 
-        if (AppUtils.isContentAvailable(mGameCardModel.isPaid())) {
+        if (AppUtils.isContentAvailable(this, mGameCardModel.isPaid())) {
             mPlayButton.setVisibility(View.GONE);
             mBuyButton.setVisibility(View.VISIBLE);
             UiUtil.setTextOrHide(mPriceInfo, getString(R.string.available_for_premium_short));

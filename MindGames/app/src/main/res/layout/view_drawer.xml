@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     android:id="@+id/content_drawer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:drawer_button="http://schemas.android.com/apk/res-auto"
@@ -20,12 +20,14 @@
 
         <ImageView
             android:id="@+id/app_logo"
-            android:layout_width="@dimen/profile_photo_size"
-            android:layout_height="@dimen/profile_photo_size"
-            android:layout_gravity="center|start"
-            android:layout_marginBottom="4dp"/>
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:background="@drawable/ic_app_logo"
+            android:layout_gravity="center"/>
 
         <LinearLayout
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -35,7 +37,7 @@
                 android:layout_width="@dimen/profile_photo_size"
                 android:layout_height="@dimen/profile_photo_size"
                 android:layout_gravity="center|start"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:src="@drawable/no_photo_icon"/>
 
             <LinearLayout
@@ -69,7 +71,7 @@
         android:id="@+id/drawer_button_sign_in"
         android:layout_width="match_parent"
         android:layout_height="@dimen/drawer_item_button_height"
-        drawer_button:item_title="Sign in"/>
+        drawer_button:item_title="Sign In"/>
 
     <com.example.mvmax.mindgames.drawer.DrawerButton
         android:layout_width="match_parent"
@@ -87,4 +89,4 @@
         android:layout_height="@dimen/drawer_item_button_height"
         drawer_button:item_title="Sign out"/>
 
-</FrameLayout>
+</LinearLayout>

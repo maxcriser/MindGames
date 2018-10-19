@@ -49,22 +49,24 @@ public class AppDrawer extends RelativeLayout {
     }
 
     private void initViews() {
+        mSignOutButton = findViewById(R.id.drawer_button_sign_out);
+        mSignInButton = findViewById(R.id.drawer_button_sign_in);
+
         updateUIAccountGoogle();
 
-        mSignOutButton = findViewById(R.id.drawer_button_sign_out);
-        mSignInButton = findViewById(R.id.drawer_button_sign_out);
-        mSignOutButton.setOnClickListener(new OnClickListener() {
+        mSignInButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(final View v) {
                 ((BaseActivity) v.getContext()).startAuthActivity();
             }
         });
+
         mSignOutButton.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(final View v) {
-                ((BaseActivity) v.getContext()).processGoogleSignOut();
+                ((BaseActivity) v.getContext()).signOut();
 
             }
         });
@@ -79,21 +81,21 @@ public class AppDrawer extends RelativeLayout {
     }
 
     public View getSignInButton() {
-        return mSignOutButton;
+        return mSignInButton;
     }
 
     public void updateUIAccountGoogle() {
         final ImageView profilePhoto = findViewById(R.id.profile_photo);
-        final ImageView appLogo = findViewById(R.id.profile_photo);
+        final ImageView appLogo = findViewById(R.id.app_logo);
         final BaseActivity baseActivity = (BaseActivity) getContext();
+        final TextView userName = findViewById(R.id.drawer_username);
+        final TextView email = findViewById(R.id.drawer_email);
 
         if (AppConfig.isLoggedIn(getContext())) {
+            appLogo.setVisibility(View.GONE);
             getSignInButton().setVisibility(View.GONE);
             getSignOutButton().setVisibility(View.VISIBLE);
             profilePhoto.setVisibility(View.VISIBLE);
-
-            final TextView userName = findViewById(R.id.drawer_username);
-            final TextView email = findViewById(R.id.drawer_email);
 
             userName.setText(AuthUtils.getAccountUsername(baseActivity));
             email.setText(AuthUtils.getAccountEmail(baseActivity));
@@ -110,9 +112,12 @@ public class AppDrawer extends RelativeLayout {
                 profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
             }
         } else {
+            appLogo.setVisibility(View.VISIBLE);
             getSignInButton().setVisibility(View.VISIBLE);
             getSignOutButton().setVisibility(View.GONE);
             profilePhoto.setVisibility(View.GONE);
+            userName.setVisibility(View.GONE);
+            email.setVisibility(View.GONE);
         }
     }
 }

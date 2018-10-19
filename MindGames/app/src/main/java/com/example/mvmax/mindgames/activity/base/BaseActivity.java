@@ -1,6 +1,7 @@
 package com.example.mvmax.mindgames.activity.base;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.mvmax.mindgames.R;
 import com.example.mvmax.mindgames.activity.AuthActivity;
+import com.example.mvmax.mindgames.constants.Constant;
 import com.example.mvmax.mindgames.gamecard.GameCardActivity;
 import com.example.mvmax.mindgames.gamecollection.GameCollectionFragment;
 import com.example.mvmax.mindgames.games.IBaseGame;
@@ -35,6 +37,8 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
+import com.yarolegovich.lovelydialog.LovelyStandardDialog;
+//import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -290,7 +294,43 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    public void signOut() {
+        new LovelyStandardDialog(this, LovelyStandardDialog.ButtonLayout.VERTICAL)
+                .setTopColorRes(R.color.brand_color)
+                .setButtonsColorRes(R.color.brand_color)
+                .setIcon(R.drawable.ic_hotstop)
+                .setTitle(R.string.sign_out_header)
+                .setMessage(R.string.sign_out_description)
+                .setPositiveButton(R.string.yes, new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(final View v) {
+                        processSignOut();
+                    }
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
+    }
+
+    public void processSignOut() {
+        final String signInType = AuthUtils.getSignInType(this);
+
+        switch (signInType) {
+            case Constant.SignIn.AS_GOOGLE:
+                processGoogleSignOut();
+
+                break;
+            case Constant.SignIn.AS_FACEBOOK:
+
+                break;
+
+            default:
+                break;
+        }
+    }
+
     public void processGoogleSignOut() {
+        AuthUtils.clearAccountData(this);
         onSignedOut();
         mGoogleApiClient.disconnect();
         mGoogleApiClient.connect();

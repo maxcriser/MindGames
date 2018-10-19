@@ -26,5 +26,9 @@
     <string name="clear_history">Clear history</string>
     <string name="get_random_story">Get random story</string>
     <string name="show_completed_stories">Show completed stories</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+    <string name="sign_out_header">Sign Out</string>
+    <string name="sign_out_description">Are you sure you want to sign out?</string>
 
 </resources>
