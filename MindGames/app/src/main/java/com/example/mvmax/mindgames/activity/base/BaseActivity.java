@@ -1,8 +1,8 @@
 package com.example.mvmax.mindgames.activity.base;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -37,8 +38,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
-import com.yarolegovich.lovelydialog.LovelyStandardDialog;
-//import com.yarolegovich.lovelydialog.LovelyStandardDialog;
 
 import tyrantgit.explosionfield.ExplosionField;
 
@@ -295,21 +294,25 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
     }
 
     public void signOut() {
-        new LovelyStandardDialog(this, LovelyStandardDialog.ButtonLayout.VERTICAL)
-                .setTopColorRes(R.color.brand_color)
-                .setButtonsColorRes(R.color.brand_color)
-                .setIcon(R.drawable.ic_hotstop)
-                .setTitle(R.string.sign_out_header)
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.sign_out_header)
                 .setMessage(R.string.sign_out_description)
-                .setPositiveButton(R.string.yes, new View.OnClickListener() {
+                .setCancelable(false)
+                .setPositiveButton(R.string.sign_out_button, new DialogInterface.OnClickListener() {
 
                     @Override
-                    public void onClick(final View v) {
+                    public void onClick(final DialogInterface dialog, final int which) {
                         processSignOut();
                     }
                 })
-                .setNegativeButton(R.string.no, null)
-                .show();
+                .setNegativeButton(R.string.cancel_button, new DialogInterface.OnClickListener() {
+
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
     }
 
     public void processSignOut() {

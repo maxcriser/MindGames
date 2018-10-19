@@ -13,6 +13,6 @@ public final class AppConfig {
     }
 
     public static boolean isLoggedIn(final Context pContext) {
-        return !AuthUtils.getSignInType((BaseActivity) pContext).equals(Constant.SignIn.ANONYMOUS);
+        return !AuthUtils.getSignInType(pContext).equals(Constant.SignIn.ANONYMOUS);
     }
 }

@@ -58,7 +58,7 @@ public class AppDrawer extends RelativeLayout {
 
             @Override
             public void onClick(final View v) {
-                ((BaseActivity) v.getContext()).startAuthActivity();
+                ((BaseActivity) v.getContext()).signOut();
             }
         });
 
@@ -87,29 +87,29 @@ public class AppDrawer extends RelativeLayout {
     public void updateUIAccountGoogle() {
         final ImageView profilePhoto = findViewById(R.id.profile_photo);
         final ImageView appLogo = findViewById(R.id.app_logo);
-        final BaseActivity baseActivity = (BaseActivity) getContext();
+        final Context context = getContext();
         final TextView userName = findViewById(R.id.drawer_username);
         final TextView email = findViewById(R.id.drawer_email);
 
-        if (AppConfig.isLoggedIn(getContext())) {
+        if (AppConfig.isLoggedIn(context)) {
             appLogo.setVisibility(View.GONE);
             getSignInButton().setVisibility(View.GONE);
             getSignOutButton().setVisibility(View.VISIBLE);
             profilePhoto.setVisibility(View.VISIBLE);
 
-            userName.setText(AuthUtils.getAccountUsername(baseActivity));
-            email.setText(AuthUtils.getAccountEmail(baseActivity));
+            userName.setText(AuthUtils.getAccountUsername(context));
+            email.setText(AuthUtils.getAccountEmail(context));
 
-            final String photoUri = AuthUtils.getAccountPhotoUrl(baseActivity);
+            final String photoUri = AuthUtils.getAccountPhotoUrl(context);
 
             if (StringUtil.isNotEmpty(photoUri)) {
-                Picasso.with(getContext())
-                        .load(AuthUtils.getAccountPhotoUrl((BaseActivity) getContext()))
+                Picasso.with(context)
+                        .load(AuthUtils.getAccountPhotoUrl(context))
                         .placeholder(R.drawable.no_photo_icon)
                         .error(R.drawable.no_photo_icon)
                         .into(profilePhoto);
             } else {
-                profilePhoto.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_photo_icon));
+                profilePhoto.setImageDrawable(context.getResources().getDrawable(R.drawable.no_photo_icon));
             }
         } else {
             appLogo.setVisibility(View.VISIBLE);

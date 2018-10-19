@@ -45,9 +45,9 @@
                     android:layout_width="@dimen/toolbar_height"
                     android:layout_height="@dimen/toolbar_height"
                     android:layout_gravity="center_vertical"
-                    android:padding="@dimen/toolbar_icon_padding"
+                    android:padding="12dp"
                     android:visibility="gone"
-                    app:srcCompat="@drawable/ic_back"
+                    app:srcCompat="@drawable/ic_back_left"
                     tools:visibility="visible"/>
 
             </FrameLayout>
