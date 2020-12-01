@@ -8,7 +8,6 @@ public class GuessTheStoryGameItemModel implements Serializable {
     private String task;
     private String answer;
     private String uniqueId;
-    private boolean isCompleted;
     private boolean isPaid;
 
     public boolean isPaid() {
